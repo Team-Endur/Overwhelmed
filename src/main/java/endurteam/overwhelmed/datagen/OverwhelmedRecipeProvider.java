@@ -152,8 +152,8 @@ public class OverwhelmedRecipeProvider extends FabricRecipeProvider {
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, OverwhelmedBlocks.CHISELED_FIZZYROCK_BRICKS,
                 OverwhelmedBlocks.FIZZYROCK_BRICKS);
 
-//        offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, OverwhelmedItems.GOO_BALL
-//        RecipeCategory.MISC,OverwhelmedBlocks.GOO_BLOCK);
+        offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, OverwhelmedItems.GOO_BALL,
+        RecipeCategory.MISC,OverwhelmedBlocks.GOO_BLOCK);
     }
 
 

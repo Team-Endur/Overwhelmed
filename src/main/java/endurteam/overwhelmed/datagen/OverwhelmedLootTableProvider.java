@@ -82,5 +82,7 @@ public class OverwhelmedLootTableProvider extends FabricBlockLootTableProvider {
         addPottedPlantDrops(OverwhelmedBlocks.POTTED_RINGOT);
         addPottedPlantDrops(OverwhelmedBlocks.POTTED_SNOWDROP);
         addPottedPlantDrops(OverwhelmedBlocks.POTTED_BELL_SUNFLOWER);
+
+        addDrop(OverwhelmedBlocks.GOO_BLOCK);
     }
 }

@@ -1,6 +1,7 @@
 package endurteam.overwhelmed.block;
 
 import endurteam.overwhelmed.Overwhelmed;
+import net.fabricmc.fabric.api.block.v1.FabricBlock;
 import net.fabricmc.fabric.api.item.v1.FabricItem;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
@@ -140,7 +141,8 @@ public class OverwhelmedBlocks {
                     .requiresTool()
                     .sounds(BlockSoundGroup.DEEPSLATE_BRICKS)));
     public static final Block FIZZYROCK_BRICK_STAIRS = registerBlock("fizzyrock_brick_stairs",
-            new StairsBlock(OverwhelmedBlocks.FIZZYROCK_BRICKS.getDefaultState(), FabricBlockSettings.copyOf(FIZZYROCK_BRICKS)));
+            new StairsBlock(OverwhelmedBlocks.FIZZYROCK_BRICKS.getDefaultState(),
+                    FabricBlockSettings.copyOf(FIZZYROCK_BRICKS)));
     public static final Block FIZZYROCK_BRICK_SLAB = registerBlock("fizzyrock_brick_slab",
             new SlabBlock(FabricBlockSettings.copyOf(FIZZYROCK_BRICKS)));
     public static final Block FIZZYROCK_BRICK_WALL = registerBlock("fizzyrock_brick_wall",
@@ -159,8 +161,8 @@ public class OverwhelmedBlocks {
             .strength(0.7F)
             .sounds(BlockSoundGroup.ROOTED_DIRT)));
 
-    public static final Block FLOFF = registerBlock("floff", new FlowerBlock(StatusEffects.REGENERATION, 4,
-            FabricBlockSettings.create()
+    public static final Block FLOFF = registerBlock("floff",
+            new FlowerBlock(StatusEffects.REGENERATION, 4, FabricBlockSettings.create()
                     .mapColor(MapColor.DARK_GREEN)
                     .sounds(BlockSoundGroup.GRASS)
                     .noCollision()
@@ -182,8 +184,8 @@ public class OverwhelmedBlocks {
     public static final Block BELL_SUNFLOWER = registerBlock("bell_sunflower",
             new FlowerBlock(StatusEffects.FIRE_RESISTANCE, 10, FabricBlockSettings.copyOf(FLOFF)));
 
-    public static final Block POTTED_FLOFF = registerBlock("potted_floff", new FlowerPotBlock(FLOFF,
-            FabricBlockSettings.create()
+    public static final Block POTTED_FLOFF = registerBlock("potted_floff",
+            new FlowerPotBlock(FLOFF, FabricBlockSettings.create()
                     .breakInstantly()
                     .nonOpaque()
                     .pistonBehavior(PistonBehavior.DESTROY)));
@@ -201,6 +203,14 @@ public class OverwhelmedBlocks {
             FabricBlockSettings.copyOf(POTTED_FLOFF)));
     public static final Block POTTED_BELL_SUNFLOWER = registerBlock("potted_bell_sunflower",
             new FlowerPotBlock(BELL_SUNFLOWER, FabricBlockSettings.copyOf(POTTED_FLOFF)));
+
+    public static final Block GOO_BLOCK = registerBlock("goo_block",
+            new Block(FabricBlockSettings.create()
+                    .mapColor(MapColor.PALE_YELLOW)
+                    .velocityMultiplier(0.4F)
+                    .jumpVelocityMultiplier(0.5F)
+                    .nonOpaque()
+                    .sounds(BlockSoundGroup.HONEY)));
 
 
     private static Block registerBlock(String name, Block block) {

@@ -1,17 +1,16 @@
 {
 	"schemaVersion": 1,
 	"id": "overwhelmed",
-	"version": "${version}",
+	"version": "1.1",
 	"name": "Overwhelmed",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "Overhauling and adding new features to the Overworld's surface!",
 	"authors": [
-		"Me!"
+		"CheeseNull Butter"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/Team-Endur/Overwhelmed"
 	},
-	"license": "CC0-1.0",
+	"license": "Endur Team's License",
 	"icon": "assets/overwhelmed/icon.png",
 	"environment": "*",
 	"entrypoints": {
