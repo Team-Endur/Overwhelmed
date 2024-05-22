@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "overwhelmed:block/altair_slab"
+    },
+    "type=double": {
+      "model": "overwhelmed:block/altair"
+    },
+    "type=top": {
+      "model": "overwhelmed:block/altair_slab_top"
+    }
+  }
+}

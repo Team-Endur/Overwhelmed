@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "overwhelmed:polished_altair"
+  },
+  "result": {
+    "count": 1,
+    "id": "overwhelmed:polished_altair_stairs"
+  }
+}

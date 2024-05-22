@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "overwhelmed:block/altair",
+    "side": "overwhelmed:block/altair",
+    "top": "overwhelmed:block/altair"
+  }
+}

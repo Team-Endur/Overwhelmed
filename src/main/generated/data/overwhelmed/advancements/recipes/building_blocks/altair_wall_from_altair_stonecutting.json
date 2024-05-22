@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_altair": {
+      "conditions": {
+        "items": [
+          {
+            "items": "overwhelmed:altair"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:altair_wall_from_altair_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_altair"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:altair_wall_from_altair_stonecutting"
+    ]
+  }
+}

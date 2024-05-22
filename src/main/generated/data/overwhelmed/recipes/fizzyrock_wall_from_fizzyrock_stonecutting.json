@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "overwhelmed:fizzyrock"
+  },
+  "result": {
+    "count": 1,
+    "id": "overwhelmed:fizzyrock_wall"
+  }
+}

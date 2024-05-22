@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_polished_altair": {
+      "conditions": {
+        "items": [
+          {
+            "items": "overwhelmed:polished_altair"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:polished_altair_stairs_from_polished_altair_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_polished_altair"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:polished_altair_stairs_from_polished_altair_stonecutting"
+    ]
+  }
+}
