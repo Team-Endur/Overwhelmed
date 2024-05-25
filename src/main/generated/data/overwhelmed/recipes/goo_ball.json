@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "overwhelmed:goo_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "overwhelmed:goo_ball"
+  }
+}

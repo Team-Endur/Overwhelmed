@@ -77,6 +77,8 @@ public class OverwhelmedModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(OverwhelmedBlocks.SOIL);
         blockStateModelGenerator.registerSimpleCubeAll(OverwhelmedBlocks.CHARCOAL_ORE);
 
+        blockStateModelGenerator.registerFlowerPotPlant(OverwhelmedBlocks.FLOFF, OverwhelmedBlocks.POTTED_FLOFF,
+                BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerFlowerPotPlant(OverwhelmedBlocks.PAINE, OverwhelmedBlocks.POTTED_PAINE,
                 BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerFlowerPotPlant(OverwhelmedBlocks.PINK_LAVATERA, OverwhelmedBlocks.POTTED_PINK_LAVATERA,

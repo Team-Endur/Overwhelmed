@@ -5,6 +5,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
@@ -31,7 +32,7 @@ public abstract class LivingEntityMixin extends Entity {
 		Direction result = Direction.fromRotation(this.getY());
 		BlockPos blockPos = this.getBlockPos().offset(result);
 		BlockState state = this.getWorld().getBlockState(blockPos);
-		if (state.isOf(OverwhelmedBlocks.GOO_BLOCK)) {
+		if (state.isIn(BlockTags.CLIMBABLE)) {
 			this.climbingPos = Optional.of(blockPos);
 			cir.setReturnValue(true);
 		}

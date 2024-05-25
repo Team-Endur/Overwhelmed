@@ -83,5 +83,7 @@ public class OverwhelmedBlockTagProvider extends FabricTagProvider.BlockTagProvi
                 .add(OverwhelmedBlocks.ALTAIR_WALL)
                 .add(OverwhelmedBlocks.FIZZYROCK_WALL)
                 .add(OverwhelmedBlocks.FIZZYROCK_BRICK_WALL);
+        getOrCreateTagBuilder(BlockTags.CLIMBABLE)
+                .add(OverwhelmedBlocks.GOO_BLOCK);
     }
 }

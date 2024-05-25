@@ -17,6 +17,9 @@
 		"main": [
 			"endurteam.overwhelmed.Overwhelmed"
 		],
+		"client": [
+			"endurteam.overwhelmed.OverwhelmedClient"
+		],
 		"fabric-datagen": [
 			"endurteam.overwhelmed.OverwhelmedDataGenerator"
 		]
