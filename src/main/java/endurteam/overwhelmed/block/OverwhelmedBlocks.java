@@ -1,6 +1,7 @@
 package endurteam.overwhelmed.block;
 
 import endurteam.overwhelmed.Overwhelmed;
+import it.unimi.dsi.fastutil.chars.Char2LongRBTreeMap;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.Instrument;
@@ -25,7 +26,7 @@ public class OverwhelmedBlocks {
     public static final Block WILLOW_WOOD = registerBlock("willow_wood",
             new PillarBlock(FabricBlockSettings.copyOf(WILLOW_LOG)));
     public static final Block STRIPPED_WILLOW_LOG = registerBlock("stripped_willow_log",
-            new PillarBlock(FabricBlockSettings.copyOf(WILLOW_LOG))));
+            new PillarBlock(FabricBlockSettings.copyOf(WILLOW_LOG)));
     public static final Block STRIPPED_WILLOW_WOOD = registerBlock("stripped_willow_wood",
             new PillarBlock(FabricBlockSettings.copyOf(WILLOW_LOG)));
     public static final Block WILLOW_PLANKS = registerBlock("willow_planks",
@@ -68,7 +69,8 @@ public class OverwhelmedBlocks {
     public static final Block WILLOW_PRESSURE_PLATE = registerBlock("willow_pressure_plate",
             new PressurePlateBlock(OverwhelmedBlockSetType.WILLOW, FabricBlockSettings.create()
                     .mapColor(WILLOW_PLANKS.getDefaultMapColor())
-                    .solid().instrument(Instrument.BASS)
+                    .solid()
+                    .instrument(Instrument.BASS)
                     .noCollision()
                     .strength(0.5F)
                     .burnable()
@@ -235,15 +237,15 @@ public class OverwhelmedBlocks {
             new FlowerPotBlock(BELL_SUNFLOWER, FabricBlockSettings.copyOf(POTTED_FLOFF)));
 
     public static final Block GOLD_BEAD = registerBlock("gold_bead",
-            new Block(FabricBlockSettings.create()
+            new ClotBlock(FabricBlockSettings.create()
                     .noCollision()
                     .breakInstantly()
                     .offset(AbstractBlock.OffsetType.XZ)
                     .pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block ICE_CUBE = registerBlock("ice_cube",
-            new Block(FabricBlockSettings.copy(GOLD_BEAD)));
+            new ClotBlock(FabricBlockSettings.copy(GOLD_BEAD)));
     public static final Block PEBBLE = registerPebbleBlock("pebble",
-            new Block(FabricBlockSettings.copy(GOLD_BEAD)));
+            new ClotBlock(FabricBlockSettings.copy(GOLD_BEAD)));
 
     public static final Block GOO_BLOCK = registerBlock("goo_block",
             new GooBlock(FabricBlockSettings.create()

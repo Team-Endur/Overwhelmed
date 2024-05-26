@@ -70,7 +70,7 @@ public class OverwhelmedCreativeTabs {
 //                        entries.add(OverwhelmedItems.WHITE_ALLIUM);
                         entries.add(OverwhelmedBlocks.GOLD_BEAD);
                         entries.add(OverwhelmedBlocks.ICE_CUBE);
-                        entries.add(OverwhelmedBlocks.PEBBLE);
+                        entries.add(OverwhelmedItems.PEBBLE);
 //                        entries.add(OverwhelmedItems.MINT_SEEDS);
 //                        entries.add(OverwhelmedItems.VANILLA_BEANS);
                         entries.add(OverwhelmedBlocks.GOO_BLOCK);

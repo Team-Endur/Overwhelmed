@@ -1,5 +1,8 @@
 package endurteam.overwhelmed.entity.projectile;
 
+import endurteam.overwhelmed.block.OverwhelmedBlocks;
+import endurteam.overwhelmed.entity.OverwhelmedEntities;
+import endurteam.overwhelmed.item.OverwhelmedItems;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
@@ -17,12 +20,12 @@ public class PebbleProjectileEntity extends ThrownItemEntity {
     }
 
     public PebbleProjectileEntity(LivingEntity livingEntity, World world) {
-        super(, livingEntity, world);
+        super(OverwhelmedEntities.PEBBLE_PROJECTILE, livingEntity, world);
     }
 
     @Override
     protected Item getDefaultItem() {
-        return null;
+        return OverwhelmedItems.PEBBLE;
     }
 
     @Override
@@ -34,7 +37,7 @@ public class PebbleProjectileEntity extends ThrownItemEntity {
     protected void onBlockHit(BlockHitResult blockHitResult) {
         if(!this.getWorld().isClient()) {
             this.getWorld().sendEntityStatus(this, (byte)3);
-            this.getWorld().setBlockState(getBlockPos(), ((DiceBlock) ModBlocks.DICE_BLOCK).getRandomBlockState(), 3);
+            this.getWorld().setBlockState(getBlockPos(), OverwhelmedBlocks.PEBBLE.getDefaultState(), 3);
         }
 
         this.discard();

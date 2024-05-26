@@ -1,9 +1,13 @@
 package endurteam.overwhelmed;
 
 import endurteam.overwhelmed.block.OverwhelmedBlocks;
+import endurteam.overwhelmed.entity.OverwhelmedEntities;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.entity.EntityRenderer;
+import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 
 public class OverwhelmedClient implements ClientModInitializer {
     @Override
@@ -29,5 +33,7 @@ public class OverwhelmedClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(OverwhelmedBlocks.POTTED_BELL_SUNFLOWER, RenderLayer.getCutout());
 
         BlockRenderLayerMap.INSTANCE.putBlock(OverwhelmedBlocks.GOO_BLOCK, RenderLayer.getTranslucent());
+
+        EntityRendererRegistry.register(OverwhelmedEntities.PEBBLE_PROJECTILE, FlyingItemEntityRenderer::new);
     }
 }

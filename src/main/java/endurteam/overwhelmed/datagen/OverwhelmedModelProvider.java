@@ -7,6 +7,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Model;
+import net.minecraft.data.client.Models;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.util.Identifier;
 
@@ -97,6 +98,8 @@ public class OverwhelmedModelProvider extends FabricModelProvider {
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
+
+        itemModelGenerator.register(OverwhelmedItems.PEBBLE, Models.GENERATED);
 
 //        itemModelGenerator.register(OverwhelmedItems.HORNET_SPAWN_EGG,
 //                new SpawnEggItem(Overwhel));
