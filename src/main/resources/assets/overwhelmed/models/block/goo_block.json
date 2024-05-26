@@ -1,9 +1,9 @@
 {   "parent": "block/block",
   "textures": {
-    "particle": "overwhelmed:block/goo",
-    "down": "overwhelmed:block/goo",
-    "up": "overwhelmed:block/goo",
-    "side": "overwhelmed:block/goo"
+    "particle": "overwhelmed:block/goo_block",
+    "down": "overwhelmed:block/goo_block",
+    "up": "overwhelmed:block/goo_block",
+    "side": "overwhelmed:block/goo_block"
   },
   "elements": [
     {   "from": [ 0, 0, 0 ],

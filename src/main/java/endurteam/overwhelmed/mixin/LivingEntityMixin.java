@@ -5,7 +5,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
@@ -28,7 +28,7 @@ public abstract class LivingEntityMixin extends Entity {
 	}
 
 	@Inject(method = "isClimbing", at = @At("TAIL"), cancellable = true)
-	private void onClimableMixin(CallbackInfoReturnable<Boolean> cir) {
+	private void onClimableMixin(CallbackInfoReturnable<Boolean> cir, Entity entity) {
 		BlockPos blockPos = this.getBlockPos();
 		World world = this.getWorld();
 		for (Direction direction : Direction.Type.HORIZONTAL) {
@@ -37,6 +37,9 @@ public abstract class LivingEntityMixin extends Entity {
 			if (state.isOf(OverwhelmedBlocks.GOO_BLOCK)) {
 				this.climbingPos = Optional.of(offsetPos);
 				cir.setReturnValue(true);
+				if (world.random.nextInt(5) == 0) {
+					entity.playSound(SoundEvents.BLOCK_HONEY_BLOCK_SLIDE, 1.0F, 1.0F);
+				}
 				return;
 			}
 		}

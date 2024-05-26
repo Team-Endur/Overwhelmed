@@ -152,11 +152,13 @@ public class OverwhelmedBlocks {
     public static final Block FIZZYROCK_GEYSER = registerBlock("fizzyrock_geyser",
             new Block(FabricBlockSettings.copyOf(FIZZYROCK)));
 
-    public static final Block SOIL = registerBlock("soil", new Block(FabricBlockSettings.create()
+    public static final Block SOIL = registerBlock("soil",
+            new Block(FabricBlockSettings.create()
             .mapColor(MapColor.DIRT_BROWN)
             .strength(0.5F)
             .sounds(BlockSoundGroup.ROOTED_DIRT)));
-    public static final Block CHARCOAL_ORE = registerBlock("charcoal_ore", new Block(FabricBlockSettings.create()
+    public static final Block CHARCOAL_ORE = registerBlock("charcoal_ore",
+            new Block(FabricBlockSettings.create()
             .mapColor(MapColor.DIRT_BROWN)
             .strength(0.7F)
             .sounds(BlockSoundGroup.ROOTED_DIRT)));
@@ -171,16 +173,16 @@ public class OverwhelmedBlocks {
                     .pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block PAINE = registerBlock("paine", new FlowerBlock(StatusEffects.POISON, 8,
             FabricBlockSettings.copyOf(FLOFF)));
-    public static final Block PINK_LAVATERA = registerBlock("pink_lavatera", new FlowerBlock(StatusEffects.POISON,
-            6, FabricBlockSettings.copyOf(FLOFF)));
-    public static final Block WHITE_LAVATERA = registerBlock("white_lavatera", new FlowerBlock(StatusEffects.WEAKNESS,
-            5, FabricBlockSettings.copyOf(FLOFF)));
-    public static final Block SQUIRL = registerBlock("squirl", new FlowerBlock(StatusEffects.JUMP_BOOST,
-            10, FabricBlockSettings.copyOf(FLOFF)));
-    public static final Block RINGOT = registerBlock("ringot", new FlowerBlock(StatusEffects.BLINDNESS,
-            5, FabricBlockSettings.copyOf(FLOFF)));
-    public static final Block SNOWDROP = registerBlock("snowdrop", new FlowerBlock(StatusEffects.WEAKNESS,
-            7, FabricBlockSettings.copyOf(FLOFF)));
+    public static final Block PINK_LAVATERA = registerBlock("pink_lavatera",
+            new FlowerBlock(StatusEffects.POISON, 6, FabricBlockSettings.copyOf(FLOFF)));
+    public static final Block WHITE_LAVATERA = registerBlock("white_lavatera",
+            new FlowerBlock(StatusEffects.WEAKNESS, 5, FabricBlockSettings.copyOf(FLOFF)));
+    public static final Block SQUIRL = registerBlock("squirl",
+            new FlowerBlock(StatusEffects.JUMP_BOOST, 10, FabricBlockSettings.copyOf(FLOFF)));
+    public static final Block RINGOT = registerBlock("ringot",
+            new FlowerBlock(StatusEffects.BLINDNESS, 5, FabricBlockSettings.copyOf(FLOFF)));
+    public static final Block SNOWDROP = registerBlock("snowdrop",
+            new FlowerBlock(StatusEffects.WEAKNESS, 7, FabricBlockSettings.copyOf(FLOFF)));
     public static final Block BELL_SUNFLOWER = registerBlock("bell_sunflower",
             new FlowerBlock(StatusEffects.FIRE_RESISTANCE, 10, FabricBlockSettings.copyOf(FLOFF)));
 
@@ -189,18 +191,18 @@ public class OverwhelmedBlocks {
                     .breakInstantly()
                     .nonOpaque()
                     .pistonBehavior(PistonBehavior.DESTROY)));
-    public static final Block POTTED_PAINE = registerBlock("potted_paine", new FlowerPotBlock(PAINE,
-            FabricBlockSettings.copyOf(POTTED_FLOFF)));
-    public static final Block POTTED_PINK_LAVATERA = registerBlock("potted_lavatera", new FlowerPotBlock(PINK_LAVATERA,
-            FabricBlockSettings.copyOf(POTTED_FLOFF)));
-    public static final Block POTTED_WHITE_LAVATERA = registerBlock("potted_white_lavatera", new FlowerPotBlock(WHITE_LAVATERA,
-            FabricBlockSettings.copyOf(POTTED_FLOFF)));
-    public static final Block POTTED_SQUIRL = registerBlock("potted_squirl", new FlowerPotBlock(SQUIRL,
-            FabricBlockSettings.copyOf(POTTED_FLOFF)));
-    public static final Block POTTED_RINGOT = registerBlock("potted_ringot", new FlowerPotBlock(RINGOT,
-            FabricBlockSettings.copyOf(POTTED_FLOFF)));
-    public static final Block POTTED_SNOWDROP = registerBlock("potted_snowdrop", new FlowerPotBlock(SNOWDROP,
-            FabricBlockSettings.copyOf(POTTED_FLOFF)));
+    public static final Block POTTED_PAINE = registerBlock("potted_paine",
+            new FlowerPotBlock(PAINE, FabricBlockSettings.copyOf(POTTED_FLOFF)));
+    public static final Block POTTED_PINK_LAVATERA = registerBlock("potted_lavatera",
+            new FlowerPotBlock(PINK_LAVATERA, FabricBlockSettings.copyOf(POTTED_FLOFF)));
+    public static final Block POTTED_WHITE_LAVATERA = registerBlock("potted_white_lavatera",
+            new FlowerPotBlock(WHITE_LAVATERA, FabricBlockSettings.copyOf(POTTED_FLOFF)));
+    public static final Block POTTED_SQUIRL = registerBlock("potted_squirl",
+            new FlowerPotBlock(SQUIRL, FabricBlockSettings.copyOf(POTTED_FLOFF)));
+    public static final Block POTTED_RINGOT = registerBlock("potted_ringot",
+            new FlowerPotBlock(RINGOT, FabricBlockSettings.copyOf(POTTED_FLOFF)));
+    public static final Block POTTED_SNOWDROP = registerBlock("potted_snowdrop",
+            new FlowerPotBlock(SNOWDROP, FabricBlockSettings.copyOf(POTTED_FLOFF)));
     public static final Block POTTED_BELL_SUNFLOWER = registerBlock("potted_bell_sunflower",
             new FlowerPotBlock(BELL_SUNFLOWER, FabricBlockSettings.copyOf(POTTED_FLOFF)));
 
