@@ -23,18 +23,23 @@ public abstract class LivingEntityMixin extends Entity {
 	@Shadow
 	private Optional<BlockPos> climbingPos;
 
-    protected LivingEntityMixin(EntityType<?> entityType, World world) {
-        super(entityType, world);
-    }
+	protected LivingEntityMixin(EntityType<?> entityType, World world) {
+		super(entityType, world);
+	}
 
-    @Inject(method = "isClimbing", at = @At("TAIL"), cancellable = true)
+	@Inject(method = "isClimbing", at = @At("TAIL"), cancellable = true)
 	private void onClimableMixin(CallbackInfoReturnable<Boolean> cir) {
-		Direction result = Direction.fromRotation(this.getY());
-		BlockPos blockPos = this.getBlockPos().offset(result);
-		BlockState state = this.getWorld().getBlockState(blockPos);
-		if (state.isIn(BlockTags.CLIMBABLE)) {
-			this.climbingPos = Optional.of(blockPos);
-			cir.setReturnValue(true);
+		BlockPos blockPos = this.getBlockPos();
+		World world = this.getWorld();
+		for (Direction direction : Direction.Type.HORIZONTAL) {
+			BlockPos offsetPos = blockPos.offset(direction);
+			BlockState state = world.getBlockState(offsetPos);
+			if (state.isOf(OverwhelmedBlocks.GOO_BLOCK)) {
+				this.climbingPos = Optional.of(offsetPos);
+				cir.setReturnValue(true);
+				return;
+			}
 		}
+		cir.setReturnValue(cir.getReturnValue());
 	}
 }
