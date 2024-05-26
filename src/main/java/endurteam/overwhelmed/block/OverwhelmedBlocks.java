@@ -1,8 +1,6 @@
 package endurteam.overwhelmed.block;
 
 import endurteam.overwhelmed.Overwhelmed;
-import net.fabricmc.fabric.api.block.v1.FabricBlock;
-import net.fabricmc.fabric.api.item.v1.FabricItem;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.Instrument;
@@ -20,36 +18,66 @@ public class OverwhelmedBlocks {
     public static final Block WILLOW_LOG = registerBlock("willow_log",
             new PillarBlock(FabricBlockSettings.create()
                     .mapColor(MapColor.LICHEN_GREEN)
-                    .strength(2.0F)
                     .instrument(Instrument.BASS)
+                    .strength(2.0F)
                     .sounds(BlockSoundGroup.WOOD)
                     .burnable()));
     public static final Block WILLOW_WOOD = registerBlock("willow_wood",
-            new PillarBlock(FabricBlockSettings.create().mapColor(MapColor.LICHEN_GREEN).strength(2f, 2f)));
+            new PillarBlock(FabricBlockSettings.copyOf(WILLOW_LOG)));
     public static final Block STRIPPED_WILLOW_LOG = registerBlock("stripped_willow_log",
-            new PillarBlock(FabricBlockSettings.copyOf(OverwhelmedBlocks.WILLOW_LOG)));
+            new PillarBlock(FabricBlockSettings.copyOf(WILLOW_LOG))));
     public static final Block STRIPPED_WILLOW_WOOD = registerBlock("stripped_willow_wood",
-            new PillarBlock(FabricBlockSettings.copyOf(OverwhelmedBlocks.WILLOW_LOG)));
+            new PillarBlock(FabricBlockSettings.copyOf(WILLOW_LOG)));
     public static final Block WILLOW_PLANKS = registerBlock("willow_planks",
-            new Block(FabricBlockSettings.copyOf(OverwhelmedBlocks.WILLOW_LOG)));
+            new Block(FabricBlockSettings.create()
+                    .mapColor(MapColor.LICHEN_GREEN)
+                    .instrument(Instrument.BASS)
+                    .strength(2.0F, 3.0F)
+                    .sounds(BlockSoundGroup.WOOD)
+                    .burnable()));
     public static final Block WILLOW_STAIRS = registerBlock("willow_stairs",
             new StairsBlock(OverwhelmedBlocks.WILLOW_PLANKS.getDefaultState(),
-                    FabricBlockSettings.copyOf(OverwhelmedBlocks.WILLOW_LOG)));
+                    FabricBlockSettings.copyShallow(OverwhelmedBlocks.WILLOW_PLANKS)));
     public static final Block WILLOW_SLAB = registerBlock("willow_slab",
-            new SlabBlock(FabricBlockSettings.copyOf(OverwhelmedBlocks.WILLOW_LOG)));
+            new SlabBlock(FabricBlockSettings.copy(WILLOW_PLANKS)));
     public static final Block WILLOW_FENCE = registerBlock("willow_fence",
-            new FenceBlock(FabricBlockSettings.copyOf(OverwhelmedBlocks.WILLOW_LOG)));
+            new FenceBlock(FabricBlockSettings.copy(WILLOW_PLANKS)));
     public static final Block WILLOW_FENCE_GATE = registerBlock("willow_fence_gate",
-            new FenceGateBlock(OverwhelmedWoodType.WILLOW, FabricBlockSettings.copyOf(OverwhelmedBlocks.WILLOW_LOG)));
+            new FenceGateBlock(OverwhelmedWoodType.WILLOW, FabricBlockSettings.create()
+                    .mapColor(WILLOW_PLANKS.getDefaultMapColor())
+                    .solid()
+                    .instrument(Instrument.BASS)
+                    .strength(2.0F, 3.0F)
+                    .burnable()));
     public static final Block WILLOW_DOOR = registerBlock("willow_door",
-            new DoorBlock(OverwhelmedBlockSetType.WILLOW, FabricBlockSettings.copyOf(OverwhelmedBlocks.WILLOW_LOG)));
+            new DoorBlock(OverwhelmedBlockSetType.WILLOW, FabricBlockSettings.create()
+                    .mapColor(WILLOW_PLANKS.getDefaultMapColor())
+                    .instrument(Instrument.BASS)
+                    .strength(3.0F)
+                    .nonOpaque()
+                    .burnable()
+                    .pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block WILLOW_TRAPDOOR = registerBlock("willow_trapdoor",
-            new TrapdoorBlock(OverwhelmedBlockSetType.WILLOW, FabricBlockSettings.copyOf(OverwhelmedBlocks.WILLOW_LOG)));
+            new TrapdoorBlock(OverwhelmedBlockSetType.WILLOW, FabricBlockSettings.create()
+                    .mapColor(MapColor.LICHEN_GREEN)
+                    .instrument(Instrument.BASS)
+                    .strength(3.0F)
+                    .nonOpaque()
+                    .allowsSpawning(Blocks::never)
+                    .burnable()));
     public static final Block WILLOW_PRESSURE_PLATE = registerBlock("willow_pressure_plate",
-            new PressurePlateBlock(OverwhelmedBlockSetType.WILLOW, FabricBlockSettings.copyOf(OverwhelmedBlocks.WILLOW_LOG)));
+            new PressurePlateBlock(OverwhelmedBlockSetType.WILLOW, FabricBlockSettings.create()
+                    .mapColor(WILLOW_PLANKS.getDefaultMapColor())
+                    .solid().instrument(Instrument.BASS)
+                    .noCollision()
+                    .strength(0.5F)
+                    .burnable()
+                    .pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block WILLOW_BUTTON = registerBlock("willow_button",
-            new ButtonBlock(OverwhelmedBlockSetType.WILLOW, 10, FabricBlockSettings.copyOf(OverwhelmedBlocks.WILLOW_LOG)
-                    .noCollision()));
+            new ButtonBlock(OverwhelmedBlockSetType.WILLOW, 30, FabricBlockSettings.create()
+                    .noCollision()
+                    .strength(0.5F)
+                    .pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block WILLOW_LEAVES = registerBlock("willow_leaves",
             new Block(FabricBlockSettings.create()
                     .mapColor(MapColor.DARK_GREEN)
@@ -206,6 +234,17 @@ public class OverwhelmedBlocks {
     public static final Block POTTED_BELL_SUNFLOWER = registerBlock("potted_bell_sunflower",
             new FlowerPotBlock(BELL_SUNFLOWER, FabricBlockSettings.copyOf(POTTED_FLOFF)));
 
+    public static final Block GOLD_BEAD = registerBlock("gold_bead",
+            new Block(FabricBlockSettings.create()
+                    .noCollision()
+                    .breakInstantly()
+                    .offset(AbstractBlock.OffsetType.XZ)
+                    .pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block ICE_CUBE = registerBlock("ice_cube",
+            new Block(FabricBlockSettings.copy(GOLD_BEAD)));
+    public static final Block PEBBLE = registerPebbleBlock("pebble",
+            new Block(FabricBlockSettings.copy(GOLD_BEAD)));
+
     public static final Block GOO_BLOCK = registerBlock("goo_block",
             new GooBlock(FabricBlockSettings.create()
                     .mapColor(MapColor.PALE_YELLOW)
@@ -217,6 +256,10 @@ public class OverwhelmedBlocks {
 
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
+        return Registry.register(Registries.BLOCK, new Identifier(Overwhelmed.MOD_ID, name), block);
+    }
+
+    private static Block registerPebbleBlock(String name, Block block) {
         return Registry.register(Registries.BLOCK, new Identifier(Overwhelmed.MOD_ID, name), block);
     }
 

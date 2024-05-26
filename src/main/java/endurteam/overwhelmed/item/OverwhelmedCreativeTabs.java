@@ -68,12 +68,12 @@ public class OverwhelmedCreativeTabs {
                         entries.add(OverwhelmedBlocks.BELL_SUNFLOWER);
 //                        entries.add(OverwhelmedItems.WIDOW);
 //                        entries.add(OverwhelmedItems.WHITE_ALLIUM);
-//                        entries.add(OverwhelmedItems.GOLD_BEAD);
-//                        entries.add(OverwhelmedBlocks.ICE_CUBE);
-//                        entries.add(OverwhelmedItems.PEBBLE);
+                        entries.add(OverwhelmedBlocks.GOLD_BEAD);
+                        entries.add(OverwhelmedBlocks.ICE_CUBE);
+                        entries.add(OverwhelmedBlocks.PEBBLE);
 //                        entries.add(OverwhelmedItems.MINT_SEEDS);
 //                        entries.add(OverwhelmedItems.VANILLA_BEANS);
-//                        entries.add(OverwhelmedItems.GOO_BLOCK);
+                        entries.add(OverwhelmedBlocks.GOO_BLOCK);
 //                        entries.add(OverwhelmedItems.BLOWGUN);
 //                        entries.add(OverwhelmedItems.PAPER_BULLET);
 //                        entries.add(OverwhelmedItems.SNAIL);

@@ -1,15 +1,19 @@
 package endurteam.overwhelmed.item;
 
 import endurteam.overwhelmed.Overwhelmed;
+import endurteam.overwhelmed.block.OverwhelmedBlocks;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.block.Block;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
+import java.awt.dnd.InvalidDnDOperationException;
+
 public class OverwhelmedItems {
-    public static Item PEBBLE;
+    public static PebbleBlockItem PEBBLE = Registry.register(Registries.ITEM, new Identifier(Overwhelmed.MOD_ID, "pebble"),new PebbleBlockItem(OverwhelmedBlocks.PEBBLE, new Item.Settings()));
     public static BlockItem MINT_SEEDS;
     public static Item VANILLA_BEANS;
     public static Item BLOWGUN = registerItem("blowgun", new Item(new Item.Settings()));
