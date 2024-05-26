@@ -207,7 +207,7 @@ public class OverwhelmedBlocks {
             new FlowerPotBlock(BELL_SUNFLOWER, FabricBlockSettings.copyOf(POTTED_FLOFF)));
 
     public static final Block GOO_BLOCK = registerBlock("goo_block",
-            new Block(FabricBlockSettings.create()
+            new GooBlock(FabricBlockSettings.create()
                     .mapColor(MapColor.PALE_YELLOW)
                     .velocityMultiplier(0.4F)
                     .jumpVelocityMultiplier(0.5F)
