@@ -1,8 +1,8 @@
-// 1.20.6	2024-05-26T18:38:12.7756443	Overwhelmed/Tags for minecraft:block
+// 1.20.6	2024-05-27T19:13:24.8859025	Overwhelmed/Tags for minecraft:block
 d08e30bef2a0f33c43fd86c0ca48151c5e140aea data\minecraft\tags\blocks\walls.json
 13315714603f99fd1859755447edb73c66629649 data\minecraft\tags\blocks\mineable\pickaxe.json
-13df691824256e275ebd220133a5db78a77aa2cb data\minecraft\tags\blocks\fences.json
 aa0416cfbab5d4063b3ba2f13b747b3e303a3284 data\minecraft\tags\blocks\overworld_natural_logs.json
+13df691824256e275ebd220133a5db78a77aa2cb data\minecraft\tags\blocks\fences.json
 774a36b30d4e1b34fa1b4eaa2f1d3ddc1a7d2e25 data\minecraft\tags\blocks\mineable\shovel.json
 cb8edbd4aa2207b7fc7be566377560c393e0b722 data\minecraft\tags\blocks\fence_gates.json
 057e697c632d9220ead75e49ed1b2cf38fc81546 data\minecraft\tags\blocks\logs_that_burn.json
