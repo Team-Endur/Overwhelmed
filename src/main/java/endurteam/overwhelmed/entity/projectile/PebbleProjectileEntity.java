@@ -3,8 +3,10 @@ package endurteam.overwhelmed.entity.projectile;
 import endurteam.overwhelmed.block.OverwhelmedBlocks;
 import endurteam.overwhelmed.entity.OverwhelmedEntities;
 import endurteam.overwhelmed.item.OverwhelmedItems;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.item.Item;
 import net.minecraft.network.listener.ClientPlayPacketListener;
@@ -46,6 +48,10 @@ public class PebbleProjectileEntity extends ThrownItemEntity {
 
     @Override
     protected void onEntityHit(EntityHitResult entityHitResult) {
+        Entity entity = entityHitResult.getEntity();
+        entity.damage(DamageSource.thrownProjectile(this, this.getOwner()), 1.0F);
+        this.discard();
         super.onEntityHit(entityHitResult);
     }
+
 }

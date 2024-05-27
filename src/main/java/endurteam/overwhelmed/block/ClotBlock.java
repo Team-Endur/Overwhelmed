@@ -5,8 +5,8 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
-import org.jetbrains.annotations.NotNull;
 
 public class ClotBlock extends Block {
 
@@ -20,8 +20,9 @@ public class ClotBlock extends Block {
         return blockBelow.isSolid();
     }
 
-    public @NotNull VoxelShape getShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return createCuboidShape(6.0, 0.0, 6.0, 10.0, 2.0, 10.0);
+    @Override
+    public VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, ShapeContext context) {
+        return VoxelShapes.cuboid(6.0F, 0.0F, 6.0F, 10.0F, 2.0F, 10.0F);
     }
 
 }
