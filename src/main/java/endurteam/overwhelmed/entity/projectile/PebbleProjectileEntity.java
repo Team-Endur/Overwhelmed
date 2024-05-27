@@ -4,6 +4,7 @@ import endurteam.overwhelmed.block.OverwhelmedBlocks;
 import endurteam.overwhelmed.entity.OverwhelmedEntities;
 import endurteam.overwhelmed.entity.damage.OverwhelmedDamageTypes;
 import endurteam.overwhelmed.item.OverwhelmedItems;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -18,15 +19,23 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.EntityHitResult;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+import java.util.Random;
+
 public class PebbleProjectileEntity extends ThrownItemEntity {
+
+    private int touchWater;
+
     public PebbleProjectileEntity(EntityType<? extends ThrownItemEntity> entityType, World world) {
         super(entityType, world);
+        this.touchWater = new Random().nextInt(4) + 1;
     }
 
     public PebbleProjectileEntity(LivingEntity livingEntity, World world) {
         super(OverwhelmedEntities.PEBBLE_PROJECTILE, livingEntity, world);
+        this.touchWater = new Random().nextInt(4) + 1;
     }
 
     @Override
@@ -62,6 +71,23 @@ public class PebbleProjectileEntity extends ThrownItemEntity {
             entity.damage(damageSource, 1.0f);
         }
         this.kill();
+    }
+
+    @Override
+    public void tick() {
+        super.tick();
+        if (this.touchWater < 5) {
+            BlockPos blockPos = this.getBlockPos();
+            if (this.getWorld().getBlockState(blockPos).isOf(Blocks.WATER)) {
+                this.bounce();
+                this.touchWater += 1;
+            }
+        }
+    }
+
+    private void bounce() {
+        this.setVelocity(this.getVelocity().x, -this.getVelocity().y, this.getVelocity().z);
+        this.setVelocity(this.getVelocity().multiply(1.0, 0.9, 1.0));
     }
 
 }
