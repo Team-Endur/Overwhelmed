@@ -49,15 +49,6 @@
       "overwhelmed:block/gooblock/fall4"
     ]
   },
-  "block.goo_block.drip": {
-    "subtitle": "subtitles.block.overwhelmed.goo_block.drip",
-    "category": "ambient",
-    "sounds": [
-      "overwhelmed:block/gooblock/drip1",
-      "overwhelmed:block/gooblock/drip2",
-      "overwhelmed:block/gooblock/drip3"
-    ]
-  },
   "entity.snail.hurt": {
     "subtitle": "subtitles.entity.overwhelmed.snail.hurt",
     "category": "neutral",
