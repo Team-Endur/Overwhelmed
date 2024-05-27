@@ -1,7 +1,6 @@
 package endurteam.overwhelmed.item;
 
 import endurteam.overwhelmed.entity.projectile.PebbleProjectileEntity;
-import endurteam.overwhelmed.sound.OverwhelmedSoundEvents;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItem;

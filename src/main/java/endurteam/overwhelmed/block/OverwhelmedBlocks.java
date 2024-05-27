@@ -1,6 +1,7 @@
 package endurteam.overwhelmed.block;
 
 import endurteam.overwhelmed.Overwhelmed;
+import endurteam.overwhelmed.sound.OverwhelmedSounds;
 import it.unimi.dsi.fastutil.chars.Char2LongRBTreeMap;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
@@ -253,7 +254,7 @@ public class OverwhelmedBlocks {
                     .velocityMultiplier(0.4F)
                     .jumpVelocityMultiplier(0.5F)
                     .nonOpaque()
-                    .sounds(BlockSoundGroup.HONEY)));
+                    .sounds(OverwhelmedSounds.GOO_BLOCK)));
 
 
     private static Block registerBlock(String name, Block block) {

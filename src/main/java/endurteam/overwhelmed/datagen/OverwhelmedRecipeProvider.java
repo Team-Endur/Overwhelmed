@@ -4,9 +4,11 @@ import endurteam.overwhelmed.block.OverwhelmedBlocks;
 import endurteam.overwhelmed.item.OverwhelmedItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.item.ItemConvertible;
+import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
@@ -151,6 +153,25 @@ public class OverwhelmedRecipeProvider extends FabricRecipeProvider {
                 OverwhelmedBlocks.POLISHED_FIZZYROCK);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, OverwhelmedBlocks.CHISELED_FIZZYROCK_BRICKS,
                 OverwhelmedBlocks.FIZZYROCK_BRICKS);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Items.RAW_GOLD, 1)
+                .pattern("##")
+                .pattern("##")
+                .input('#', OverwhelmedBlocks.GOLD_BEAD)
+                .criterion(hasItem(OverwhelmedBlocks.GOLD_BEAD), conditionsFromItem(OverwhelmedBlocks.GOLD_BEAD))
+                .offerTo(exporter, new Identifier(getRecipeName(Items.RAW_GOLD)));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Blocks.ICE, 1)
+                .pattern("##")
+                .pattern("##")
+                .input('#', OverwhelmedBlocks.ICE_CUBE)
+                .criterion(hasItem(OverwhelmedBlocks.ICE_CUBE), conditionsFromItem(OverwhelmedBlocks.ICE_CUBE))
+                .offerTo(exporter, new Identifier(getRecipeName(Blocks.ICE)));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Blocks.COBBLESTONE, 1)
+                .pattern("##")
+                .pattern("##")
+                .input('#', OverwhelmedBlocks.PEBBLE)
+                .criterion(hasItem(OverwhelmedBlocks.PEBBLE), conditionsFromItem(OverwhelmedBlocks.PEBBLE))
+                .offerTo(exporter, new Identifier(getRecipeName(Blocks.COBBLESTONE)));
 
         offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, OverwhelmedItems.GOO_BALL,
         RecipeCategory.MISC,OverwhelmedBlocks.GOO_BLOCK);

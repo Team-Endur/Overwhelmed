@@ -3,6 +3,7 @@ package endurteam.overwhelmed;
 import endurteam.overwhelmed.block.OverwhelmedBlocks;
 import endurteam.overwhelmed.item.OverwhelmedCreativeTabs;
 import endurteam.overwhelmed.item.OverwhelmedItems;
+import endurteam.overwhelmed.sound.OverwhelmedSounds;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
@@ -16,6 +17,7 @@ public class Overwhelmed implements ModInitializer {
 		OverwhelmedCreativeTabs.registerItemTabs();
 		OverwhelmedItems.registerItems();
 		OverwhelmedBlocks.registerBlocks();
+		OverwhelmedSounds.registerSounds();
 
 		StrippableBlockRegistry.register(OverwhelmedBlocks.WILLOW_LOG, OverwhelmedBlocks.STRIPPED_WILLOW_LOG);
 		StrippableBlockRegistry.register(OverwhelmedBlocks.WILLOW_WOOD, OverwhelmedBlocks.STRIPPED_WILLOW_WOOD);

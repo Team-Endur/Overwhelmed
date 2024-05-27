@@ -1,4 +1,63 @@
 {
+  "block.goo_block.break": {
+    "subtitle": "subtitles.block.overwhelmed.goo_block.break",
+    "category": "block",
+    "sounds": [
+      "overwhelmed:block/gooblock/break1",
+      "overwhelmed:block/gooblock/break2",
+      "overwhelmed:block/gooblock/break3",
+      "overwhelmed:block/gooblock/break4"
+    ]
+  },
+  "block.goo_block.step": {
+    "subtitle": "subtitles.block.overwhelmed.goo_block.step",
+    "category": "block",
+    "sounds": [
+      "overwhelmed:block/gooblock/step1",
+      "overwhelmed:block/gooblock/step2",
+      "overwhelmed:block/gooblock/step3",
+      "overwhelmed:block/gooblock/step4"
+    ]
+  },
+  "block.goo_block.place": {
+    "subtitle": "subtitles.block.overwhelmed.goo_block.place",
+    "category": "block",
+    "sounds": [
+      "overwhelmed:block/gooblock/place1",
+      "overwhelmed:block/gooblock/place2",
+      "overwhelmed:block/gooblock/place3",
+      "overwhelmed:block/gooblock/place4"
+    ]
+  },
+  "block.goo_block.hit": {
+    "subtitle": "subtitles.block.overwhelmed.goo_block.hit",
+    "category": "block",
+    "sounds": [
+      "overwhelmed:block/gooblock/hit1",
+      "overwhelmed:block/gooblock/hit2",
+      "overwhelmed:block/gooblock/hit3",
+      "overwhelmed:block/gooblock/hit4"
+    ]
+  },
+  "block.goo_block.fall": {
+    "subtitle": "subtitles.block.overwhelmed.goo_block.fall",
+    "category": "block",
+    "sounds": [
+      "overwhelmed:block/gooblock/fall1",
+      "overwhelmed:block/gooblock/fall2",
+      "overwhelmed:block/gooblock/fall3",
+      "overwhelmed:block/gooblock/fall4"
+    ]
+  },
+  "block.goo_block.drip": {
+    "subtitle": "subtitles.block.overwhelmed.goo_block.drip",
+    "category": "ambient",
+    "sounds": [
+      "overwhelmed:block/gooblock/drip1",
+      "overwhelmed:block/gooblock/drip2",
+      "overwhelmed:block/gooblock/drip3"
+    ]
+  },
   "entity.snail.hurt": {
     "subtitle": "subtitles.entity.overwhelmed.snail.hurt",
     "category": "neutral",
