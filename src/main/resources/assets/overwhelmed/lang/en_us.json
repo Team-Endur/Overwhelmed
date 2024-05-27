@@ -95,6 +95,7 @@
   "block.overwhelmed.willow_wall": "Willow Wall",
   "block.overwhelmed.willow_wood": "Willow Wood",
   "category.overwhelmed": "Overwhelmed",
+  "death.attack.pebble": "%1$s was knocked out by %2$s using Pebble",
   "entity.overwhelmed.cabbage_butterfly": "Butterfly",
   "entity.overwhelmed.cherry_butterfly": "Butterfly",
   "entity.overwhelmed.liverwort_butterfly": "Butterfly",

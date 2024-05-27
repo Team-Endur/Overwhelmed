@@ -2,16 +2,20 @@ package endurteam.overwhelmed.entity.projectile;
 
 import endurteam.overwhelmed.block.OverwhelmedBlocks;
 import endurteam.overwhelmed.entity.OverwhelmedEntities;
+import endurteam.overwhelmed.entity.damage.OverwhelmedDamageTypes;
 import endurteam.overwhelmed.item.OverwhelmedItems;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.damage.DamageTypes;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.item.Item;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.EntitySpawnS2CPacket;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.world.World;
@@ -42,16 +46,22 @@ public class PebbleProjectileEntity extends ThrownItemEntity {
             this.getWorld().setBlockState(getBlockPos(), OverwhelmedBlocks.PEBBLE.getDefaultState(), 3);
         }
 
-        this.discard();
+        this.kill();
         super.onBlockHit(blockHitResult);
     }
 
     @Override
     protected void onEntityHit(EntityHitResult entityHitResult) {
-        Entity entity = entityHitResult.getEntity();
-        entity.damage(DamageSource.thrownProjectile(this, this.getOwner()), 1.0F);
-        this.discard();
         super.onEntityHit(entityHitResult);
+        Entity entity = entityHitResult.getEntity();
+        if (entity instanceof LivingEntity) {
+            DamageSource damageSource = new DamageSource(
+                    entity.getRegistryManager()
+                            .get(RegistryKeys.DAMAGE_TYPE)
+                            .entryOf(OverwhelmedDamageTypes.PEBBLE));
+            entity.damage(damageSource, 1.0f);
+        }
+        this.kill();
     }
 
 }
