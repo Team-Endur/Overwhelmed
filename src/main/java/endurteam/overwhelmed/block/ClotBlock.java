@@ -10,6 +10,8 @@ import net.minecraft.world.BlockView;
 
 public class ClotBlock extends Block {
 
+    public VoxelShape SHAPE = Block.createCuboidShape(6.0F, 0.0F, 6.0F, 10.0F, 2.0F, 10.0F);
+
     public ClotBlock(Settings settings) {
         super(settings);
     }
@@ -21,8 +23,8 @@ public class ClotBlock extends Block {
     }
 
     @Override
-    public VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, ShapeContext context) {
-        return VoxelShapes.cuboid(6.0F, 0.0F, 6.0F, 10.0F, 2.0F, 10.0F);
+    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+        return SHAPE;
     }
 
 }
