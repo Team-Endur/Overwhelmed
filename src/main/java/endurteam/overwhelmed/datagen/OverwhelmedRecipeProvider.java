@@ -7,9 +7,14 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.block.Blocks;
 import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
+import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
+import net.minecraft.recipe.AbstractCookingRecipe;
 import net.minecraft.recipe.Ingredient;
+import net.minecraft.recipe.RecipeSerializer;
+import net.minecraft.recipe.SmeltingRecipe;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.Identifier;
@@ -154,24 +159,38 @@ public class OverwhelmedRecipeProvider extends FabricRecipeProvider {
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, OverwhelmedBlocks.CHISELED_FIZZYROCK_BRICKS,
                 OverwhelmedBlocks.FIZZYROCK_BRICKS);
 
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.MAGENTA_DYE)
+                .input(OverwhelmedBlocks.FLOFF);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.CYAN_DYE)
+                .input(OverwhelmedBlocks.PAINE);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.PINK_DYE)
+                .input(OverwhelmedBlocks.PINK_LAVATERA);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.WHITE_DYE)
+                .input(OverwhelmedBlocks.WHITE_LAVATERA);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.CYAN_DYE)
+                .input(OverwhelmedBlocks.SQUIRL);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.MAGENTA_DYE)
+                .input(OverwhelmedBlocks.RINGOT);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.WHITE_DYE)
+                .input(OverwhelmedBlocks.SNOWDROP);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.YELLOW_DYE)
+                .input(OverwhelmedBlocks.BELL_SUNFLOWER);
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.BLUE_DYE, 2)
+                .input(OverwhelmedBlocks.WIDOW);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.WHITE_DYE, 2)
+                .input(OverwhelmedBlocks.WHITE_ALLIUM);
+
+
         offer2x2CompactingRecipe(exporter, RecipeCategory.MISC, Items.RAW_GOLD, OverwhelmedBlocks.GOLD_BEAD);
         offer2x2CompactingRecipe(exporter, RecipeCategory.MISC, Blocks.ICE, OverwhelmedBlocks.ICE_CUBE);
         offer2x2CompactingRecipe(exporter, RecipeCategory.MISC, Blocks.COBBLESTONE, OverwhelmedBlocks.PEBBLE);
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, OverwhelmedBlocks.GOLD_BEAD, 4)
-                .pattern("#")
-                .input('#', Items.RAW_GOLD)
-                .criterion(hasItem(Items.RAW_GOLD), conditionsFromItem(Items.RAW_GOLD))
-                .offerTo(exporter, new Identifier(getRecipeName(OverwhelmedBlocks.GOLD_BEAD)));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, OverwhelmedBlocks.ICE_CUBE, 4)
-                .pattern("#")
-                .input('#', Blocks.ICE)
-                .criterion(hasItem(Blocks.ICE), conditionsFromItem(Blocks.ICE))
-                .offerTo(exporter, new Identifier(getRecipeName(OverwhelmedBlocks.ICE_CUBE)));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, OverwhelmedBlocks.PEBBLE, 4)
-                .pattern("#")
-                .input('#', Blocks.COBBLESTONE)
-                .criterion(hasItem(Blocks.COBBLESTONE), conditionsFromItem(Blocks.COBBLESTONE))
-                .offerTo(exporter, new Identifier(getRecipeName(OverwhelmedBlocks.PEBBLE)));
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, OverwhelmedBlocks.GOLD_BEAD, 4)
+                .input(Items.RAW_GOLD);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, OverwhelmedBlocks.ICE_CUBE, 4)
+                .input(Blocks.ICE);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, OverwhelmedBlocks.PEBBLE, 4)
+                .input(Items.COBBLESTONE);
 
         offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, OverwhelmedItems.GOO_BALL,
         RecipeCategory.MISC,OverwhelmedBlocks.GOO_BLOCK);
@@ -186,7 +205,47 @@ public class OverwhelmedRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.PAPER), conditionsFromItem(Items.PAPER))
                 .offerTo(exporter, new Identifier(getRecipeName(OverwhelmedItems.PAPER_BULLET)));
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, OverwhelmedItems.VANILLA_COOKIE, 8)
+                .pattern(" M ")
+                .pattern("W#W")
+                .input('#', OverwhelmedItems.VANILLA_BEANS)
+                .input('W', Items.WHEAT)
+                .input('M', Items.MILK_BUCKET)
+                .criterion(hasItem(OverwhelmedItems.VANILLA_BEANS), conditionsFromItem(OverwhelmedItems.VANILLA_BEANS))
+                .criterion(hasItem(Items.WHEAT), conditionsFromItem(Items.WHEAT))
+                .criterion(hasItem(Items.MILK_BUCKET), conditionsFromItem(Items.MILK_BUCKET))
+                .offerTo(exporter, new Identifier(getRecipeName(OverwhelmedItems.VANILLA_COOKIE)));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, OverwhelmedItems.PEPPERMINT, 8)
+                .pattern("M#")
+                .pattern("##")
+                .input('M', OverwhelmedItems.MINT_LEAF)
+                .input('#', Items.SUGAR)
+                .criterion(hasItem(OverwhelmedItems.MINT_LEAF), conditionsFromItem(OverwhelmedItems.MINT_LEAF))
+                .criterion(hasItem(Items.SUGAR), conditionsFromItem(Items.SUGAR))
+                .offerTo(exporter, new Identifier(getRecipeName(OverwhelmedItems.PEPPERMINT)));
 
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, OverwhelmedItems.VANILLA_ICE_CREAM)
+                .input(Items.BOWL)
+                .input(Items.SNOWBALL, 3)
+                .input(Items.MILK_BUCKET)
+                .input(OverwhelmedItems.VANILLA_BEANS);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, OverwhelmedItems.MINT_ICE_CREAM)
+                .input(Items.BOWL)
+                .input(Items.SNOWBALL, 3)
+                .input(Items.MILK_BUCKET)
+                .input(OverwhelmedItems.MINT_LEAF);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, OverwhelmedItems.SNAIL_STEW)
+                .pattern("SSS")
+                .pattern("###")
+                .pattern(" B ")
+                .input('S', OverwhelmedItems.COOKED_SNAIL)
+                .input('#', OverwhelmedItems.GOO_BALL)
+                .input('B', Items.BOWL)
+                .criterion(hasItem(OverwhelmedItems.COOKED_SNAIL), conditionsFromItem(OverwhelmedItems.COOKED_SNAIL))
+                .criterion(hasItem(OverwhelmedItems.GOO_BALL), conditionsFromItem(OverwhelmedItems.GOO_BALL))
+                .criterion(hasItem(Items.BOWL), conditionsFromItem(Items.BOWL))
+                .offerTo(exporter, new Identifier(getRecipeName(OverwhelmedItems.SNAIL_STEW)));
 
     }
 
@@ -212,4 +271,5 @@ public class OverwhelmedRecipeProvider extends FabricRecipeProvider {
         createTrapdoorRecipe(output, Ingredient.ofItems(new ItemConvertible[]{input})).criterion(hasItem(input),
                 conditionsFromItem(input)).offerTo(exporter);
     }
+
 }
