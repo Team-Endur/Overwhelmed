@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": {
+      "item": "overwhelmed:goo_ball"
+    },
+    "P": {
+      "item": "minecraft:paper"
+    }
+  },
+  "pattern": [
+    " P ",
+    "P#P",
+    " P "
+  ],
+  "result": {
+    "count": 4,
+    "id": "overwhelmed:paper_bullet"
+  }
+}

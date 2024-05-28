@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:raw_gold"
+    }
+  },
+  "pattern": [
+    "#"
+  ],
+  "result": {
+    "count": 4,
+    "id": "overwhelmed:gold_bead"
+  }
+}
