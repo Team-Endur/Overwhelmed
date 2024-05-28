@@ -66,8 +66,8 @@ public class OverwhelmedCreativeTabs {
                         entries.add(OverwhelmedBlocks.RINGOT);
                         entries.add(OverwhelmedBlocks.SNOWDROP);
                         entries.add(OverwhelmedBlocks.BELL_SUNFLOWER);
-//                        entries.add(OverwhelmedItems.WIDOW);
-//                        entries.add(OverwhelmedItems.WHITE_ALLIUM);
+                        entries.add(OverwhelmedBlocks.WIDOW);
+                        entries.add(OverwhelmedBlocks.WHITE_ALLIUM);
                         entries.add(OverwhelmedBlocks.GOLD_BEAD);
                         entries.add(OverwhelmedBlocks.ICE_CUBE);
                         entries.add(OverwhelmedItems.PEBBLE);

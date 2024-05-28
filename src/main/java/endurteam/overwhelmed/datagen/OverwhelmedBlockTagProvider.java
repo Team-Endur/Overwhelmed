@@ -63,6 +63,9 @@ public class OverwhelmedBlockTagProvider extends FabricTagProvider.BlockTagProvi
                 .add(OverwhelmedBlocks.POTTED_RINGOT)
                 .add(OverwhelmedBlocks.POTTED_SNOWDROP)
                 .add(OverwhelmedBlocks.POTTED_BELL_SUNFLOWER);
+        getOrCreateTagBuilder(BlockTags.TALL_FLOWERS)
+                .add(OverwhelmedBlocks.WIDOW)
+                .add(OverwhelmedBlocks.WHITE_ALLIUM);
         getOrCreateTagBuilder(BlockTags.LOGS_THAT_BURN)
                 .add(OverwhelmedBlocks.WILLOW_LOG)
                 .add(OverwhelmedBlocks.WILLOW_WOOD)

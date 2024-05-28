@@ -94,6 +94,10 @@ public class OverwhelmedModelProvider extends FabricModelProvider {
                 BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerFlowerPotPlant(OverwhelmedBlocks.BELL_SUNFLOWER,
                 OverwhelmedBlocks.POTTED_BELL_SUNFLOWER, BlockStateModelGenerator.TintType.NOT_TINTED);
+
+        blockStateModelGenerator.registerDoubleBlock(OverwhelmedBlocks.WIDOW, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerDoubleBlock(OverwhelmedBlocks.WHITE_ALLIUM, BlockStateModelGenerator.TintType.NOT_TINTED);
+
     }
 
     @Override

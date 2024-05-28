@@ -30,6 +30,9 @@ public class OverwhelmedItemTagProvider extends FabricTagProvider.ItemTagProvide
                 .add(OverwhelmedBlocks.RINGOT.asItem())
                 .add(OverwhelmedBlocks.SNOWDROP.asItem())
                 .add(OverwhelmedBlocks.BELL_SUNFLOWER.asItem());
+        getOrCreateTagBuilder(ItemTags.TALL_FLOWERS)
+                .add(OverwhelmedBlocks.WIDOW.asItem())
+                .add(OverwhelmedBlocks.WHITE_ALLIUM.asItem());
         getOrCreateTagBuilder(ItemTags.PLANKS)
                 .add(OverwhelmedBlocks.WILLOW_PLANKS.asItem());
         getOrCreateTagBuilder(ItemTags.LOGS_THAT_BURN)

@@ -3,6 +3,8 @@ package endurteam.overwhelmed.block;
 import endurteam.overwhelmed.Overwhelmed;
 import endurteam.overwhelmed.sound.OverwhelmedSounds;
 import it.unimi.dsi.fastutil.chars.Char2LongRBTreeMap;
+import net.fabricmc.fabric.api.block.v1.FabricBlock;
+import net.fabricmc.fabric.api.block.v1.FabricBlockState;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.Instrument;
@@ -236,6 +238,18 @@ public class OverwhelmedBlocks {
             new FlowerPotBlock(SNOWDROP, FabricBlockSettings.copyOf(POTTED_FLOFF)));
     public static final Block POTTED_BELL_SUNFLOWER = registerBlock("potted_bell_sunflower",
             new FlowerPotBlock(BELL_SUNFLOWER, FabricBlockSettings.copyOf(POTTED_FLOFF)));
+
+    public static final Block WIDOW = registerBlock("widow",
+            new TallFlowerBlock(FabricBlockSettings.create()
+                    .mapColor(MapColor.DARK_GREEN)
+                    .noCollision()
+                    .breakInstantly()
+                    .sounds(BlockSoundGroup.GRASS)
+                    .offset(AbstractBlock.OffsetType.XZ)
+                    .burnable()
+                    .pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block WHITE_ALLIUM = registerBlock("white_allium",
+            new TallFlowerBlock(FabricBlockSettings.copyOf(WIDOW)));
 
     public static final Block GOLD_BEAD = registerBlock("gold_bead",
             new ClotBlock(FabricBlockSettings.create()
