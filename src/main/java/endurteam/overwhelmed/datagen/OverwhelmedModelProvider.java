@@ -104,6 +104,19 @@ public class OverwhelmedModelProvider extends FabricModelProvider {
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
 
         itemModelGenerator.register(OverwhelmedItems.PEBBLE, Models.GENERATED);
+        itemModelGenerator.register(OverwhelmedItems.PAPER_BULLET, Models.GENERATED);
+        itemModelGenerator.register(OverwhelmedItems.GOO_BALL, Models.GENERATED);
+        itemModelGenerator.register(OverwhelmedItems.SNAIL_SHELL, Models.GENERATED);
+        itemModelGenerator.register(OverwhelmedItems.MINT_LEAF, Models.GENERATED);
+
+        itemModelGenerator.register(OverwhelmedItems.SNAIL, Models.GENERATED);
+        itemModelGenerator.register(OverwhelmedItems.COOKED_SNAIL, Models.GENERATED);
+        itemModelGenerator.register(OverwhelmedItems.VANILLA_COOKIE, Models.GENERATED);
+        itemModelGenerator.register(OverwhelmedItems.PEPPERMINT, Models.GENERATED);
+        itemModelGenerator.register(OverwhelmedItems.VANILLA_ICE_CREAM, Models.GENERATED);
+        itemModelGenerator.register(OverwhelmedItems.MINT_ICE_CREAM, Models.GENERATED);
+        itemModelGenerator.register(OverwhelmedItems.SNAIL_STEW, Models.GENERATED);
+
 
 //        itemModelGenerator.register(OverwhelmedItems.HORNET_SPAWN_EGG,
 //                new SpawnEggItem(Overwhel));

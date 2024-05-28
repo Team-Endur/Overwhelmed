@@ -251,13 +251,13 @@ public class OverwhelmedBlocks {
     public static final Block WHITE_ALLIUM = registerBlock("white_allium",
             new TallFlowerBlock(FabricBlockSettings.copyOf(WIDOW)));
 
-    public static final Block GOLD_BEAD = registerBlock("gold_bead",
+    public static final Block GOLD_BEAD = registerClotBlock("gold_bead",
             new ClotBlock(FabricBlockSettings.create()
                     .noCollision()
                     .breakInstantly()
                     .offset(AbstractBlock.OffsetType.XZ)
                     .pistonBehavior(PistonBehavior.DESTROY)));
-    public static final Block ICE_CUBE = registerBlock("ice_cube",
+    public static final Block ICE_CUBE = registerClotBlock("ice_cube",
             new ClotBlock(FabricBlockSettings.copy(GOLD_BEAD)));
     public static final Block PEBBLE = registerPebbleBlock("pebble",
             new ClotBlock(FabricBlockSettings.copy(GOLD_BEAD)));
@@ -276,6 +276,11 @@ public class OverwhelmedBlocks {
         return Registry.register(Registries.BLOCK, new Identifier(Overwhelmed.MOD_ID, name), block);
     }
 
+    private static Block registerClotBlock(String name, Block block) {
+        registerClotBlockItem(name, block);
+        return Registry.register(Registries.BLOCK, new Identifier(Overwhelmed.MOD_ID, name), block);
+    }
+
     private static Block registerPebbleBlock(String name, Block block) {
         return Registry.register(Registries.BLOCK, new Identifier(Overwhelmed.MOD_ID, name), block);
     }
@@ -283,6 +288,11 @@ public class OverwhelmedBlocks {
     private static Item registerBlockItem(String name, Block block) {
         return Registry.register(Registries.ITEM, new Identifier(Overwhelmed.MOD_ID, name),
                 new BlockItem(block, new Item.Settings()));
+    }
+
+    private static Item registerClotBlockItem(String name, Block block) {
+        return Registry.register(Registries.ITEM, new Identifier(Overwhelmed.MOD_ID, name),
+                new BlockItem(block, new Item.Settings().maxCount(16)));
     }
 
     public static void registerBlocks() {}

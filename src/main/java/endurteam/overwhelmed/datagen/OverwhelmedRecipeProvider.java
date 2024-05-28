@@ -154,27 +154,39 @@ public class OverwhelmedRecipeProvider extends FabricRecipeProvider {
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, OverwhelmedBlocks.CHISELED_FIZZYROCK_BRICKS,
                 OverwhelmedBlocks.FIZZYROCK_BRICKS);
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Items.RAW_GOLD, 1)
-                .pattern("##")
-                .pattern("##")
-                .input('#', OverwhelmedBlocks.GOLD_BEAD)
-                .criterion(hasItem(OverwhelmedBlocks.GOLD_BEAD), conditionsFromItem(OverwhelmedBlocks.GOLD_BEAD))
-                .offerTo(exporter, new Identifier(getRecipeName(Items.RAW_GOLD)));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Blocks.ICE, 1)
-                .pattern("##")
-                .pattern("##")
-                .input('#', OverwhelmedBlocks.ICE_CUBE)
-                .criterion(hasItem(OverwhelmedBlocks.ICE_CUBE), conditionsFromItem(OverwhelmedBlocks.ICE_CUBE))
-                .offerTo(exporter, new Identifier(getRecipeName(Blocks.ICE)));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Blocks.COBBLESTONE, 1)
-                .pattern("##")
-                .pattern("##")
-                .input('#', OverwhelmedBlocks.PEBBLE)
-                .criterion(hasItem(OverwhelmedBlocks.PEBBLE), conditionsFromItem(OverwhelmedBlocks.PEBBLE))
-                .offerTo(exporter, new Identifier(getRecipeName(Blocks.COBBLESTONE)));
+        offer2x2CompactingRecipe(exporter, RecipeCategory.MISC, Items.RAW_GOLD, OverwhelmedBlocks.GOLD_BEAD);
+        offer2x2CompactingRecipe(exporter, RecipeCategory.MISC, Blocks.ICE, OverwhelmedBlocks.ICE_CUBE);
+        offer2x2CompactingRecipe(exporter, RecipeCategory.MISC, Blocks.COBBLESTONE, OverwhelmedBlocks.PEBBLE);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, OverwhelmedBlocks.GOLD_BEAD, 4)
+                .pattern("#")
+                .input('#', Items.RAW_GOLD)
+                .criterion(hasItem(Items.RAW_GOLD), conditionsFromItem(Items.RAW_GOLD))
+                .offerTo(exporter, new Identifier(getRecipeName(OverwhelmedBlocks.GOLD_BEAD)));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, OverwhelmedBlocks.ICE_CUBE, 4)
+                .pattern("#")
+                .input('#', Blocks.ICE)
+                .criterion(hasItem(Blocks.ICE), conditionsFromItem(Blocks.ICE))
+                .offerTo(exporter, new Identifier(getRecipeName(OverwhelmedBlocks.ICE_CUBE)));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, OverwhelmedBlocks.PEBBLE, 4)
+                .pattern("#")
+                .input('#', Blocks.COBBLESTONE)
+                .criterion(hasItem(Blocks.COBBLESTONE), conditionsFromItem(Blocks.COBBLESTONE))
+                .offerTo(exporter, new Identifier(getRecipeName(OverwhelmedBlocks.PEBBLE)));
 
         offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, OverwhelmedItems.GOO_BALL,
         RecipeCategory.MISC,OverwhelmedBlocks.GOO_BLOCK);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, OverwhelmedItems.PAPER_BULLET, 4)
+                .pattern(" P ")
+                .pattern("P#P")
+                .pattern(" P ")
+                .input('#', OverwhelmedItems.GOO_BALL)
+                .input('P', Items.PAPER)
+                .criterion(hasItem(OverwhelmedItems.GOO_BALL), conditionsFromItem(OverwhelmedItems.GOO_BALL))
+                .criterion(hasItem(Items.PAPER), conditionsFromItem(Items.PAPER))
+                .offerTo(exporter, new Identifier(getRecipeName(OverwhelmedItems.PAPER_BULLET)));
+
+
     }
 
 
