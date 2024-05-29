@@ -251,6 +251,16 @@ public class OverwhelmedBlocks {
     public static final Block WHITE_ALLIUM = registerBlock("white_allium",
             new TallFlowerBlock(FabricBlockSettings.copyOf(WIDOW)));
 
+    public static final Block VANILLA = Registry.register(Registries.BLOCK, new Identifier(Overwhelmed.MOD_ID, "vanilla"),
+            new MintBlock(FabricBlockSettings.create()
+                    .mapColor(MapColor.DARK_GREEN)
+                    .noCollision().ticksRandomly()
+                    .breakInstantly()
+                    .sounds(BlockSoundGroup.CROP)
+                    .pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block MINT = Registry.register(Registries.BLOCK, new Identifier(Overwhelmed.MOD_ID, "mint"),
+            new MintBlock(FabricBlockSettings.copy(VANILLA)));
+
     public static final Block GOLD_BEAD = registerClotBlock("gold_bead",
             new ClotBlock(FabricBlockSettings.create()
                     .noCollision()

@@ -32,6 +32,12 @@ public class OverwhelmedClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(OverwhelmedBlocks.POTTED_SNOWDROP, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(OverwhelmedBlocks.POTTED_BELL_SUNFLOWER, RenderLayer.getCutout());
 
+        BlockRenderLayerMap.INSTANCE.putBlock(OverwhelmedBlocks.WIDOW, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(OverwhelmedBlocks.WHITE_ALLIUM, RenderLayer.getCutout());
+
+        BlockRenderLayerMap.INSTANCE.putBlock(OverwhelmedBlocks.VANILLA, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(OverwhelmedBlocks.MINT, RenderLayer.getCutout());
+
         BlockRenderLayerMap.INSTANCE.putBlock(OverwhelmedBlocks.GOO_BLOCK, RenderLayer.getTranslucent());
 
         EntityRendererRegistry.register(OverwhelmedEntities.PEBBLE_PROJECTILE, FlyingItemEntityRenderer::new);

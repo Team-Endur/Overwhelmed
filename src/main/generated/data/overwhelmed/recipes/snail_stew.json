@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "overwhelmed:goo_ball"
+    },
+    "B": {
+      "item": "minecraft:bowl"
+    },
+    "S": {
+      "item": "overwhelmed:cooked_snail"
+    }
+  },
+  "pattern": [
+    "SSS",
+    "###",
+    " B "
+  ],
+  "result": {
+    "count": 1,
+    "id": "overwhelmed:snail_stew"
+  }
+}

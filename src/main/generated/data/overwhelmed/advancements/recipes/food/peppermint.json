@@ -1,11 +1,21 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_ice": {
+    "has_mint_leaf": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:ice"
+            "items": "overwhelmed:mint_leaf"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_sugar": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:sugar"
           }
         ]
       },
@@ -13,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:ice_cube"
+        "recipe": "minecraft:peppermint"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +31,13 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_ice"
+      "has_mint_leaf",
+      "has_sugar"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:ice_cube"
+      "minecraft:peppermint"
     ]
   }
 }

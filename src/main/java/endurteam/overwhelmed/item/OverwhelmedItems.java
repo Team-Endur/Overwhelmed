@@ -12,8 +12,10 @@ public class OverwhelmedItems {
     public static final Item PEBBLE = registerItem("pebble",
             new PebbleBlockItem(OverwhelmedBlocks.PEBBLE, new Item.Settings()
                     .maxCount(16)));
-    public static BlockItem MINT_SEEDS;
-    public static Item VANILLA_BEANS;
+    public static final Item MINT_SEEDS = registerItem("mint_seeds",
+            new AliasedBlockItem(OverwhelmedBlocks.MINT, new Item.Settings()));
+    public static final Item VANILLA_BEANS = registerItem("vanilla_beans",
+            new AliasedBlockItem(OverwhelmedBlocks.VANILLA, new Item.Settings()));
     public static Item BLOWGUN = registerItem("blowgun", new Item(new Item.Settings()));
     public static Item PAPER_BULLET = registerItem("paper_bullet", new Item(new Item.Settings()));
     public static Item SNAIL = registerItem("snail", new Item(new Item.Settings().food(OverwhelmedFoodComponents.SNAIL)));

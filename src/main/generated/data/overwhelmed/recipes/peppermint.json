@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:sugar"
+    },
+    "M": {
+      "item": "overwhelmed:mint_leaf"
+    }
+  },
+  "pattern": [
+    "M#",
+    "##"
+  ],
+  "result": {
+    "count": 8,
+    "id": "overwhelmed:peppermint"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "overwhelmed:vanilla_beans"
+    },
+    "M": {
+      "item": "minecraft:milk_bucket"
+    },
+    "W": {
+      "item": "minecraft:wheat"
+    }
+  },
+  "pattern": [
+    " M ",
+    "W#W"
+  ],
+  "result": {
+    "count": 8,
+    "id": "overwhelmed:vanilla_cookie"
+  }
+}

@@ -1,17 +1,15 @@
 package endurteam.overwhelmed.datagen;
 
+import endurteam.overwhelmed.block.MintBlock;
 import endurteam.overwhelmed.block.OverwhelmedBlocks;
+import endurteam.overwhelmed.block.VanillaBlock;
 import endurteam.overwhelmed.item.OverwhelmedItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.client.ItemModelGenerator;
-import net.minecraft.data.client.Model;
 import net.minecraft.data.client.Models;
-import net.minecraft.item.SpawnEggItem;
-import net.minecraft.util.Identifier;
 
-import java.util.Optional;
 
 public class OverwhelmedModelProvider extends FabricModelProvider {
     public OverwhelmedModelProvider(FabricDataOutput output) {
@@ -96,7 +94,11 @@ public class OverwhelmedModelProvider extends FabricModelProvider {
                 OverwhelmedBlocks.POTTED_BELL_SUNFLOWER, BlockStateModelGenerator.TintType.NOT_TINTED);
 
         blockStateModelGenerator.registerDoubleBlock(OverwhelmedBlocks.WIDOW, BlockStateModelGenerator.TintType.NOT_TINTED);
-        blockStateModelGenerator.registerDoubleBlock(OverwhelmedBlocks.WHITE_ALLIUM, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerDoubleBlock(OverwhelmedBlocks.WHITE_ALLIUM,
+                BlockStateModelGenerator.TintType.NOT_TINTED);
+
+        blockStateModelGenerator.registerCrop(OverwhelmedBlocks.VANILLA, VanillaBlock.AGE, 0, 1, 2, 3);
+        blockStateModelGenerator.registerCrop(OverwhelmedBlocks.MINT, MintBlock.AGE, 0, 1, 2, 3);
 
     }
 

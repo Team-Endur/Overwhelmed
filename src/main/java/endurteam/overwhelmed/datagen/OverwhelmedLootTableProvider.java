@@ -1,10 +1,16 @@
 package endurteam.overwhelmed.datagen;
 
+import endurteam.overwhelmed.block.MintBlock;
 import endurteam.overwhelmed.block.OverwhelmedBlocks;
+import endurteam.overwhelmed.block.VanillaBlock;
+import endurteam.overwhelmed.item.OverwhelmedItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.CropBlock;
 import net.minecraft.item.Items;
+import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
+import net.minecraft.predicate.StatePredicate;
 import net.minecraft.registry.RegistryWrapper;
 
 import java.util.concurrent.CompletableFuture;
@@ -85,6 +91,18 @@ public class OverwhelmedLootTableProvider extends FabricBlockLootTableProvider {
 
         addDrop(OverwhelmedBlocks.WIDOW);
         addDrop(OverwhelmedBlocks.WHITE_ALLIUM);
+
+        BlockStatePropertyLootCondition.Builder builder = BlockStatePropertyLootCondition.builder(OverwhelmedBlocks.VANILLA)
+                .properties(StatePredicate.Builder.create()
+                        .exactMatch(VanillaBlock.AGE, 3));
+        addDrop(OverwhelmedBlocks.VANILLA, cropDrops(OverwhelmedBlocks.VANILLA, OverwhelmedItems.VANILLA_BEANS,
+                OverwhelmedItems.VANILLA_BEANS, builder));
+
+        BlockStatePropertyLootCondition.Builder builder2 = BlockStatePropertyLootCondition.builder(OverwhelmedBlocks.MINT)
+                .properties(StatePredicate.Builder.create()
+                .exactMatch(MintBlock.AGE, 3));
+        addDrop(OverwhelmedBlocks.MINT, cropDrops(OverwhelmedBlocks.MINT, OverwhelmedItems.MINT_LEAF,
+                OverwhelmedItems.MINT_SEEDS, builder2));
 
         addDrop(OverwhelmedBlocks.GOLD_BEAD);
         addDrop(OverwhelmedBlocks.ICE_CUBE);
