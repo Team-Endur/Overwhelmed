@@ -9,7 +9,7 @@
 	},
 	"elements": [
 		{
-			"from": [8, 0, 2],
+			"from": [12, 0, 2],
 			"to": [14, 12, 14],
 			"faces": {
 				"down":  { "texture": "#bottom", "cullface": "down" },

@@ -252,9 +252,10 @@ public class OverwhelmedBlocks {
             new TallFlowerBlock(FabricBlockSettings.copyOf(WIDOW)));
 
     public static final Block VANILLA = Registry.register(Registries.BLOCK, new Identifier(Overwhelmed.MOD_ID, "vanilla"),
-            new MintBlock(FabricBlockSettings.create()
+            new VanillaBlock(FabricBlockSettings.create()
                     .mapColor(MapColor.DARK_GREEN)
-                    .noCollision().ticksRandomly()
+                    .noCollision()
+                    .ticksRandomly()
                     .breakInstantly()
                     .sounds(BlockSoundGroup.CROP)
                     .pistonBehavior(PistonBehavior.DESTROY)));
@@ -279,6 +280,16 @@ public class OverwhelmedBlocks {
                     .jumpVelocityMultiplier(0.5F)
                     .nonOpaque()
                     .sounds(OverwhelmedSounds.GOO_BLOCK)));
+
+    public static final Block VANILLA_CAKE = registerBlock("vanilla_cake",
+            new VanillaCakeBlock(FabricBlockSettings.create()
+                    .solid()
+                    .strength(0.5F)
+                    .sounds(BlockSoundGroup.WOOL)
+                    .pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block MINT_CAKE = registerBlock("mint_cake",
+            new MintCakeBlock(FabricBlockSettings.copyOf(VANILLA_CAKE)));
+
 
 
     private static Block registerBlock(String name, Block block) {

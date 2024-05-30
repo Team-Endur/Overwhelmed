@@ -1,23 +1,22 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "overwhelmed:block/mint_cake_bottom",
-		"1": "overwhelmed:block/mint_cake_inner",
-		"2": "overwhelmed:block/mint_cake_side",
-		"3": "overwhelmed:block/mint_cake_top",
-		"particle": "overwhelmed:block/mint_cake_bottom"
+		"particle": "overwhelmed:block/mint_cake_side",
+		"bottom": "overwhelmed:block/mint_cake_bottom",
+		"top": "overwhelmed:block/mint_cake_top",
+		"side": "overwhelmed:block/mint_cake_side"
 	},
 	"elements": [
 		{
 			"from": [2, 0, 2],
 			"to": [14, 6, 14],
 			"faces": {
-				"north": {"uv": [2, 10, 14, 16], "texture": "#2"},
-				"east": {"uv": [2, 10, 14, 16], "texture": "#2"},
-				"south": {"uv": [2, 10, 14, 16], "texture": "#2"},
-				"west": {"uv": [2, 10, 14, 16], "texture": "#1"},
-				"up": {"uv": [2, 2, 14, 14], "texture": "#3"},
-				"down": {"uv": [2, 2, 14, 14], "texture": "#0", "cullface": "down"}
+				"down":  { "texture": "#bottom", "cullface": "down" },
+				"up":    { "texture": "#top" },
+				"north": { "texture": "#side" },
+				"south": { "texture": "#side" },
+				"west":  { "texture": "#side" },
+				"east":  { "texture": "#side" }
 			}
 		}
 	]
