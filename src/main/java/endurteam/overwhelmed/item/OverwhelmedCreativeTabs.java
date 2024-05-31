@@ -80,8 +80,8 @@ public class OverwhelmedCreativeTabs {
                         entries.add(OverwhelmedItems.COOKED_SNAIL);
                         entries.add(OverwhelmedItems.VANILLA_COOKIE);
                         entries.add(OverwhelmedItems.PEPPERMINT);
-                        entries.add(OverwhelmedItems.VANILLA_CAKE);
-                        entries.add(OverwhelmedItems.MINT_CAKE);
+                        entries.add(OverwhelmedBlocks.VANILLA_CAKE);
+                        entries.add(OverwhelmedBlocks.MINT_CAKE);
                         entries.add(OverwhelmedItems.VANILLA_ICE_CREAM);
                         entries.add(OverwhelmedItems.MINT_ICE_CREAM);
                         entries.add(OverwhelmedItems.SNAIL_STEW);
