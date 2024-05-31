@@ -15,6 +15,8 @@ public class OverwhelmedSounds {
     public static final SoundEvent GOO_BLOCK_HIT = registerSoundEvent("block.goo_block.hit");
     public static final SoundEvent GOO_BLOCK_FALL = registerSoundEvent("block.goo_block.fall");
 
+    public static final SoundEvent ENTITY_PEBBLE_THROW = registerSoundEvent("entity.pebble.throw");
+
     public static final BlockSoundGroup GOO_BLOCK =
             new BlockSoundGroup(1.0F, 1.0F,
                     GOO_BLOCK_BREAK, GOO_BLOCK_STEP, GOO_BLOCK_PLACE, GOO_BLOCK_HIT, GOO_BLOCK_FALL);

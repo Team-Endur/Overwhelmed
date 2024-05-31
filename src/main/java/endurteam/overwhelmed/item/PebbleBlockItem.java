@@ -1,6 +1,7 @@
 package endurteam.overwhelmed.item;
 
 import endurteam.overwhelmed.entity.projectile.PebbleProjectileEntity;
+import endurteam.overwhelmed.sound.OverwhelmedSounds;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItem;
@@ -22,7 +23,8 @@ public class PebbleBlockItem extends BlockItem {
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
         world.playSound(null, user.getX(), user.getY(), user.getZ(),
-                SoundEvents.ENTITY_SNOWBALL_THROW, SoundCategory.NEUTRAL, 0.5f, 0.4f / (world.getRandom().nextFloat() * 0.4f + 0.8f));
+                OverwhelmedSounds.ENTITY_PEBBLE_THROW, SoundCategory.NEUTRAL,
+                0.5f, 0.4f / (world.getRandom().nextFloat() * 0.4f + 0.8f));
 
         if (!world.isClient) {
             PebbleProjectileEntity pebbleProjectileEntity = new PebbleProjectileEntity(user, world);
