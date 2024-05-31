@@ -16,13 +16,13 @@ public class OverwhelmedFoodComponents {
             new FoodComponent.Builder().nutrition(6).saturationModifier(15.0F).build();
 
     public static final FoodComponent VANILLA_COOKIE =
-            new FoodComponent.Builder().nutrition(4).saturationModifier(0.4F).snack().build();
+            new FoodComponent.Builder().nutrition(4).saturationModifier(0.4F).build();
     public static final FoodComponent VANILLA_ICE_CREAM =
-            new FoodComponent.Builder().nutrition(6).saturationModifier(1.2F).snack().build();
+            new FoodComponent.Builder().nutrition(6).saturationModifier(1.2F).build();
 
     public static final FoodComponent PEPPERMINT =
-            new FoodComponent.Builder().nutrition(2).saturationModifier(0.6F).snack().build();
+            new FoodComponent.Builder().nutrition(2).saturationModifier(0.6F).build();
     public static final FoodComponent MINT_ICE_CREAM =
-            new FoodComponent.Builder().nutrition(6).saturationModifier(1.2F).snack().build();
+            new FoodComponent.Builder().nutrition(6).saturationModifier(1.2F).build();
 
 }

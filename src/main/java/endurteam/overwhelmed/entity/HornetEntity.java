@@ -6,18 +6,16 @@ import net.minecraft.entity.Flutterer;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.Angerable;
-import net.minecraft.entity.mob.FlyingEntity;
 import net.minecraft.entity.mob.MobEntity;
-import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.entity.passive.AnimalEntity;
-import net.minecraft.entity.passive.BeeEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.network.packet.s2c.custom.DebugBeeCustomPayload;
-import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
@@ -25,6 +23,11 @@ import java.util.UUID;
 
 public class HornetEntity extends AnimalEntity implements Angerable, Flutterer {
 
+    private boolean angryAtPlayer;
+    private boolean hiveTooFar;
+    private boolean playerTooFar;
+    private MoveToPreyGoal moveToPreyGoal;
+    private BlockPos spawnPos;
 
     public HornetEntity(EntityType<? extends AnimalEntity> entityType, World world) {
         super(entityType, world);
@@ -32,12 +35,9 @@ public class HornetEntity extends AnimalEntity implements Angerable, Flutterer {
 
     @Override
     protected void initGoals() {
-//        this.goalSelector.add(0, new HornetEntity.StingGoal(this, 1.399999976158142, true));
-        this.goalSelector.add(2, new AnimalMateGoal(this, 1.0));
-//        this.goalSelector.add(5, new HornetEntity.FindHiveGoal());
-//        this.goalSelector.add(8, new HornetEntity.BeeWanderAroundGoal());
-        this.goalSelector.add(9, new SwimGoal(this));
-        this.targetSelector.add(3, new UniversalAngerGoal(this, true));
+        this.goalSelector.add(0, new SwimGoal(this));
+        this.moveToPreyGoal = new MoveToPreyGoal();
+        this.goalSelector.add(1, this.moveToPreyGoal);
     }
 
     public static DefaultAttributeContainer.Builder createHornetAttributes() {
@@ -84,7 +84,49 @@ public class HornetEntity extends AnimalEntity implements Angerable, Flutterer {
 
     }
 
+    public void setSpawnPos(BlockPos pos) {
+        this.spawnPos = pos;
+    }
+
+    @Override
+    public void tick() {
+        super.tick();
+        if (spawnPos != null) {
+            double dx = this.getX() - spawnPos.getX();
+            double dy = this.getY() - spawnPos.getY();
+            double dz = this.getZ() - spawnPos.getZ();
+            double distanceSq = dx * dx + dy * dy + dz * dz;
+            hiveTooFar = distanceSq >= 50 * 50;
+        }
+
+        PlayerEntity nearestPlayer = this.getWorld().getClosestPlayer(this, 25);
+        if (nearestPlayer != null) {
+            Vec3d playerPos = nearestPlayer.getPos();
+            double dxPlayer = this.getX() - playerPos.x;
+            double dyPlayer = this.getY() - playerPos.y;
+            double dzPlayer = this.getZ() - playerPos.z;
+            double distanceSqPlayer = dxPlayer * dxPlayer + dyPlayer * dyPlayer + dzPlayer * dzPlayer;
+            playerTooFar = distanceSqPlayer >= 25 * 25;
+        }
+
+    }
+
+    public class MoveToPreyGoal extends Goal {
+        @Override
+        public boolean canStart() {
+            return false;
+        }
+    }
+
     @Override
     public void chooseRandomAngerTime() {}
+
+    @Override
+    public boolean damage(DamageSource source, float amount) {
+        if (source.getAttacker() instanceof PlayerEntity) {
+            this.angryAtPlayer = true;
+        }
+        return super.damage(source, amount);
+    }
 
 }

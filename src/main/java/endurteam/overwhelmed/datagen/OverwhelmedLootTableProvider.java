@@ -89,9 +89,6 @@ public class OverwhelmedLootTableProvider extends FabricBlockLootTableProvider {
         addPottedPlantDrops(OverwhelmedBlocks.POTTED_SNOWDROP);
         addPottedPlantDrops(OverwhelmedBlocks.POTTED_BELL_SUNFLOWER);
 
-        addDrop(OverwhelmedBlocks.WIDOW);
-        addDrop(OverwhelmedBlocks.WHITE_ALLIUM);
-
         BlockStatePropertyLootCondition.Builder builder = BlockStatePropertyLootCondition.builder(OverwhelmedBlocks.VANILLA)
                 .properties(StatePredicate.Builder.create()
                         .exactMatch(VanillaBlock.AGE, 3));
