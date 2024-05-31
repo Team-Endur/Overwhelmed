@@ -1,8 +1,10 @@
 package endurteam.overwhelmed.entity;
 
 import endurteam.overwhelmed.datagen.OverwhelmedItemTagProvider;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.Flutterer;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -19,6 +21,8 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.EnumSet;
+import java.util.List;
 import java.util.UUID;
 
 public class HornetEntity extends AnimalEntity implements Angerable, Flutterer {
@@ -26,7 +30,6 @@ public class HornetEntity extends AnimalEntity implements Angerable, Flutterer {
     private boolean angryAtPlayer;
     private boolean hiveTooFar;
     private boolean playerTooFar;
-    private MoveToPreyGoal moveToPreyGoal;
     private BlockPos spawnPos;
 
     public HornetEntity(EntityType<? extends AnimalEntity> entityType, World world) {
@@ -36,8 +39,12 @@ public class HornetEntity extends AnimalEntity implements Angerable, Flutterer {
     @Override
     protected void initGoals() {
         this.goalSelector.add(0, new SwimGoal(this));
-        this.moveToPreyGoal = new MoveToPreyGoal();
-        this.goalSelector.add(1, this.moveToPreyGoal);
+        this.goalSelector.add(1, new TemptGoal(this, 1.25, (stack) -> {
+            return stack.isIn(OverwhelmedItemTagProvider.HORNET_FOOD);
+        }, false));
+
+        this.goalSelector.add(2, new ReturnToHiveGoal(this, 1.0));
+        this.goalSelector.add(3, new AttackPlayerGoal(this, 1.5));
     }
 
     public static DefaultAttributeContainer.Builder createHornetAttributes() {
@@ -111,13 +118,6 @@ public class HornetEntity extends AnimalEntity implements Angerable, Flutterer {
 
     }
 
-    public class MoveToPreyGoal extends Goal {
-        @Override
-        public boolean canStart() {
-            return false;
-        }
-    }
-
     @Override
     public void chooseRandomAngerTime() {}
 
@@ -127,6 +127,136 @@ public class HornetEntity extends AnimalEntity implements Angerable, Flutterer {
             this.angryAtPlayer = true;
         }
         return super.damage(source, amount);
+    }
+
+    class ReturnToHiveGoal extends Goal {
+        private final HornetEntity hornet;
+        private final double speed;
+
+        public ReturnToHiveGoal(HornetEntity hornet, double speed) {
+            this.hornet = hornet;
+            this.speed = speed;
+            this.setControls(EnumSet.of(Control.MOVE));
+        }
+
+        @Override
+        public boolean canStart() {
+            return hornet.hiveTooFar && hornet.spawnPos != null;
+        }
+
+        @Override
+        public void start() {
+            hornet.getNavigation().startMovingTo(
+                    hornet.spawnPos.getX() + 0.5,
+                    hornet.spawnPos.getY() + 0.5,
+                    hornet.spawnPos.getZ() + 0.5,
+                    speed
+            );
+        }
+
+        @Override
+        public boolean shouldContinue() {
+            return hornet.hiveTooFar && !hornet.getNavigation().isIdle();
+        }
+
+        @Override
+        public void stop() {
+            hornet.getNavigation().stop();
+        }
+    }
+
+    class AttackPlayerGoal extends Goal {
+        private final HornetEntity hornet;
+        private final double speed;
+        private int attackCooldown = 0;
+
+        public AttackPlayerGoal(HornetEntity hornet, double speed) {
+            this.hornet = hornet;
+            this.speed = speed;
+            this.setControls(EnumSet.of(Control.MOVE, Control.LOOK));
+        }
+
+        @Override
+        public boolean canStart() {
+            return hornet.angryAtPlayer && !hornet.playerTooFar;
+        }
+
+        @Override
+        public void start() {
+            PlayerEntity target = hornet.getWorld().getClosestPlayer(hornet, 25);
+            if (target != null) {
+                hornet.getNavigation().startMovingTo(target, speed);
+            }
+        }
+
+        @Override
+        public boolean shouldContinue() {
+            PlayerEntity target = hornet.getWorld().getClosestPlayer(hornet, 25);
+            return target != null && hornet.angryAtPlayer && !hornet.playerTooFar;
+        }
+
+        @Override
+        public void tick() {
+            PlayerEntity target = hornet.getWorld().getClosestPlayer(hornet, 25);
+            if (target != null && hornet.canSee(target)) {
+                if (attackCooldown <= 0) {
+                    target.damage(null, (float) hornet.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE));
+                    attackCooldown = 20;
+                } else {
+                    attackCooldown--;
+                }
+            }
+        }
+
+        @Override
+        public void stop() {
+            hornet.getNavigation().stop();
+        }
+    }
+
+    class ChasePreyGoal extends Goal {
+        private final HornetEntity hornet;
+        private final double speed;
+
+        public ChasePreyGoal(HornetEntity hornet, double speed) {
+            this.hornet = hornet;
+            this.speed = speed;
+            this.setControls(EnumSet.of(Control.MOVE));
+        }
+
+        @Override
+        public boolean canStart() {
+            return !hornet.playerTooFar && !hornet.hiveTooFar && !hornet.isAttacking() &&
+                    hornet.getTarget() == null;
+        }
+
+        @Override
+        public void start() {
+            List<Entity> nearbyEntities = hornet.getWorld().getEntitiesByClass(Entity.class,
+                    hornet.getBoundingBox().expand(16.0, 8.0, 16.0),
+                    entity -> entity.getType() == OverwhelmedEntityTypeTagProvider.HORNET_PREY());
+            Entity closestEntity = null;
+            double closestDistanceSq = Double.MAX_VALUE;
+            for (Entity entity : nearbyEntities) {
+                double distanceSq = hornet.squaredDistanceTo(entity);
+                if (distanceSq < closestDistanceSq) {
+                    closestEntity = entity;
+                    closestDistanceSq = distanceSq;
+                }
+            }
+            hornet.setTarget((LivingEntity) closestEntity);
+        }
+
+        @Override
+        public boolean shouldContinue() {
+            return hornet.getTarget() != null && hornet.getTarget().isAlive() &&
+                    hornet.squaredDistanceTo(hornet.getTarget()) <= 256.0;
+        }
+
+        @Override
+        public void stop() {
+            hornet.setTarget(null);
+        }
     }
 
 }
