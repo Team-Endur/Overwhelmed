@@ -1,9 +1,11 @@
 package endurteam.overwhelmed.datagen;
 
 import endurteam.overwhelmed.block.OverwhelmedBlocks;
+import endurteam.overwhelmed.item.OverwhelmedItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.item.Item;
+import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
@@ -13,6 +15,8 @@ import net.minecraft.util.Identifier;
 import java.util.concurrent.CompletableFuture;
 
 public class OverwhelmedItemTagProvider extends FabricTagProvider.ItemTagProvider {
+
+    public static final TagKey<Item> HORNET_FOOD = TagKey.of(RegistryKeys.ITEM, new Identifier("overwhelmed:hornet_food"));
     public static final TagKey<Item> WILLOW_LOGS = TagKey.of(RegistryKeys.ITEM, new Identifier("overwhelmed:willow_logs"));
 
     public OverwhelmedItemTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> completableFuture) {
@@ -21,6 +25,12 @@ public class OverwhelmedItemTagProvider extends FabricTagProvider.ItemTagProvide
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
+        getOrCreateTagBuilder(HORNET_FOOD)
+                .add(Items.SPIDER_EYE)
+                .add(Items.HONEY_BOTTLE)
+                .add(OverwhelmedItems.SNAIL)
+                .add(Items.RABBIT)
+                .add(Items.RABBIT_FOOT);
         getOrCreateTagBuilder(ItemTags.SMALL_FLOWERS)
                 .add(OverwhelmedBlocks.FLOFF.asItem())
                 .add(OverwhelmedBlocks.PAINE.asItem())

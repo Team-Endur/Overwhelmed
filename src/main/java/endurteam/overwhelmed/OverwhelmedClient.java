@@ -2,8 +2,12 @@ package endurteam.overwhelmed;
 
 import endurteam.overwhelmed.block.OverwhelmedBlocks;
 import endurteam.overwhelmed.entity.OverwhelmedEntities;
+import endurteam.overwhelmed.entity.client.HornetModel;
+import endurteam.overwhelmed.entity.client.HornetRenderer;
+import endurteam.overwhelmed.entity.client.OverwhelmedModelLayers;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.entity.EntityRenderer;
@@ -41,5 +45,7 @@ public class OverwhelmedClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(OverwhelmedBlocks.GOO_BLOCK, RenderLayer.getTranslucent());
 
         EntityRendererRegistry.register(OverwhelmedEntities.PEBBLE_PROJECTILE, FlyingItemEntityRenderer::new);
+        EntityRendererRegistry.register(OverwhelmedEntities.HORNET, HornetRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(OverwhelmedModelLayers.HORNET, HornetModel::getTexturedModelData);
     }
 }

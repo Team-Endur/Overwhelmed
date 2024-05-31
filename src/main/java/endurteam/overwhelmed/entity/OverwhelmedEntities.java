@@ -15,6 +15,12 @@ public class OverwhelmedEntities {
     public static final EntityType<PebbleProjectileEntity> PEBBLE_PROJECTILE = Registry.register(Registries.ENTITY_TYPE,
             new Identifier(Overwhelmed.MOD_ID, "pebble_projectile"),
             FabricEntityTypeBuilder.<PebbleProjectileEntity>create(SpawnGroup.MISC, PebbleProjectileEntity::new)
-                    .dimensions(EntityDimensions.fixed(0.25f, 0.25f)).build());
+                    .dimensions(EntityDimensions.fixed(0.25F, 0.25F)).build());
+
+    public static final EntityType<HornetEntity> HORNET = Registry.register(Registries.ENTITY_TYPE,
+            new Identifier(Overwhelmed.MOD_ID, "hornet"),
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, HornetEntity::new)
+                    .dimensions(EntityDimensions.fixed(1.0F, 1.0F)).build());
+
 
 }
