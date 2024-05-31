@@ -1,9 +1,8 @@
-// 1.20.6	2024-05-31T08:33:55.1746832	Overwhelmed/Block Loot Tables
+// 1.20.6	2024-05-31T20:01:09.3328764	Overwhelmed/Block Loot Tables
 7845021ae36730f22cd11e98e7220188b025001f data\overwhelmed\loot_tables\blocks\potted_bell_sunflower.json
 183088551af752a7398d19e6eda40556d8a2d6a1 data\overwhelmed\loot_tables\blocks\snail_shell_brick_stair.json
 2d137cb64530ea61e03e40779b515b83d3dc3cc1 data\overwhelmed\loot_tables\blocks\snail_shell_bricks.json
 bbc0d2aa49b9b495f0b15e4cc46352268dc748ba data\overwhelmed\loot_tables\blocks\altair.json
-87a3df6f3172c8e03713a3b574084e05ed75dc69 data\overwhelmed\loot_tables\blocks\widow.json
 9c70f555e8d1579f43de3c869f7a166571057ef6 data\overwhelmed\loot_tables\blocks\polished_altair_stairs.json
 a16fd49e3426266c8802f812ee91f475d27b0fa4 data\overwhelmed\loot_tables\blocks\white_lavatera.json
 b0eae20227697dd90905213af78b6f63d3cfc64f data\overwhelmed\loot_tables\blocks\willow_log.json
@@ -21,8 +20,8 @@ abbdddaa08fd1f98ee16fb6cfd26ee51506c623b data\overwhelmed\loot_tables\blocks\wil
 0f417ebc5e67af9d7dbe6d6ef29cd65a86e0231c data\overwhelmed\loot_tables\blocks\fizzyrock_brick_wall.json
 d0ac508c1a4937f5305402bdf6125c1646be272f data\overwhelmed\loot_tables\blocks\chiseled_snail_shell_bricks.json
 adfd7072f7e98e26ed13fc21f3c3c2f9394c5370 data\overwhelmed\loot_tables\blocks\fizzyrock_geyser.json
-ba0a375ad12165afab33f0b8ca35720527bab607 data\overwhelmed\loot_tables\blocks\ringot.json
 2d33e83d8f450051d4b8214fa835d772fffa4fb7 data\overwhelmed\loot_tables\blocks\potted_squirl.json
+ba0a375ad12165afab33f0b8ca35720527bab607 data\overwhelmed\loot_tables\blocks\ringot.json
 4ba2e15b0cb05bdec91dc1987a8580aa173e65e9 data\overwhelmed\loot_tables\blocks\willow_door.json
 9499886156eee2c4725d5e04826984f5c5dc889d data\overwhelmed\loot_tables\blocks\potted_paine.json
 76224db6b073363ff665144a5d64b3832a9a6b19 data\overwhelmed\loot_tables\blocks\polished_altair_slab.json
@@ -56,7 +55,6 @@ e55b60833cbdc5e2f5766c440d53b87234a63717 data\overwhelmed\loot_tables\blocks\pin
 d535632a245ff45a3ad1011b83fdd4beb74c8278 data\overwhelmed\loot_tables\blocks\willow_leaves.json
 40e36a10ec91ab6f49908b178298833bd66739e2 data\overwhelmed\loot_tables\blocks\bell_sunflower.json
 3f2290d5d478f382f4525325bfc8a446c5bc4392 data\overwhelmed\loot_tables\blocks\potted_white_lavatera.json
-2109109d4199fc6656ea23cfa85a7aebaafe260a data\overwhelmed\loot_tables\blocks\white_allium.json
 6548c7939c9e28df92085ef45076e99bc238a2b8 data\overwhelmed\loot_tables\blocks\ice_cube.json
 73b00e3a4fbf95e702c774c34a740e60cf0c6e2a data\overwhelmed\loot_tables\blocks\willow_vines.json
 39b35583f071296f2e305de28ab6f7d62cd1d9d4 data\overwhelmed\loot_tables\blocks\snail_shell_brick_wall.json

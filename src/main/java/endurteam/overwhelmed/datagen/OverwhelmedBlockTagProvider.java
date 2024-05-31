@@ -3,12 +3,15 @@ package endurteam.overwhelmed.datagen;
 import endurteam.overwhelmed.block.OverwhelmedBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.minecraft.block.Block;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.registry.tag.TagKey;
 
 import java.util.concurrent.CompletableFuture;
 
 public class OverwhelmedBlockTagProvider extends FabricTagProvider.BlockTagProvider {
+
     public OverwhelmedBlockTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
         super(output, registriesFuture);
     }
@@ -88,5 +91,6 @@ public class OverwhelmedBlockTagProvider extends FabricTagProvider.BlockTagProvi
                 .add(OverwhelmedBlocks.FIZZYROCK_BRICK_WALL);
         getOrCreateTagBuilder(BlockTags.CLIMBABLE)
                 .add(OverwhelmedBlocks.GOO_BLOCK);
+
     }
 }
