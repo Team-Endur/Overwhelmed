@@ -31,7 +31,7 @@ import net.minecraft.world.event.GameEvent;
 public class MintCakeBlock extends Block {
     public static final MapCodec<endurteam.overwhelmed.block.MintCakeBlock> CODEC =
             createCodec(endurteam.overwhelmed.block.MintCakeBlock::new);
-    public static final int MAX_BITES = 6;
+    public static final int MAX_BITES = 5;
     public static final IntProperty BITES;
     public static final int DEFAULT_COMPARATOR_OUTPUT;
     protected static final float field_31047 = 1.0F;
@@ -86,23 +86,20 @@ public class MintCakeBlock extends Block {
         return tryEat(world, pos, state, player);
     }
 
-    protected static ActionResult tryEat(WorldAccess world, BlockPos pos, BlockState state, PlayerEntity player) {
+    protected ActionResult tryEat(WorldAccess world, BlockPos pos, BlockState state, PlayerEntity player) {
+        int bites = state.get(BITES);
         if (!player.canConsume(false)) {
             return ActionResult.PASS;
+        } else if (bites < MAX_BITES) {
+            world.setBlockState(pos, state.with(BITES, bites + 1), 3);
         } else {
-            player.incrementStat(Stats.EAT_CAKE_SLICE);
-            player.getHungerManager().add(2, 0.1F);
-            int i = (Integer)state.get(BITES);
-            world.emitGameEvent(player, GameEvent.EAT, pos);
-            if (i < 6) {
-                world.setBlockState(pos, (BlockState)state.with(BITES, i + 1), 3);
-            } else {
-                world.removeBlock(pos, false);
-                world.emitGameEvent(player, GameEvent.BLOCK_DESTROY, pos);
-            }
-
-            return ActionResult.SUCCESS;
+            world.removeBlock(pos, false);
+            world.emitGameEvent(player, GameEvent.BLOCK_DESTROY, pos);
         }
+        player.incrementStat(Stats.EAT_CAKE_SLICE);
+        player.getHungerManager().add(2, 0.1F);
+        world.emitGameEvent(player, GameEvent.EAT, pos);
+        return ActionResult.SUCCESS;
     }
 
     protected BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
@@ -122,7 +119,7 @@ public class MintCakeBlock extends Block {
     }
 
     public static int getComparatorOutput(int bites) {
-        return (7 - bites) * 2;
+        return (MAX_BITES - bites) * 2;
     }
 
     protected boolean hasComparatorOutput(BlockState state) {

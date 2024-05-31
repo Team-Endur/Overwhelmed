@@ -288,7 +288,11 @@ public class OverwhelmedBlocks {
                     .sounds(BlockSoundGroup.WOOL)
                     .pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block MINT_CAKE = registerBlock("mint_cake",
-            new MintCakeBlock(FabricBlockSettings.copyOf(VANILLA_CAKE)));
+            new MintCakeBlock(FabricBlockSettings.create()
+                    .solid()
+                    .strength(0.5f)
+                    .sounds(BlockSoundGroup.WOOL)
+                    .pistonBehavior(PistonBehavior.DESTROY)));
 
 
 
