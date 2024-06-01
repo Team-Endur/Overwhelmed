@@ -6,6 +6,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.Flutterer;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.ai.control.FlightMoveControl;
+import net.minecraft.entity.ai.control.MoveControl;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -37,6 +39,7 @@ public class HornetEntity extends AnimalEntity implements Angerable, Flutterer {
 
     public HornetEntity(EntityType<? extends AnimalEntity> entityType, World world) {
         super(entityType, world);
+        this.moveControl = new FlightMoveControl(this, 20, true);
     }
 
     @Override
@@ -48,8 +51,8 @@ public class HornetEntity extends AnimalEntity implements Angerable, Flutterer {
 
         this.goalSelector.add(2, new ReturnToHiveGoal(this, 1.0));
 
-        this.targetSelector.add(1, (new HornerRevengeGoal(this)).setGroupRevenge(new Class[0]));
-        this.targetSelector.add(2, new UniversalAngerGoal(this, true));
+        this.targetSelector.add(1, (new HornetRevengeGoal(this)).setGroupRevenge(new Class[0]));
+        this.targetSelector.add(2, new StingTargetGoal(this, 2.0));
         this.targetSelector.add(3, new UniversalAngerGoal(this, true));
         this.targetSelector.add(4, new ActiveTargetGoal(this, BeeEntity.class, true));
 //        this.targetSelector.add(5, new ActiveTargetGoal(this, SnailEntity.class, true));
@@ -176,9 +179,9 @@ public class HornetEntity extends AnimalEntity implements Angerable, Flutterer {
         }
     }
 
-    class HornerRevengeGoal extends RevengeGoal {
+    class HornetRevengeGoal extends RevengeGoal {
 
-        public HornerRevengeGoal(PathAwareEntity mob, Class<?>... noRevengeTypes) {
+        public HornetRevengeGoal(PathAwareEntity mob, Class<?>... noRevengeTypes) {
             super(mob, noRevengeTypes);
         }
 
@@ -193,24 +196,38 @@ public class HornetEntity extends AnimalEntity implements Angerable, Flutterer {
         }
     }
 
-    class StingTargetGoal extends ActiveTargetGoal<PlayerEntity> {
+    class StingTargetGoal extends Goal {
+        private final HornetEntity hornet;
+        private final double reachDistance;
+        private LivingEntity target;
 
-        public StingTargetGoal(MobEntity mob, Class<PlayerEntity> targetClass, boolean checkVisibility) {
-            super(mob, targetClass, checkVisibility);
+        public StingTargetGoal(HornetEntity hornet, double reachDistance) {
+            this.hornet = hornet;
+            this.reachDistance = reachDistance;
+            this.setControls(EnumSet.of(Control.MOVE, Control.LOOK));
         }
 
+        @Override
         public boolean canStart() {
-            HornetEntity hornetEntity = (HornetEntity) this.mob;
-            return hornetEntity.hasAngerTime() && super.canStart();
+            this.target = this.hornet.getTarget();
+            return this.target != null && this.target.isAlive() && !this.hornet.playerTooFar && this.hornet.hasAngerTime();
         }
 
+        @Override
         public boolean shouldContinue() {
-            HornetEntity hornetEntity = (HornetEntity) this.mob;
-            if (hornetEntity.hasAngerTime() && this.mob.getTarget() != null) {
-                return super.shouldContinue();
-            } else {
-                this.target = null;
-                return false;
+            return this.canStart();
+        }
+
+        @Override
+        public void tick() {
+            if (this.target != null) {
+                double distanceToTarget = this.hornet.squaredDistanceTo(this.target.getX(), this.target.getY(), this.target.getZ());
+                if (distanceToTarget <= this.reachDistance * this.reachDistance) {
+                    this.hornet.getLookControl().lookAt(this.target, 30.0F, 30.0F);
+                    this.hornet.tryAttack(this.target);
+                } else {
+                    this.hornet.getNavigation().startMovingTo(this.target, 1.0);
+                }
             }
         }
     }
