@@ -16,7 +16,12 @@ import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 public class OverwhelmedClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
+
+        BlockRenderLayerMap.INSTANCE.putBlock(OverwhelmedBlocks.WILLOW_DOOR, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(OverwhelmedBlocks.WILLOW_TRAPDOOR, RenderLayer.getCutout());
+
         BlockRenderLayerMap.INSTANCE.putBlock(OverwhelmedBlocks.WILLOW_LEAVES, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(OverwhelmedBlocks.WILLOW_VINES, RenderLayer.getCutout());
 
         BlockRenderLayerMap.INSTANCE.putBlock(OverwhelmedBlocks.FLOFF, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(OverwhelmedBlocks.PAINE, RenderLayer.getCutout());

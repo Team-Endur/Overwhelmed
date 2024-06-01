@@ -94,7 +94,8 @@ public class OverwhelmedBlocks {
                     .blockVision(Blocks::never)
                     .burnable()
                     .pistonBehavior(PistonBehavior.DESTROY)
-                    .solidBlock(Blocks::never)));
+                    .solidBlock(Blocks::never)
+                    .sounds(BlockSoundGroup.GRASS)));
     public static final Block WILLOW_VINES = registerBlock("willow_vines",
             new WeepingVinesBlock(FabricBlockSettings.create()
                     .mapColor(MapColor.LICHEN_GREEN)
@@ -272,6 +273,14 @@ public class OverwhelmedBlocks {
             new ClotBlock(FabricBlockSettings.copy(GOLD_BEAD)));
     public static final Block PEBBLE = registerPebbleBlock("pebble",
             new ClotBlock(FabricBlockSettings.copy(GOLD_BEAD)));
+
+    public static final Block PAPER_NEST = registerBlock("paper_nest",
+            new Block(FabricBlockSettings.create()
+                    .mapColor(MapColor.YELLOW)
+                    .instrument(Instrument.BASS)
+                    .strength(0.3F)
+                    .sounds(BlockSoundGroup.WOOD)
+                    .burnable()));
 
     public static final Block GOO_BLOCK = registerBlock("goo_block",
             new GooBlock(FabricBlockSettings.create()

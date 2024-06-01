@@ -105,6 +105,8 @@ public class OverwhelmedLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(OverwhelmedBlocks.ICE_CUBE);
         addDrop(OverwhelmedBlocks.PEBBLE);
 
+        addDrop(OverwhelmedBlocks.PAPER_NEST, dropsWithSilkTouch(OverwhelmedBlocks.PAPER_NEST));
+
         addDrop(OverwhelmedBlocks.GOO_BLOCK);
     }
 }

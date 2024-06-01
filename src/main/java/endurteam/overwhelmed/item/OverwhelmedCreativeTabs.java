@@ -73,6 +73,7 @@ public class OverwhelmedCreativeTabs {
                         entries.add(OverwhelmedItems.PEBBLE);
                         entries.add(OverwhelmedItems.MINT_SEEDS);
                         entries.add(OverwhelmedItems.VANILLA_BEANS);
+                        entries.add(OverwhelmedBlocks.PAPER_NEST);
                         entries.add(OverwhelmedBlocks.GOO_BLOCK);
 //                        entries.add(OverwhelmedItems.BLOWGUN);
                         entries.add(OverwhelmedItems.PAPER_BULLET);

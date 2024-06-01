@@ -3,10 +3,8 @@ package endurteam.overwhelmed.datagen;
 import endurteam.overwhelmed.block.OverwhelmedBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
-import net.minecraft.block.Block;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.BlockTags;
-import net.minecraft.registry.tag.TagKey;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -18,6 +16,8 @@ public class OverwhelmedBlockTagProvider extends FabricTagProvider.BlockTagProvi
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
+        getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
+                .add(OverwhelmedBlocks.PAPER_NEST);
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
                 .add(OverwhelmedBlocks.SNAIL_SHELL_BRICKS)
                 .add(OverwhelmedBlocks.SNAIL_SHELL_BRICK_STAIRS)
