@@ -6,6 +6,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.Flutterer;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.ai.AboveGroundTargeting;
+import net.minecraft.entity.ai.NoPenaltySolidTargeting;
 import net.minecraft.entity.ai.control.FlightMoveControl;
 import net.minecraft.entity.ai.control.MoveControl;
 import net.minecraft.entity.ai.goal.*;
@@ -37,28 +39,21 @@ public class HornetEntity extends AnimalEntity implements Angerable, Flutterer {
     private boolean playerTooFar;
     private BlockPos spawnPos;
 
-    public HornetEntity(EntityType<? extends AnimalEntity> entityType, World world) {
+    protected HornetEntity(EntityType<? extends AnimalEntity> entityType, World world) {
         super(entityType, world);
-        this.moveControl = new FlightMoveControl(this, 20, true);
     }
 
-    @Override
     protected void initGoals() {
-        this.goalSelector.add(0, new SwimGoal(this));
-        this.goalSelector.add(1, new TemptGoal(this, 1.25, (stack) -> {
+        this.goalSelector.add(0, new StingGoal(this, 1.399999976158142, true));
+        this.goalSelector.add(1, new AnimalMateGoal(this, 1.0));
+        this.goalSelector.add(2, new TemptGoal(this, 1.25, (stack) -> {
             return stack.isIn(OverwhelmedItemTagProvider.HORNET_FOOD);
         }, false));
-
-        this.goalSelector.add(2, new ReturnToHiveGoal(this, 1.0));
-
-        this.targetSelector.add(1, (new HornetRevengeGoal(this)).setGroupRevenge(new Class[0]));
-        this.targetSelector.add(2, new StingTargetGoal(this, 2.0));
+        this.goalSelector.add(3, new HornetWanderAroundGoal(this, spawnPos));
+        this.goalSelector.add(4, new SwimGoal(this));
+//        this.targetSelector.add(1, (new BeeRevengeGoal(this)).setGroupRevenge(new Class[0]));
+//        this.targetSelector.add(2, new StingTargetGoal(this));
         this.targetSelector.add(3, new UniversalAngerGoal(this, true));
-        this.targetSelector.add(4, new ActiveTargetGoal(this, BeeEntity.class, true));
-//        this.targetSelector.add(5, new ActiveTargetGoal(this, SnailEntity.class, true));
-        this.targetSelector.add(5, new ActiveTargetGoal(this, RabbitEntity.class, true));
-        this.targetSelector.add(6, new ActiveTargetGoal(this, SpiderEntity.class, true));
-        this.targetSelector.add(7, new ActiveTargetGoal(this, CaveSpiderEntity.class, true));
     }
 
     public static DefaultAttributeContainer.Builder createHornetAttributes() {
@@ -70,7 +65,7 @@ public class HornetEntity extends AnimalEntity implements Angerable, Flutterer {
 
     @Override
     public boolean isBreedingItem(ItemStack stack) {
-        return stack.isIn(OverwhelmedItemTagProvider.HORNET_FOOD);
+        return false;
     }
 
     @Nullable
@@ -105,131 +100,68 @@ public class HornetEntity extends AnimalEntity implements Angerable, Flutterer {
 
     }
 
-    public void setSpawnPos(BlockPos pos) {
-        this.spawnPos = pos;
-    }
-
-    @Override
-    public void tick() {
-        super.tick();
-        if (spawnPos != null) {
-            double dx = this.getX() - spawnPos.getX();
-            double dy = this.getY() - spawnPos.getY();
-            double dz = this.getZ() - spawnPos.getZ();
-            double distanceSq = dx * dx + dy * dy + dz * dz;
-            hiveTooFar = distanceSq >= 50 * 50;
+    class StingGoal extends MeleeAttackGoal {
+        StingGoal(final PathAwareEntity mob, final double speed, final boolean pauseWhenMobIdle) {
+            super(mob, speed, pauseWhenMobIdle);
         }
 
-        PlayerEntity nearestPlayer = this.getWorld().getClosestPlayer(this, 25);
-        if (nearestPlayer != null) {
-            Vec3d playerPos = nearestPlayer.getPos();
-            double dxPlayer = this.getX() - playerPos.x;
-            double dyPlayer = this.getY() - playerPos.y;
-            double dzPlayer = this.getZ() - playerPos.z;
-            double distanceSqPlayer = dxPlayer * dxPlayer + dyPlayer * dyPlayer + dzPlayer * dzPlayer;
-            playerTooFar = distanceSqPlayer >= 25 * 25;
+        public boolean canStart() {
+            return super.canStart() && HornetEntity.this.hasAngerTime();
         }
 
-    }
-
-    @Override
-    public void chooseRandomAngerTime() {}
-
-    @Override
-    public boolean damage(DamageSource source, float amount) {
-        if (source.getAttacker() instanceof PlayerEntity) {
-            this.angryAtPlayer = true;
+        public boolean shouldContinue() {
+            return super.shouldContinue() && HornetEntity.this.hasAngerTime();
         }
-        return super.damage(source, amount);
     }
 
-    class ReturnToHiveGoal extends Goal {
-        private final HornetEntity hornet;
-        private final double speed;
+    class HornetWanderAroundGoal extends Goal {
+        private static final int MAX_DISTANCE = 22;
+        private final BlockPos spawnPos;
+        private final double safeZoneDistance = 50;
+        private final HornetEntity hornetEntity;
 
-        public ReturnToHiveGoal(HornetEntity hornet, double speed) {
-            this.hornet = hornet;
-            this.speed = speed;
+        HornetWanderAroundGoal(HornetEntity hornetEntity, BlockPos spawnPos) {
+            this.hornetEntity = Objects.requireNonNull(hornetEntity);
+            this.spawnPos = Objects.requireNonNull(spawnPos);
             this.setControls(EnumSet.of(Control.MOVE));
         }
 
-        @Override
         public boolean canStart() {
-            return hornet.hiveTooFar && hornet.spawnPos != null;
+            double distanceToSpawn = hornetEntity.getPos().distanceTo(Vec3d.ofCenter(spawnPos));
+            return distanceToSpawn <= safeZoneDistance && hornetEntity.getNavigation().isIdle() && hornetEntity.getRandom().nextInt(10) == 0;
         }
 
-        @Override
+        public boolean shouldContinue() {
+            double distanceToSpawn = hornetEntity.getPos().distanceTo(Vec3d.ofCenter(spawnPos));
+            return distanceToSpawn <= safeZoneDistance && hornetEntity.getNavigation().isFollowingPath();
+        }
+
         public void start() {
-            hornet.getNavigation().startMovingTo(
-                    hornet.spawnPos.getX() + 0.5,
-                    hornet.spawnPos.getY() + 0.5,
-                    hornet.spawnPos.getZ() + 0.5,
-                    speed
-            );
-        }
-
-        @Override
-        public boolean shouldContinue() {
-            return hornet.hiveTooFar && !hornet.getNavigation().isIdle();
-        }
-
-        @Override
-        public void stop() {
-            hornet.getNavigation().stop();
-        }
-    }
-
-    class HornetRevengeGoal extends RevengeGoal {
-
-        public HornetRevengeGoal(PathAwareEntity mob, Class<?>... noRevengeTypes) {
-            super(mob, noRevengeTypes);
-        }
-
-        public boolean shouldContinue() {
-            return HornetEntity.this.hasAngerTime() && !playerTooFar && super.shouldContinue();
-        }
-
-        protected void setMobEntityTarget(MobEntity mob, LivingEntity target) {
-            if (mob instanceof HornetEntity && this.mob.canSee(target)) {
-                mob.setTarget(target);
+            Vec3d targetPosition = this.getRandomLocation();
+            if (targetPosition != null) {
+                hornetEntity.getNavigation().startMovingAlong(hornetEntity.getNavigation().findPathTo(BlockPos.ofFloored(targetPosition), 1), 1.0);
             }
         }
-    }
 
-    class StingTargetGoal extends Goal {
-        private final HornetEntity hornet;
-        private final double reachDistance;
-        private LivingEntity target;
-
-        public StingTargetGoal(HornetEntity hornet, double reachDistance) {
-            this.hornet = hornet;
-            this.reachDistance = reachDistance;
-            this.setControls(EnumSet.of(Control.MOVE, Control.LOOK));
-        }
-
-        @Override
-        public boolean canStart() {
-            this.target = this.hornet.getTarget();
-            return this.target != null && this.target.isAlive() && !this.hornet.playerTooFar && this.hornet.hasAngerTime();
-        }
-
-        @Override
-        public boolean shouldContinue() {
-            return this.canStart();
-        }
-
-        @Override
-        public void tick() {
-            if (this.target != null) {
-                double distanceToTarget = this.hornet.squaredDistanceTo(this.target.getX(), this.target.getY(), this.target.getZ());
-                if (distanceToTarget <= this.reachDistance * this.reachDistance) {
-                    this.hornet.getLookControl().lookAt(this.target, 30.0F, 30.0F);
-                    this.hornet.tryAttack(this.target);
-                } else {
-                    this.hornet.getNavigation().startMovingTo(this.target, 1.0);
-                }
+        @Nullable
+        private Vec3d getRandomLocation() {
+            Vec3d targetVector;
+            double distanceToSpawn = hornetEntity.getPos().distanceTo(Vec3d.ofCenter(spawnPos));
+            if (distanceToSpawn > safeZoneDistance) {
+                targetVector = Vec3d.ofCenter(spawnPos).subtract(hornetEntity.getPos()).normalize();
+            } else {
+                targetVector = hornetEntity.getRotationVec(0.0F);
             }
+
+            Vec3d targetPosition = AboveGroundTargeting.find(hornetEntity, 8, 7, targetVector.x, targetVector.z, 1.5707964F, 3, 1);
+            return targetPosition != null ? targetPosition : NoPenaltySolidTargeting.find(hornetEntity, 8, 4, -2, targetVector.x, targetVector.z, 1.5707963705062866);
         }
     }
 
+
+
+    @Override
+    public void chooseRandomAngerTime() {
+
+    }
 }
