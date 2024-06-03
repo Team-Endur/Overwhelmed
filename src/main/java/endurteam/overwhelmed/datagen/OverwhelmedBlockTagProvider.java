@@ -84,6 +84,10 @@ public class OverwhelmedBlockTagProvider extends FabricTagProvider.BlockTagProvi
                 .add(OverwhelmedBlocks.WILLOW_FENCE);
         getOrCreateTagBuilder(BlockTags.FENCE_GATES)
                 .add(OverwhelmedBlocks.WILLOW_FENCE_GATE);
+        getOrCreateTagBuilder(BlockTags.STANDING_SIGNS)
+                .add(OverwhelmedBlocks.WILLOW_SIGN);
+        getOrCreateTagBuilder(BlockTags.WALL_SIGNS)
+                .add(OverwhelmedBlocks.WILLOW_WALL_SIGN);
         getOrCreateTagBuilder(BlockTags.WALLS)
                 .add(OverwhelmedBlocks.SNAIL_SHELL_BRICK_WALL)
                 .add(OverwhelmedBlocks.ALTAIR_WALL)

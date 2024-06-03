@@ -17,6 +17,9 @@ public class OverwhelmedItems {
     public static final Item VANILLA_BEANS = registerItem("vanilla_beans",
             new AliasedBlockItem(OverwhelmedBlocks.VANILLA, new Item.Settings()));
 
+    public static final Item WILLOW_SIGN = registerItem("willow_sign",
+            new SignItem(new Item.Settings(), OverwhelmedBlocks.WILLOW_SIGN, OverwhelmedBlocks. WILLOW_WALL_SIGN));
+
     public static Item BLOWGUN = registerItem("blowgun", new Item(new Item.Settings()));
     public static Item PAPER_BULLET = registerItem("paper_bullet", new Item(new Item.Settings()));
 
