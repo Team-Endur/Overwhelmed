@@ -292,7 +292,7 @@ public class OverwhelmedBlocks {
 
     public static final Block WILLOW_SIGN = Registry.register(Registries.BLOCK,
             new Identifier(Overwhelmed.MOD_ID, "willow_sign"),
-            new SignBlock(OverwhelmedWoodType.WILLOW, FabricBlockSettings.create()
+            new OverwhelmedSignBlock(OverwhelmedWoodType.WILLOW, FabricBlockSettings.create()
                     .mapColor(WILLOW_LOG.getDefaultMapColor())
                     .solid()
                     .instrument(Instrument.BASS)
@@ -301,11 +301,11 @@ public class OverwhelmedBlocks {
                     .burnable()));
     public static final Block WILLOW_WALL_SIGN = Registry.register(Registries.BLOCK,
             new Identifier(Overwhelmed.MOD_ID, "willow_wall_sign"),
-            new WallSignBlock(OverwhelmedWoodType.WILLOW, FabricBlockSettings.copy(WILLOW_SIGN)));
+            new OverwhelmedWallSignBlock(OverwhelmedWoodType.WILLOW, FabricBlockSettings.copy(WILLOW_SIGN)));
 
     public static final Block WILLOW_HANGING_SIGN = Registry.register(Registries.BLOCK,
             new Identifier(Overwhelmed.MOD_ID, "willow_hanging_sign"),
-            new WallSignBlock(OverwhelmedWoodType.WILLOW, FabricBlockSettings.create()
+            new OverwhelmedHangingSignBlock(OverwhelmedWoodType.WILLOW, FabricBlockSettings.create()
                     .mapColor(WILLOW_LOG.getDefaultMapColor())
                     .solid()
                     .instrument(Instrument.BASS)
@@ -314,7 +314,7 @@ public class OverwhelmedBlocks {
                     .burnable()));
     public static final Block WILLOW_HANGING_WALL_SIGN = Registry.register(Registries.BLOCK,
             new Identifier(Overwhelmed.MOD_ID, "willow_hanging_wall_sign"),
-            new WallSignBlock(OverwhelmedWoodType.WILLOW, FabricBlockSettings.copy(WILLOW_HANGING_SIGN)));
+            new OverwhelmedWallHangingSignBlock(OverwhelmedWoodType.WILLOW, FabricBlockSettings.copy(WILLOW_HANGING_SIGN)));
 
     public static final Block VANILLA_CAKE = registerBlock("vanilla_cake",
             new VanillaCakeBlock(FabricBlockSettings.create()
