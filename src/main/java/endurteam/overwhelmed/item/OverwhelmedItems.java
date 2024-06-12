@@ -19,11 +19,17 @@ public class OverwhelmedItems {
 
     public static final Item WILLOW_SIGN = registerItem("willow_sign",
             new SignItem(new Item.Settings(), OverwhelmedBlocks.WILLOW_SIGN, OverwhelmedBlocks. WILLOW_WALL_SIGN));
+    public static final Item WILLOW_HANGING_SIGN = registerItem("willow_hanging_sign",
+            new HangingSignItem(OverwhelmedBlocks.WILLOW_HANGING_SIGN, OverwhelmedBlocks.WILLOW_HANGING_WALL_SIGN,
+                    new Item.Settings()
+                            .maxCount(16)));
 
     public static Item BLOWGUN = registerItem("blowgun", new Item(new Item.Settings()));
     public static Item PAPER_BULLET = registerItem("paper_bullet", new Item(new Item.Settings()));
 
-    public static Item SNAIL = registerItem("snail", new Item(new Item.Settings().food(OverwhelmedFoodComponents.SNAIL)));
+    public static Item SNAIL = registerItem("snail",
+            new Item(new Item.Settings()
+                    .food(OverwhelmedFoodComponents.SNAIL)));
     public static Item COOKED_SNAIL = registerItem("cooked_snail",
             new Item(new Item.Settings()
                     .food(OverwhelmedFoodComponents.COOKED_SNAIL)));

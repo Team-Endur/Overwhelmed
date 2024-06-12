@@ -1,7 +1,6 @@
 package endurteam.overwhelmed.block;
 
 import it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap;
-import net.minecraft.block.BlockSetType;
 import net.minecraft.block.WoodType;
 
 import java.util.Map;

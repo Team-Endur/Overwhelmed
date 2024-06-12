@@ -46,7 +46,7 @@ public class Overwhelmed implements ModInitializer {
 
 		FabricDefaultAttributeRegistry.register(OverwhelmedEntities.HORNET, HornetEntity.createHornetAttributes());
 
-		BiomeModifications.addFeature(BiomeSelectors.tag(OverwhelmedBiomeTags.ORE_ALTAIR),
+		BiomeModifications.addFeature(BiomeSelectors.tag(BiomeTags.IS_MOUNTAIN),
 				GenerationStep.Feature.UNDERGROUND_ORES, ALTAIR_ORE_PLACED_KEY);
 
 	}

@@ -9,6 +9,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Models;
+import net.minecraft.data.family.BlockFamilies;
 
 
 public class OverwhelmedModelProvider extends FabricModelProvider {
@@ -32,7 +33,6 @@ public class OverwhelmedModelProvider extends FabricModelProvider {
         willowPool.fence(OverwhelmedBlocks.WILLOW_FENCE);
         willowPool.fenceGate(OverwhelmedBlocks.WILLOW_FENCE_GATE);
         blockStateModelGenerator.registerDoor(OverwhelmedBlocks.WILLOW_DOOR);
-        blockStateModelGenerator.registerTrapdoor(OverwhelmedBlocks.WILLOW_TRAPDOOR);
         willowPool.pressurePlate(OverwhelmedBlocks.WILLOW_PRESSURE_PLATE);
         willowPool.button(OverwhelmedBlocks.WILLOW_BUTTON);
         blockStateModelGenerator.registerSimpleCubeAll(OverwhelmedBlocks.WILLOW_LEAVES);
@@ -96,6 +96,12 @@ public class OverwhelmedModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerDoubleBlock(OverwhelmedBlocks.WIDOW, BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerDoubleBlock(OverwhelmedBlocks.WHITE_ALLIUM,
                 BlockStateModelGenerator.TintType.NOT_TINTED);
+
+        willowPool.family(BlockFamilies.register(OverwhelmedBlocks.WILLOW_PLANKS)
+                .sign(OverwhelmedBlocks.WILLOW_SIGN, OverwhelmedBlocks.WILLOW_WALL_SIGN).build());
+
+        blockStateModelGenerator.registerHangingSign(OverwhelmedBlocks.STRIPPED_WILLOW_LOG,
+                OverwhelmedBlocks.WILLOW_HANGING_SIGN, OverwhelmedBlocks.WILLOW_HANGING_WALL_SIGN);
 
         blockStateModelGenerator.registerCrop(OverwhelmedBlocks.VANILLA, VanillaBlock.AGE, 0, 1, 2, 3);
         blockStateModelGenerator.registerCrop(OverwhelmedBlocks.MINT, MintBlock.AGE, 0, 1, 2, 3);

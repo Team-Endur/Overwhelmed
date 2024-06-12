@@ -17,7 +17,8 @@ import java.util.concurrent.CompletableFuture;
 
 public class OverwhelmedLootTableProvider extends FabricBlockLootTableProvider {
 
-    public OverwhelmedLootTableProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
+    public OverwhelmedLootTableProvider(FabricDataOutput dataOutput,
+                                        CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
         super(dataOutput, registryLookup);
     }
 
@@ -32,11 +33,11 @@ public class OverwhelmedLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(OverwhelmedBlocks.WILLOW_SLAB);
         addDrop(OverwhelmedBlocks.WILLOW_FENCE);
         addDrop(OverwhelmedBlocks.WILLOW_FENCE_GATE);
-        addDrop(OverwhelmedBlocks.WILLOW_DOOR);
         addDrop(OverwhelmedBlocks.WILLOW_TRAPDOOR);
         addDrop(OverwhelmedBlocks.WILLOW_PRESSURE_PLATE);
         addDrop(OverwhelmedBlocks.WILLOW_BUTTON);
-        addDrop(OverwhelmedBlocks.WILLOW_LEAVES, leavesDrops(OverwhelmedBlocks.WILLOW_LEAVES, Blocks.ACACIA_SAPLING, 0.05f));
+        addDrop(OverwhelmedBlocks.WILLOW_LEAVES, leavesDrops(OverwhelmedBlocks.WILLOW_LEAVES, Blocks.ACACIA_SAPLING,
+                0.05f));
         addVinePlantDrop(OverwhelmedBlocks.WILLOW_VINES, OverwhelmedBlocks.WILLOW_VINES);
 
         addDrop(OverwhelmedBlocks.SNAIL_SHELL_BRICKS);

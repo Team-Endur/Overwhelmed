@@ -1,12 +1,14 @@
-// 1.20.6	2024-06-01T17:37:36.395946	Overwhelmed/Tags for minecraft:block
+// 1.20.6	2024-06-12T20:15:45.8256122	Overwhelmed/Tags for minecraft:block
 d08e30bef2a0f33c43fd86c0ca48151c5e140aea data\minecraft\tags\blocks\walls.json
+411fd004ad6422508eaf133fdde67bf31279a1f3 data\minecraft\tags\blocks\standing_signs.json
 13315714603f99fd1859755447edb73c66629649 data\minecraft\tags\blocks\mineable\pickaxe.json
 aa0416cfbab5d4063b3ba2f13b747b3e303a3284 data\minecraft\tags\blocks\overworld_natural_logs.json
 13df691824256e275ebd220133a5db78a77aa2cb data\minecraft\tags\blocks\fences.json
 774a36b30d4e1b34fa1b4eaa2f1d3ddc1a7d2e25 data\minecraft\tags\blocks\mineable\shovel.json
-dc3808222860946e25115b3bf5de76dc062947bb data\minecraft\tags\blocks\tall_flowers.json
 cb8edbd4aa2207b7fc7be566377560c393e0b722 data\minecraft\tags\blocks\fence_gates.json
+dc3808222860946e25115b3bf5de76dc062947bb data\minecraft\tags\blocks\tall_flowers.json
 057e697c632d9220ead75e49ed1b2cf38fc81546 data\minecraft\tags\blocks\logs_that_burn.json
+c09c6d9661b5e5a7a561650b4b2839037cf8b2a0 data\minecraft\tags\blocks\wall_signs.json
 926b00b797221450904c41d6407d430939f8989b data\minecraft\tags\blocks\small_flowers.json
 881efe884b035c02576dc42c3e93529f672dd811 data\minecraft\tags\blocks\mineable\axe.json
 f6ef0031d3215a494663ca9be191cdfe42312e6e data\minecraft\tags\blocks\convertable_to_mud.json

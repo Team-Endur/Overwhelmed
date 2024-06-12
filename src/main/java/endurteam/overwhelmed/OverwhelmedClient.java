@@ -1,6 +1,8 @@
 package endurteam.overwhelmed;
 
 import endurteam.overwhelmed.block.OverwhelmedBlocks;
+import endurteam.overwhelmed.block.OverwhelmedWoodType;
+import endurteam.overwhelmed.entity.OverwhelmedBlockEntities;
 import endurteam.overwhelmed.entity.OverwhelmedEntities;
 import endurteam.overwhelmed.entity.client.HornetModel;
 import endurteam.overwhelmed.entity.client.HornetRenderer;
@@ -10,6 +12,10 @@ import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.TexturedRenderLayers;
+import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
+import net.minecraft.client.render.block.entity.HangingSignBlockEntityRenderer;
+import net.minecraft.client.render.block.entity.SignBlockEntityRenderer;
 import net.minecraft.client.render.entity.EntityRenderer;
 import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 
@@ -48,6 +54,13 @@ public class OverwhelmedClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(OverwhelmedBlocks.MINT, RenderLayer.getCutout());
 
         BlockRenderLayerMap.INSTANCE.putBlock(OverwhelmedBlocks.GOO_BLOCK, RenderLayer.getTranslucent());
+
+        BlockEntityRendererFactories.register(OverwhelmedBlockEntities.SIGN_BLOCK_ENTITY, SignBlockEntityRenderer::new);
+        BlockEntityRendererFactories.register(OverwhelmedBlockEntities.HANGING_SIGN_BLOCK_ENTITY,
+                HangingSignBlockEntityRenderer::new);
+
+        TexturedRenderLayers.SIGN_TYPE_TEXTURES.put(OverwhelmedWoodType.WILLOW,
+                TexturedRenderLayers.getSignTextureId(OverwhelmedWoodType.WILLOW));
 
         EntityRendererRegistry.register(OverwhelmedEntities.PEBBLE_PROJECTILE, FlyingItemEntityRenderer::new);
         EntityRendererRegistry.register(OverwhelmedEntities.HORNET, HornetRenderer::new);
