@@ -2,9 +2,8 @@ package endurteam.overwhelmed.block;
 
 import endurteam.overwhelmed.Overwhelmed;
 import endurteam.overwhelmed.sound.OverwhelmedSounds;
-import it.unimi.dsi.fastutil.chars.Char2LongRBTreeMap;
-import net.fabricmc.fabric.api.block.v1.FabricBlock;
-import net.fabricmc.fabric.api.block.v1.FabricBlockState;
+import endurteam.overwhelmed.util.OverwhelmedBlockSetType;
+import endurteam.overwhelmed.util.OverwhelmedWoodType;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.Instrument;

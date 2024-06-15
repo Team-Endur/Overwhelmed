@@ -1,4 +1,4 @@
-package endurteam.overwhelmed.entity;
+package endurteam.overwhelmed.block.entity;
 
 import endurteam.overwhelmed.Overwhelmed;
 import endurteam.overwhelmed.block.OverwhelmedBlocks;
@@ -10,7 +10,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
-public class OverwhelmedBlockEntities<T extends BlockEntityType> {
+public class OverwhelmedBlockEntities {
 
     public static final BlockEntityType<SignBlockEntity> SIGN_BLOCK_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE,
             new Identifier(Overwhelmed.MOD_ID, "sign_entity"),
@@ -20,5 +20,7 @@ public class OverwhelmedBlockEntities<T extends BlockEntityType> {
             Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(Overwhelmed.MOD_ID, "hanging_sign_entity"),
             FabricBlockEntityTypeBuilder.create(HangingSignBlockEntity::new,
                     OverwhelmedBlocks.WILLOW_HANGING_SIGN, OverwhelmedBlocks.WILLOW_HANGING_WALL_SIGN).build());
+
+    public static void registerBlockEntities() {}
 
 }

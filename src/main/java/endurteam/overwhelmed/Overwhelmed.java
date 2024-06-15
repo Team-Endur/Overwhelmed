@@ -1,6 +1,7 @@
 package endurteam.overwhelmed;
 
 import endurteam.overwhelmed.block.OverwhelmedBlocks;
+import endurteam.overwhelmed.block.entity.OverwhelmedBlockEntities;
 import endurteam.overwhelmed.entity.HornetEntity;
 import endurteam.overwhelmed.entity.OverwhelmedEntities;
 import endurteam.overwhelmed.item.OverwhelmedCreativeTabs;
@@ -33,6 +34,7 @@ public class Overwhelmed implements ModInitializer {
 		OverwhelmedCreativeTabs.registerItemTabs();
 		OverwhelmedItems.registerItems();
 		OverwhelmedBlocks.registerBlocks();
+		OverwhelmedBlockEntities.registerBlockEntities();
 		OverwhelmedSounds.registerSounds();
 
 		StrippableBlockRegistry.register(OverwhelmedBlocks.WILLOW_LOG, OverwhelmedBlocks.STRIPPED_WILLOW_LOG);

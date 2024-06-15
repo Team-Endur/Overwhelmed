@@ -1,4 +1,4 @@
-package endurteam.overwhelmed.entity;
+package endurteam.overwhelmed.block.entity;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntityType;

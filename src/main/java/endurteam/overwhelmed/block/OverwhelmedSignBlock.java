@@ -1,6 +1,6 @@
 package endurteam.overwhelmed.block;
 
-import endurteam.overwhelmed.entity.OverwhelmedSignBlockEntity;
+import endurteam.overwhelmed.block.entity.OverwhelmedSignBlockEntity;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.SignBlock;
 import net.minecraft.block.WoodType;

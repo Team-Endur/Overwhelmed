@@ -1,8 +1,8 @@
 package endurteam.overwhelmed;
 
 import endurteam.overwhelmed.block.OverwhelmedBlocks;
-import endurteam.overwhelmed.block.OverwhelmedWoodType;
-import endurteam.overwhelmed.entity.OverwhelmedBlockEntities;
+import endurteam.overwhelmed.util.OverwhelmedWoodType;
+import endurteam.overwhelmed.block.entity.OverwhelmedBlockEntities;
 import endurteam.overwhelmed.entity.OverwhelmedEntities;
 import endurteam.overwhelmed.entity.client.HornetModel;
 import endurteam.overwhelmed.entity.client.HornetRenderer;
@@ -16,7 +16,6 @@ import net.minecraft.client.render.TexturedRenderLayers;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.minecraft.client.render.block.entity.HangingSignBlockEntityRenderer;
 import net.minecraft.client.render.block.entity.SignBlockEntityRenderer;
-import net.minecraft.client.render.entity.EntityRenderer;
 import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 
 public class OverwhelmedClient implements ClientModInitializer {
