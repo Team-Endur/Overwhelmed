@@ -1,18 +1,13 @@
 package endurteam.overwhelmed.util;
 
-import it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap;
+import net.fabricmc.fabric.api.object.builder.v1.block.type.BlockSetTypeBuilder;
 import net.minecraft.block.BlockSetType;
-import net.minecraft.registry.Registry;
+import net.minecraft.util.Identifier;
 
 import java.util.Map;
 
 public class OverwhelmedBlockSetType {
-    private static final Map<String, BlockSetType> VALUES = new Object2ObjectArrayMap();
-    public static final BlockSetType WILLOW = registerBlockSetType(new BlockSetType("willow"));
-
-    private static BlockSetType registerBlockSetType(BlockSetType blockSetType) {
-        VALUES.put(blockSetType.name(), blockSetType);
-        return blockSetType;
-    }
+    public static BlockSetType WILLOW = BlockSetTypeBuilder.copyOf(BlockSetType.MANGROVE).register(
+            new Identifier("overwhelmed:willow"));
 
 }
