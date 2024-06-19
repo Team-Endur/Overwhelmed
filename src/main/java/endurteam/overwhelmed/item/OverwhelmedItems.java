@@ -20,11 +20,9 @@ public class OverwhelmedItems {
             new AliasedBlockItem(OverwhelmedBlocks.VANILLA, new Item.Settings()));
 
     public static final Item WILLOW_SIGN = registerItem("willow_sign",
-            new SignItem(new Item.Settings(), OverwhelmedBlocks.WILLOW_SIGN, OverwhelmedBlocks. WILLOW_WALL_SIGN));
+            new SignItem(new Item.Settings().maxCount(16), OverwhelmedBlocks.WILLOW_SIGN, OverwhelmedBlocks.WILLOW_WALL_SIGN));
     public static final Item WILLOW_HANGING_SIGN = registerItem("willow_hanging_sign",
-            new HangingSignItem(OverwhelmedBlocks.WILLOW_HANGING_SIGN, OverwhelmedBlocks.WILLOW_HANGING_WALL_SIGN,
-                    new Item.Settings()
-                            .maxCount(16)));
+            new HangingSignItem(OverwhelmedBlocks.WILLOW_HANGING_SIGN, OverwhelmedBlocks.WILLOW_HANGING_WALL_SIGN, new Item.Settings().maxCount(16)));
 
     public static final Item WILLOW_BOAT = TerraformBoatItemHelper.registerBoatItem(OverwhelmedBoats.WILLOW_BOAT_ID, OverwhelmedBoats.WILLOW_BOAT_KEY, false);
     public static final Item WILLOW_CHEST_BOAT = TerraformBoatItemHelper.registerBoatItem(OverwhelmedBoats.WILLOW_CHEST_BOAT_ID, OverwhelmedBoats.WILLOW_BOAT_KEY, true);

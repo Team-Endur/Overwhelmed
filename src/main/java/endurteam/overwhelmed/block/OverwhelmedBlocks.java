@@ -1,5 +1,9 @@
 package endurteam.overwhelmed.block;
 
+import com.terraformersmc.terraform.sign.block.TerraformHangingSignBlock;
+import com.terraformersmc.terraform.sign.block.TerraformSignBlock;
+import com.terraformersmc.terraform.sign.block.TerraformWallHangingSignBlock;
+import com.terraformersmc.terraform.sign.block.TerraformWallSignBlock;
 import endurteam.overwhelmed.Overwhelmed;
 import endurteam.overwhelmed.sound.OverwhelmedSounds;
 import endurteam.overwhelmed.util.OverwhelmedBlockSetType;
@@ -289,31 +293,28 @@ public class OverwhelmedBlocks {
                     .nonOpaque()
                     .sounds(OverwhelmedSounds.GOO_BLOCK)));
 
+
+    public static final Identifier WILLOW_SIGN_TEXT_ID = new Identifier(Overwhelmed.MOD_ID, "entity/signs/willow");
+    public static final Identifier WILLOW_HANGING_SIGN_TEXT_ID = new Identifier(Overwhelmed.MOD_ID, "entity/signs/hanging/willow");
+    public static final Identifier WILLOW_HANGING_GUI_TEXT_ID = new Identifier(Overwhelmed.MOD_ID, "textures/gui/hanging_signs/willow");
+
     public static final Block WILLOW_SIGN = Registry.register(Registries.BLOCK,
             new Identifier(Overwhelmed.MOD_ID, "willow_sign"),
-            new OverwhelmedSignBlock(OverwhelmedWoodType.WILLOW, FabricBlockSettings.create()
-                    .mapColor(WILLOW_LOG.getDefaultMapColor())
-                    .solid()
-                    .instrument(Instrument.BASS)
-                    .noCollision()
-                    .strength(1.0F)
-                    .burnable()));
+            new TerraformSignBlock(WILLOW_SIGN_TEXT_ID, AbstractBlock.Settings.copy(Blocks.OAK_SIGN)
+                    .mapColor(WILLOW_LOG.getDefaultMapColor())));
     public static final Block WILLOW_WALL_SIGN = Registry.register(Registries.BLOCK,
             new Identifier(Overwhelmed.MOD_ID, "willow_wall_sign"),
-            new OverwhelmedWallSignBlock(OverwhelmedWoodType.WILLOW, FabricBlockSettings.copy(WILLOW_SIGN)));
+            new TerraformWallSignBlock(WILLOW_SIGN_TEXT_ID, AbstractBlock.Settings.copy(Blocks.OAK_WALL_SIGN)
+                    .mapColor(WILLOW_LOG.getDefaultMapColor())));
 
     public static final Block WILLOW_HANGING_SIGN = Registry.register(Registries.BLOCK,
             new Identifier(Overwhelmed.MOD_ID, "willow_hanging_sign"),
-            new OverwhelmedHangingSignBlock(OverwhelmedWoodType.WILLOW, FabricBlockSettings.create()
-                    .mapColor(WILLOW_LOG.getDefaultMapColor())
-                    .solid()
-                    .instrument(Instrument.BASS)
-                    .noCollision()
-                    .strength(1.0F)
-                    .burnable()));
+            new TerraformHangingSignBlock(WILLOW_HANGING_SIGN_TEXT_ID, WILLOW_HANGING_GUI_TEXT_ID, AbstractBlock.Settings.copy(Blocks.OAK_WALL_SIGN)
+                    .mapColor(WILLOW_LOG.getDefaultMapColor())));
     public static final Block WILLOW_HANGING_WALL_SIGN = Registry.register(Registries.BLOCK,
             new Identifier(Overwhelmed.MOD_ID, "willow_hanging_wall_sign"),
-            new OverwhelmedWallHangingSignBlock(OverwhelmedWoodType.WILLOW, FabricBlockSettings.copy(WILLOW_HANGING_SIGN)));
+            new TerraformWallHangingSignBlock(WILLOW_HANGING_SIGN_TEXT_ID, WILLOW_HANGING_GUI_TEXT_ID, AbstractBlock.Settings.copy(Blocks.OAK_WALL_SIGN)
+                    .mapColor(WILLOW_LOG.getDefaultMapColor())));
 
     public static final Block VANILLA_CAKE = registerBlock("vanilla_cake",
             new VanillaCakeBlock(FabricBlockSettings.create()
