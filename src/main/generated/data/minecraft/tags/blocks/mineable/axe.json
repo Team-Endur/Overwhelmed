@@ -1,6 +1,5 @@
 {
   "values": [
-    "overwhelmed:paper_nest",
     "overwhelmed:willow_planks",
     "overwhelmed:willow_slab",
     "overwhelmed:willow_stairs",
@@ -8,9 +7,12 @@
     "overwhelmed:willow_pressure_plate",
     "overwhelmed:willow_door",
     "overwhelmed:willow_trapdoor",
+    "overwhelmed:willow_fence",
+    "overwhelmed:willow_fence_gate",
     "overwhelmed:willow_sign",
     "overwhelmed:willow_wall_sign",
     "overwhelmed:willow_hanging_sign",
-    "overwhelmed:willow_hanging_wall_sign"
+    "overwhelmed:willow_hanging_wall_sign",
+    "overwhelmed:paper_nest"
   ]
 }

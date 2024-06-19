@@ -12,6 +12,7 @@
     "overwhelmed:polished_altair",
     "overwhelmed:polished_altair_stairs",
     "overwhelmed:polished_altair_slab",
+    "overwhelmed:fizzyrock_geyser",
     "overwhelmed:fizzyrock",
     "overwhelmed:fizzyrock_stairs",
     "overwhelmed:fizzyrock_slab",
@@ -24,7 +25,6 @@
     "overwhelmed:fizzyrock_brick_stairs",
     "overwhelmed:fizzyrock_brick_slab",
     "overwhelmed:fizzyrock_brick_wall",
-    "overwhelmed:chiseled_fizzyrock_bricks",
-    "overwhelmed:fizzyrock_geyser"
+    "overwhelmed:chiseled_fizzyrock_bricks"
   ]
 }
