@@ -1,6 +1,7 @@
 package endurteam.overwhelmed.datagen;
 
 import endurteam.overwhelmed.block.MintBlock;
+import endurteam.overwhelmed.block.OverwhelmedBlockFamilies;
 import endurteam.overwhelmed.block.OverwhelmedBlocks;
 import endurteam.overwhelmed.block.VanillaBlock;
 import endurteam.overwhelmed.item.OverwhelmedItems;
@@ -27,10 +28,9 @@ public class OverwhelmedModelProvider extends FabricModelProvider {
                 .wood(OverwhelmedBlocks.STRIPPED_WILLOW_WOOD);
         BlockStateModelGenerator.BlockTexturePool willowPool = blockStateModelGenerator
                 .registerCubeAllModelTexturePool(OverwhelmedBlocks.WILLOW_PLANKS);
-        willowPool.family(OverwhelmedBlocks.WILLOW_FAMILY);
+        willowPool.family(OverwhelmedBlockFamilies.WILLOW_FAMILY);
         blockStateModelGenerator.registerHangingSign(OverwhelmedBlocks.STRIPPED_WILLOW_LOG,
                 OverwhelmedBlocks.WILLOW_HANGING_SIGN, OverwhelmedBlocks.WILLOW_HANGING_WALL_SIGN);
-
 
         blockStateModelGenerator.registerSimpleCubeAll(OverwhelmedBlocks.WILLOW_LEAVES);
         blockStateModelGenerator.registerTintableCross(OverwhelmedBlocks.WILLOW_VINES,
@@ -38,37 +38,27 @@ public class OverwhelmedModelProvider extends FabricModelProvider {
 
         BlockStateModelGenerator.BlockTexturePool snailShellBricksPool = blockStateModelGenerator
                 .registerCubeAllModelTexturePool(OverwhelmedBlocks.SNAIL_SHELL_BRICKS);
-        snailShellBricksPool.stairs(OverwhelmedBlocks.SNAIL_SHELL_BRICK_STAIRS);
-        snailShellBricksPool.slab(OverwhelmedBlocks.SNAIL_SHELL_BRICK_SLAB);
-        snailShellBricksPool.wall(OverwhelmedBlocks.SNAIL_SHELL_BRICK_WALL);
-        blockStateModelGenerator.registerSimpleCubeAll(OverwhelmedBlocks.CHISELED_SNAIL_SHELL_BRICKS);
+        snailShellBricksPool.family(OverwhelmedBlockFamilies.SNAIL_SHELL_FAMILY);
 
         BlockStateModelGenerator.BlockTexturePool altairPool = blockStateModelGenerator
                 .registerCubeAllModelTexturePool(OverwhelmedBlocks.ALTAIR);
-        altairPool.stairs(OverwhelmedBlocks.ALTAIR_STAIRS);
-        altairPool.slab(OverwhelmedBlocks.ALTAIR_SLAB);
-        altairPool.wall(OverwhelmedBlocks.ALTAIR_WALL);
+        altairPool.family(OverwhelmedBlockFamilies.ALTAIR_FAMILY);
+
         BlockStateModelGenerator.BlockTexturePool polishedAltairPool = blockStateModelGenerator
                 .registerCubeAllModelTexturePool(OverwhelmedBlocks.POLISHED_ALTAIR);
-        polishedAltairPool.stairs(OverwhelmedBlocks.POLISHED_ALTAIR_STAIRS);
-        polishedAltairPool.slab(OverwhelmedBlocks.POLISHED_ALTAIR_SLAB);
+        polishedAltairPool.family(OverwhelmedBlockFamilies.POLISHED_ALTAIR_FAMILY);
 
         BlockStateModelGenerator.BlockTexturePool fizzyrockPool = blockStateModelGenerator
                 .registerCubeAllModelTexturePool(OverwhelmedBlocks.FIZZYROCK);
-        fizzyrockPool.stairs(OverwhelmedBlocks.FIZZYROCK_STAIRS);
-        fizzyrockPool.slab(OverwhelmedBlocks.FIZZYROCK_SLAB);
-        fizzyrockPool.wall(OverwhelmedBlocks.FIZZYROCK_WALL);
-        blockStateModelGenerator.registerCubeAllModelTexturePool(OverwhelmedBlocks.CHISELED_FIZZYROCK);
+        fizzyrockPool.family(OverwhelmedBlockFamilies.FIZZYROCK_FAMILY);
+
         BlockStateModelGenerator.BlockTexturePool polishedFizzyrockPool = blockStateModelGenerator
                 .registerCubeAllModelTexturePool(OverwhelmedBlocks.POLISHED_FIZZYROCK);
-        polishedFizzyrockPool.stairs(OverwhelmedBlocks.POLISHED_FIZZYROCK_STAIRS);
-        polishedFizzyrockPool.slab(OverwhelmedBlocks.POLISHED_FIZZYROCK_SLAB);
+        polishedFizzyrockPool.family(OverwhelmedBlockFamilies.POLISHED_FIZZYROCK_FAMILY);
+
         BlockStateModelGenerator.BlockTexturePool fizzyrockBricksPool = blockStateModelGenerator
                 .registerCubeAllModelTexturePool(OverwhelmedBlocks.FIZZYROCK_BRICKS);
-        fizzyrockBricksPool.stairs(OverwhelmedBlocks.FIZZYROCK_BRICK_STAIRS);
-        fizzyrockBricksPool.slab(OverwhelmedBlocks.FIZZYROCK_BRICK_SLAB);
-        fizzyrockBricksPool.wall(OverwhelmedBlocks.FIZZYROCK_BRICK_WALL);
-        blockStateModelGenerator.registerCubeAllModelTexturePool(OverwhelmedBlocks.CHISELED_FIZZYROCK_BRICKS);
+        fizzyrockBricksPool.family(OverwhelmedBlockFamilies.FIZZYROCK_BRICKS_FAMILY);
 
         blockStateModelGenerator.registerSimpleCubeAll(OverwhelmedBlocks.SOIL);
         blockStateModelGenerator.registerSimpleCubeAll(OverwhelmedBlocks.CHARCOAL_ORE);

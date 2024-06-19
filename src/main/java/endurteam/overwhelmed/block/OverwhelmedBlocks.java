@@ -11,8 +11,6 @@ import endurteam.overwhelmed.util.OverwhelmedWoodType;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.Instrument;
 import net.minecraft.block.piston.PistonBehavior;
-import net.minecraft.data.family.BlockFamilies;
-import net.minecraft.data.family.BlockFamily;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -77,19 +75,6 @@ public class OverwhelmedBlocks {
             new Identifier(Overwhelmed.MOD_ID, "willow_hanging_wall_sign"),
             new TerraformWallHangingSignBlock(WILLOW_HANGING_SIGN_TEXT_ID, WILLOW_HANGING_GUI_TEXT_ID, AbstractBlock.Settings.copy(Blocks.OAK_WALL_SIGN)
                     .mapColor(WILLOW_LOG.getDefaultMapColor())));
-
-
-    public static final BlockFamily WILLOW_FAMILY = BlockFamilies.register(WILLOW_PLANKS)
-            .slab(WILLOW_SLAB)
-            .stairs(WILLOW_STAIRS)
-            .button(WILLOW_BUTTON)
-            .pressurePlate(WILLOW_PRESSURE_PLATE)
-            .door(WILLOW_DOOR)
-            .trapdoor(WILLOW_TRAPDOOR)
-            .fence(WILLOW_FENCE)
-            .fenceGate(WILLOW_FENCE_GATE)
-            .sign(WILLOW_SIGN, WILLOW_WALL_SIGN)
-            .build();
 
     public static final Block WILLOW_LEAVES = registerBlock("willow_leaves",
             new Block(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES)));
