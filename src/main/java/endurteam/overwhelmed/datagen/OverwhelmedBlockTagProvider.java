@@ -17,7 +17,18 @@ public class OverwhelmedBlockTagProvider extends FabricTagProvider.BlockTagProvi
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
         getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
-                .add(OverwhelmedBlocks.PAPER_NEST);
+                .add(OverwhelmedBlocks.PAPER_NEST)
+                .add(OverwhelmedBlocks.WILLOW_PLANKS)
+                .add(OverwhelmedBlocks.WILLOW_SLAB)
+                .add(OverwhelmedBlocks.WILLOW_STAIRS)
+                .add(OverwhelmedBlocks.WILLOW_BUTTON)
+                .add(OverwhelmedBlocks.WILLOW_PRESSURE_PLATE)
+                .add(OverwhelmedBlocks.WILLOW_DOOR)
+                .add(OverwhelmedBlocks.WILLOW_TRAPDOOR)
+                .add(OverwhelmedBlocks.WILLOW_SIGN)
+                .add(OverwhelmedBlocks.WILLOW_WALL_SIGN)
+                .add(OverwhelmedBlocks.WILLOW_HANGING_SIGN)
+                .add(OverwhelmedBlocks.WILLOW_HANGING_WALL_SIGN);
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
                 .add(OverwhelmedBlocks.SNAIL_SHELL_BRICKS)
                 .add(OverwhelmedBlocks.SNAIL_SHELL_BRICK_STAIRS)
@@ -95,6 +106,8 @@ public class OverwhelmedBlockTagProvider extends FabricTagProvider.BlockTagProvi
                 .add(OverwhelmedBlocks.FIZZYROCK_BRICK_WALL);
         getOrCreateTagBuilder(BlockTags.CLIMBABLE)
                 .add(OverwhelmedBlocks.GOO_BLOCK);
+        getOrCreateTagBuilder(BlockTags.WALL_HANGING_SIGNS)
+                .add(OverwhelmedBlocks.WILLOW_HANGING_WALL_SIGN);
 
     }
 }
