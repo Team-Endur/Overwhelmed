@@ -8,10 +8,11 @@ import endurteam.overwhelmed.Overwhelmed;
 import endurteam.overwhelmed.sound.OverwhelmedSounds;
 import endurteam.overwhelmed.util.OverwhelmedBlockSetType;
 import endurteam.overwhelmed.util.OverwhelmedWoodType;
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.Instrument;
 import net.minecraft.block.piston.PistonBehavior;
+import net.minecraft.data.family.BlockFamilies;
+import net.minecraft.data.family.BlockFamily;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -23,276 +24,38 @@ import net.minecraft.util.Identifier;
 public class OverwhelmedBlocks {
 
     public static final Block WILLOW_LOG = registerBlock("willow_log",
-            new PillarBlock(FabricBlockSettings.create()
-                    .mapColor(MapColor.LICHEN_GREEN)
-                    .instrument(Instrument.BASS)
-                    .strength(2.0F)
-                    .sounds(BlockSoundGroup.WOOD)
-                    .burnable()));
+            new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_LOG)
+                    .mapColor(MapColor.LICHEN_GREEN)));
     public static final Block WILLOW_WOOD = registerBlock("willow_wood",
-            new PillarBlock(FabricBlockSettings.copyOf(WILLOW_LOG)));
+            new PillarBlock(AbstractBlock.Settings.copy(WILLOW_LOG)));
     public static final Block STRIPPED_WILLOW_LOG = registerBlock("stripped_willow_log",
-            new PillarBlock(FabricBlockSettings.copyOf(WILLOW_LOG)));
+            new PillarBlock(AbstractBlock.Settings.copy(WILLOW_LOG)));
     public static final Block STRIPPED_WILLOW_WOOD = registerBlock("stripped_willow_wood",
-            new PillarBlock(FabricBlockSettings.copyOf(WILLOW_LOG)));
+            new PillarBlock(AbstractBlock.Settings.copy(WILLOW_LOG)));
     public static final Block WILLOW_PLANKS = registerBlock("willow_planks",
-            new Block(FabricBlockSettings.create()
-                    .mapColor(MapColor.LICHEN_GREEN)
-                    .instrument(Instrument.BASS)
-                    .strength(2.0F, 3.0F)
-                    .sounds(BlockSoundGroup.WOOD)
-                    .burnable()));
+            new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS)
+                    .mapColor(MapColor.LICHEN_GREEN)));
     public static final Block WILLOW_STAIRS = registerBlock("willow_stairs",
             new StairsBlock(OverwhelmedBlocks.WILLOW_PLANKS.getDefaultState(),
-                    FabricBlockSettings.copyShallow(OverwhelmedBlocks.WILLOW_PLANKS)));
+                    AbstractBlock.Settings.copy(OverwhelmedBlocks.WILLOW_PLANKS)));
     public static final Block WILLOW_SLAB = registerBlock("willow_slab",
-            new SlabBlock(FabricBlockSettings.copy(WILLOW_PLANKS)));
+            new SlabBlock(AbstractBlock.Settings.copy(WILLOW_PLANKS)));
     public static final Block WILLOW_FENCE = registerBlock("willow_fence",
-            new FenceBlock(FabricBlockSettings.copy(WILLOW_PLANKS)));
+            new FenceBlock(AbstractBlock.Settings.copy(WILLOW_PLANKS)));
     public static final Block WILLOW_FENCE_GATE = registerBlock("willow_fence_gate",
-            new FenceGateBlock(OverwhelmedWoodType.WILLOW, FabricBlockSettings.create()
-                    .mapColor(WILLOW_PLANKS.getDefaultMapColor())
-                    .solid()
-                    .instrument(Instrument.BASS)
-                    .strength(2.0F, 3.0F)
-                    .burnable()));
+            new FenceGateBlock(OverwhelmedWoodType.WILLOW, AbstractBlock.Settings.copy(Blocks.OAK_FENCE_GATE)
+                    .mapColor(WILLOW_PLANKS.getDefaultMapColor())));
     public static final Block WILLOW_DOOR = registerBlock("willow_door",
-            new DoorBlock(OverwhelmedBlockSetType.WILLOW, FabricBlockSettings.create()
-                    .mapColor(WILLOW_PLANKS.getDefaultMapColor())
-                    .instrument(Instrument.BASS)
-                    .strength(3.0F)
-                    .nonOpaque()
-                    .burnable()
-                    .pistonBehavior(PistonBehavior.DESTROY)));
+            new DoorBlock(OverwhelmedBlockSetType.WILLOW, AbstractBlock.Settings.copy(Blocks.OAK_DOOR)
+                    .mapColor(WILLOW_PLANKS.getDefaultMapColor())));
     public static final Block WILLOW_TRAPDOOR = registerBlock("willow_trapdoor",
-            new TrapdoorBlock(OverwhelmedBlockSetType.WILLOW, FabricBlockSettings.create()
-                    .mapColor(MapColor.LICHEN_GREEN)
-                    .instrument(Instrument.BASS)
-                    .strength(3.0F)
-                    .nonOpaque()
-                    .allowsSpawning(Blocks::never)
-                    .burnable()));
+            new TrapdoorBlock(OverwhelmedBlockSetType.WILLOW, AbstractBlock.Settings.copy(Blocks.OAK_TRAPDOOR)
+                    .mapColor(MapColor.LICHEN_GREEN)));
     public static final Block WILLOW_PRESSURE_PLATE = registerBlock("willow_pressure_plate",
-            new PressurePlateBlock(OverwhelmedBlockSetType.WILLOW, FabricBlockSettings.create()
-                    .mapColor(WILLOW_PLANKS.getDefaultMapColor())
-                    .solid()
-                    .instrument(Instrument.BASS)
-                    .noCollision()
-                    .strength(0.5F)
-                    .burnable()
-                    .pistonBehavior(PistonBehavior.DESTROY)));
+            new PressurePlateBlock(OverwhelmedBlockSetType.WILLOW, AbstractBlock.Settings.copy(Blocks.OAK_PRESSURE_PLATE)
+                    .mapColor(WILLOW_PLANKS.getDefaultMapColor())));
     public static final Block WILLOW_BUTTON = registerBlock("willow_button",
-            new ButtonBlock(OverwhelmedBlockSetType.WILLOW, 30, FabricBlockSettings.create()
-                    .noCollision()
-                    .strength(0.5F)
-                    .pistonBehavior(PistonBehavior.DESTROY)));
-    public static final Block WILLOW_LEAVES = registerBlock("willow_leaves",
-            new Block(FabricBlockSettings.create()
-                    .mapColor(MapColor.DARK_GREEN)
-                    .strength(0.2F)
-                    .ticksRandomly()
-                    .nonOpaque()
-                    .allowsSpawning(Blocks::canSpawnOnLeaves)
-                    .suffocates(Blocks::never)
-                    .blockVision(Blocks::never)
-                    .burnable()
-                    .pistonBehavior(PistonBehavior.DESTROY)
-                    .solidBlock(Blocks::never)
-                    .sounds(BlockSoundGroup.GRASS)));
-    public static final Block WILLOW_VINES = registerBlock("willow_vines",
-            new WeepingVinesBlock(FabricBlockSettings.create()
-                    .mapColor(MapColor.LICHEN_GREEN)
-                    .ticksRandomly()
-                    .noCollision()
-                    .breakInstantly()
-                    .sounds(BlockSoundGroup.VINE)
-                    .pistonBehavior(PistonBehavior.DESTROY)));
-
-    public static final Block SNAIL_SHELL_BRICKS = registerBlock("snail_shell_bricks",
-            new Block(FabricBlockSettings.create()
-                    .mapColor(MapColor.DIRT_BROWN)
-                    .strength(3.0F, 12.0F)
-                    .instrument(Instrument.BASEDRUM)
-                    .requiresTool()));
-    public static final Block SNAIL_SHELL_BRICK_STAIRS = registerBlock("snail_shell_brick_stair",
-            new StairsBlock(OverwhelmedBlocks.SNAIL_SHELL_BRICKS.getDefaultState(),
-                    FabricBlockSettings.copyOf(SNAIL_SHELL_BRICKS)));
-    public static final Block SNAIL_SHELL_BRICK_SLAB = registerBlock("snail_shell_brick_slab",
-            new SlabBlock(FabricBlockSettings.copyOf(SNAIL_SHELL_BRICKS)));
-    public static final Block SNAIL_SHELL_BRICK_WALL = registerBlock("snail_shell_brick_wall",
-            new WallBlock(FabricBlockSettings.copyOf(SNAIL_SHELL_BRICKS)));
-    public static final Block CHISELED_SNAIL_SHELL_BRICKS = registerBlock("chiseled_snail_shell_bricks",
-            new Block(FabricBlockSettings.copyOf(SNAIL_SHELL_BRICKS)));
-
-    public static final Block ALTAIR = registerBlock("altair",
-            new Block(FabricBlockSettings.create()
-                    .mapColor(MapColor.BLACK)
-                    .strength(1.5F, 6.0F)
-                    .instrument(Instrument.BASEDRUM)
-                    .requiresTool()));
-    public static final Block ALTAIR_STAIRS = registerBlock("altair_stairs",
-            new StairsBlock(OverwhelmedBlocks.ALTAIR.getDefaultState(), FabricBlockSettings.copyOf(ALTAIR)));
-    public static final Block ALTAIR_SLAB = registerBlock("altair_slab",
-            new SlabBlock(FabricBlockSettings.copyOf(ALTAIR)));
-    public static final Block ALTAIR_WALL = registerBlock("altair_wall",
-            new WallBlock(FabricBlockSettings.copyOf(ALTAIR)));
-    public static final Block POLISHED_ALTAIR = registerBlock("polished_altair",
-            new Block(FabricBlockSettings.copyOf(ALTAIR)));
-    public static final Block POLISHED_ALTAIR_STAIRS = registerBlock("polished_altair_stairs",
-            new StairsBlock(OverwhelmedBlocks.POLISHED_ALTAIR.getDefaultState(), FabricBlockSettings.copyOf(ALTAIR)));
-    public static final Block POLISHED_ALTAIR_SLAB = registerBlock("polished_altair_slab",
-            new SlabBlock(FabricBlockSettings.copyOf(ALTAIR)));
-
-    public static final Block FIZZYROCK = registerBlock("fizzyrock",
-            new Block(FabricBlockSettings.create()
-                    .mapColor(MapColor.LIGHT_GRAY)
-                    .strength(1.5F, 6.0F)
-                    .instrument(Instrument.BASEDRUM)
-                    .requiresTool()
-                    .sounds(BlockSoundGroup.DEEPSLATE)));
-    public static final Block FIZZYROCK_STAIRS = registerBlock("fizzyrock_stairs",
-            new StairsBlock(OverwhelmedBlocks.FIZZYROCK.getDefaultState(), FabricBlockSettings.copyOf(FIZZYROCK)));
-    public static final Block FIZZYROCK_SLAB = registerBlock("fizzyrock_slab",
-            new SlabBlock(FabricBlockSettings.copyOf(FIZZYROCK)));
-    public static final Block FIZZYROCK_WALL = registerBlock("fizzyrock_wall",
-            new WallBlock(FabricBlockSettings.copyOf(FIZZYROCK)));
-    public static final Block CHISELED_FIZZYROCK = registerBlock("chiseled_fizzyrock",
-            new Block(FabricBlockSettings.copyOf(FIZZYROCK)));
-    public static final Block POLISHED_FIZZYROCK = registerBlock("polished_fizzyrock",
-            new Block(FabricBlockSettings.create()
-                    .mapColor(MapColor.LIGHT_GRAY)
-                    .strength(1.5F, 6.0F)
-                    .instrument(Instrument.BASEDRUM)
-                    .requiresTool()
-                    .sounds(BlockSoundGroup.POLISHED_DEEPSLATE)));
-    public static final Block POLISHED_FIZZYROCK_STAIRS = registerBlock("polished_fizzyrock_stairs",
-            new StairsBlock(OverwhelmedBlocks.POLISHED_FIZZYROCK.getDefaultState(),
-                    FabricBlockSettings.copyOf(POLISHED_FIZZYROCK)));
-    public static final Block POLISHED_FIZZYROCK_SLAB = registerBlock("polished_fizzyrock_slab",
-            new SlabBlock(FabricBlockSettings.copyOf(POLISHED_FIZZYROCK)));
-    public static final Block FIZZYROCK_BRICKS = registerBlock("fizzyrock_bricks",
-            new Block(FabricBlockSettings.create()
-                    .mapColor(MapColor.LIGHT_GRAY)
-                    .strength(1.5F, 6.0F)
-                    .instrument(Instrument.BASEDRUM)
-                    .requiresTool()
-                    .sounds(BlockSoundGroup.DEEPSLATE_BRICKS)));
-    public static final Block FIZZYROCK_BRICK_STAIRS = registerBlock("fizzyrock_brick_stairs",
-            new StairsBlock(OverwhelmedBlocks.FIZZYROCK_BRICKS.getDefaultState(),
-                    FabricBlockSettings.copyOf(FIZZYROCK_BRICKS)));
-    public static final Block FIZZYROCK_BRICK_SLAB = registerBlock("fizzyrock_brick_slab",
-            new SlabBlock(FabricBlockSettings.copyOf(FIZZYROCK_BRICKS)));
-    public static final Block FIZZYROCK_BRICK_WALL = registerBlock("fizzyrock_brick_wall",
-            new WallBlock(FabricBlockSettings.copyOf(FIZZYROCK_BRICKS)));
-    public static final Block CHISELED_FIZZYROCK_BRICKS = registerBlock("chiseled_fizzyrock_bricks",
-            new Block(FabricBlockSettings.copyOf(FIZZYROCK_BRICKS)));
-    public static final Block FIZZYROCK_GEYSER = registerBlock("fizzyrock_geyser",
-            new Block(FabricBlockSettings.copyOf(FIZZYROCK)));
-
-    public static final Block SOIL = registerBlock("soil",
-            new Block(FabricBlockSettings.create()
-            .mapColor(MapColor.DIRT_BROWN)
-            .strength(0.5F)
-            .sounds(BlockSoundGroup.ROOTED_DIRT)));
-    public static final Block CHARCOAL_ORE = registerBlock("charcoal_ore",
-            new Block(FabricBlockSettings.create()
-            .mapColor(MapColor.DIRT_BROWN)
-            .strength(0.7F)
-            .sounds(BlockSoundGroup.ROOTED_DIRT)));
-
-    public static final Block FLOFF = registerBlock("floff",
-            new FlowerBlock(StatusEffects.REGENERATION, 4, FabricBlockSettings.create()
-                    .mapColor(MapColor.DARK_GREEN)
-                    .sounds(BlockSoundGroup.GRASS)
-                    .noCollision()
-                    .breakInstantly()
-                    .offset(AbstractBlock.OffsetType.XZ)
-                    .pistonBehavior(PistonBehavior.DESTROY)));
-    public static final Block PAINE = registerBlock("paine", new FlowerBlock(StatusEffects.POISON, 8,
-            FabricBlockSettings.copyOf(FLOFF)));
-    public static final Block PINK_LAVATERA = registerBlock("pink_lavatera",
-            new FlowerBlock(StatusEffects.POISON, 6, FabricBlockSettings.copyOf(FLOFF)));
-    public static final Block WHITE_LAVATERA = registerBlock("white_lavatera",
-            new FlowerBlock(StatusEffects.WEAKNESS, 5, FabricBlockSettings.copyOf(FLOFF)));
-    public static final Block SQUIRL = registerBlock("squirl",
-            new FlowerBlock(StatusEffects.JUMP_BOOST, 10, FabricBlockSettings.copyOf(FLOFF)));
-    public static final Block RINGOT = registerBlock("ringot",
-            new FlowerBlock(StatusEffects.BLINDNESS, 5, FabricBlockSettings.copyOf(FLOFF)));
-    public static final Block SNOWDROP = registerBlock("snowdrop",
-            new FlowerBlock(StatusEffects.WEAKNESS, 7, FabricBlockSettings.copyOf(FLOFF)));
-    public static final Block BELL_SUNFLOWER = registerBlock("bell_sunflower",
-            new FlowerBlock(StatusEffects.FIRE_RESISTANCE, 10, FabricBlockSettings.copyOf(FLOFF)));
-
-    public static final Block POTTED_FLOFF = registerBlock("potted_floff",
-            new FlowerPotBlock(FLOFF, FabricBlockSettings.create()
-                    .breakInstantly()
-                    .nonOpaque()
-                    .pistonBehavior(PistonBehavior.DESTROY)));
-    public static final Block POTTED_PAINE = registerBlock("potted_paine",
-            new FlowerPotBlock(PAINE, FabricBlockSettings.copyOf(POTTED_FLOFF)));
-    public static final Block POTTED_PINK_LAVATERA = registerBlock("potted_lavatera",
-            new FlowerPotBlock(PINK_LAVATERA, FabricBlockSettings.copyOf(POTTED_FLOFF)));
-    public static final Block POTTED_WHITE_LAVATERA = registerBlock("potted_white_lavatera",
-            new FlowerPotBlock(WHITE_LAVATERA, FabricBlockSettings.copyOf(POTTED_FLOFF)));
-    public static final Block POTTED_SQUIRL = registerBlock("potted_squirl",
-            new FlowerPotBlock(SQUIRL, FabricBlockSettings.copyOf(POTTED_FLOFF)));
-    public static final Block POTTED_RINGOT = registerBlock("potted_ringot",
-            new FlowerPotBlock(RINGOT, FabricBlockSettings.copyOf(POTTED_FLOFF)));
-    public static final Block POTTED_SNOWDROP = registerBlock("potted_snowdrop",
-            new FlowerPotBlock(SNOWDROP, FabricBlockSettings.copyOf(POTTED_FLOFF)));
-    public static final Block POTTED_BELL_SUNFLOWER = registerBlock("potted_bell_sunflower",
-            new FlowerPotBlock(BELL_SUNFLOWER, FabricBlockSettings.copyOf(POTTED_FLOFF)));
-
-    public static final Block WIDOW = registerBlock("widow",
-            new TallFlowerBlock(FabricBlockSettings.create()
-                    .mapColor(MapColor.DARK_GREEN)
-                    .noCollision()
-                    .breakInstantly()
-                    .sounds(BlockSoundGroup.GRASS)
-                    .offset(AbstractBlock.OffsetType.XZ)
-                    .burnable()
-                    .pistonBehavior(PistonBehavior.DESTROY)));
-    public static final Block WHITE_ALLIUM = registerBlock("white_allium",
-            new TallFlowerBlock(FabricBlockSettings.copyOf(WIDOW)));
-
-    public static final Block VANILLA = Registry.register(Registries.BLOCK, new Identifier(Overwhelmed.MOD_ID, "vanilla"),
-            new VanillaBlock(FabricBlockSettings.create()
-                    .mapColor(MapColor.DARK_GREEN)
-                    .noCollision()
-                    .ticksRandomly()
-                    .breakInstantly()
-                    .sounds(BlockSoundGroup.CROP)
-                    .pistonBehavior(PistonBehavior.DESTROY)));
-    public static final Block MINT = Registry.register(Registries.BLOCK, new Identifier(Overwhelmed.MOD_ID, "mint"),
-            new MintBlock(FabricBlockSettings.copy(VANILLA)));
-
-    public static final Block GOLD_BEAD = registerClotBlock("gold_bead",
-            new ClotBlock(FabricBlockSettings.create()
-                    .noCollision()
-                    .breakInstantly()
-                    .offset(AbstractBlock.OffsetType.XZ)
-                    .pistonBehavior(PistonBehavior.DESTROY)));
-    public static final Block ICE_CUBE = registerClotBlock("ice_cube",
-            new ClotBlock(FabricBlockSettings.copy(GOLD_BEAD)));
-    public static final Block PEBBLE = registerPebbleBlock("pebble",
-            new ClotBlock(FabricBlockSettings.copy(GOLD_BEAD)));
-
-    public static final Block PAPER_NEST = registerBlock("paper_nest",
-            new Block(FabricBlockSettings.create()
-                    .mapColor(MapColor.YELLOW)
-                    .instrument(Instrument.BASS)
-                    .strength(0.3F)
-                    .sounds(BlockSoundGroup.WOOD)
-                    .burnable()));
-
-    public static final Block GOO_BLOCK = registerBlock("goo_block",
-            new GooBlock(FabricBlockSettings.create()
-                    .mapColor(MapColor.PALE_YELLOW)
-                    .velocityMultiplier(0.4F)
-                    .jumpVelocityMultiplier(0.5F)
-                    .nonOpaque()
-                    .sounds(OverwhelmedSounds.GOO_BLOCK)));
-
+            new ButtonBlock(OverwhelmedBlockSetType.WILLOW, 30, AbstractBlock.Settings.copy(Blocks.OAK_BUTTON)));
 
     public static final Identifier WILLOW_SIGN_TEXT_ID = new Identifier(Overwhelmed.MOD_ID, "entity/signs/willow");
     public static final Identifier WILLOW_HANGING_SIGN_TEXT_ID = new Identifier(Overwhelmed.MOD_ID, "entity/signs/hanging/willow");
@@ -306,7 +69,6 @@ public class OverwhelmedBlocks {
             new Identifier(Overwhelmed.MOD_ID, "willow_wall_sign"),
             new TerraformWallSignBlock(WILLOW_SIGN_TEXT_ID, AbstractBlock.Settings.copy(Blocks.OAK_WALL_SIGN)
                     .mapColor(WILLOW_LOG.getDefaultMapColor())));
-
     public static final Block WILLOW_HANGING_SIGN = Registry.register(Registries.BLOCK,
             new Identifier(Overwhelmed.MOD_ID, "willow_hanging_sign"),
             new TerraformHangingSignBlock(WILLOW_HANGING_SIGN_TEXT_ID, WILLOW_HANGING_GUI_TEXT_ID, AbstractBlock.Settings.copy(Blocks.OAK_WALL_SIGN)
@@ -316,14 +78,219 @@ public class OverwhelmedBlocks {
             new TerraformWallHangingSignBlock(WILLOW_HANGING_SIGN_TEXT_ID, WILLOW_HANGING_GUI_TEXT_ID, AbstractBlock.Settings.copy(Blocks.OAK_WALL_SIGN)
                     .mapColor(WILLOW_LOG.getDefaultMapColor())));
 
+
+    public static final BlockFamily WILLOW_FAMILY = BlockFamilies.register(WILLOW_PLANKS)
+            .slab(WILLOW_SLAB)
+            .stairs(WILLOW_STAIRS)
+            .button(WILLOW_BUTTON)
+            .pressurePlate(WILLOW_PRESSURE_PLATE)
+            .door(WILLOW_DOOR)
+            .trapdoor(WILLOW_TRAPDOOR)
+            .fence(WILLOW_FENCE)
+            .fenceGate(WILLOW_FENCE_GATE)
+            .sign(WILLOW_SIGN, WILLOW_WALL_SIGN)
+            .build();
+
+    public static final Block WILLOW_LEAVES = registerBlock("willow_leaves",
+            new Block(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES)));
+    public static final Block WILLOW_VINES = registerBlock("willow_vines",
+            new WeepingVinesBlock(AbstractBlock.Settings.copy(Blocks.VINE)
+                    .mapColor(MapColor.LICHEN_GREEN)));
+
+    public static final Block SNAIL_SHELL_BRICKS = registerBlock("snail_shell_bricks",
+            new Block(AbstractBlock.Settings.create()
+                    .mapColor(MapColor.DIRT_BROWN)
+                    .strength(3.0F, 12.0F)
+                    .instrument(Instrument.BASEDRUM)
+                    .requiresTool()));
+    public static final Block SNAIL_SHELL_BRICK_STAIRS = registerBlock("snail_shell_brick_stair",
+            new StairsBlock(OverwhelmedBlocks.SNAIL_SHELL_BRICKS.getDefaultState(),
+                    AbstractBlock.Settings.copy(SNAIL_SHELL_BRICKS)));
+    public static final Block SNAIL_SHELL_BRICK_SLAB = registerBlock("snail_shell_brick_slab",
+            new SlabBlock(AbstractBlock.Settings.copy(SNAIL_SHELL_BRICKS)));
+    public static final Block SNAIL_SHELL_BRICK_WALL = registerBlock("snail_shell_brick_wall",
+            new WallBlock(AbstractBlock.Settings.copy(SNAIL_SHELL_BRICKS)));
+    public static final Block CHISELED_SNAIL_SHELL_BRICKS = registerBlock("chiseled_snail_shell_bricks",
+            new Block(AbstractBlock.Settings.copy(SNAIL_SHELL_BRICKS)));
+
+    public static final Block ALTAIR = registerBlock("altair",
+            new Block(AbstractBlock.Settings.create()
+                    .mapColor(MapColor.BLACK)
+                    .strength(1.5F, 6.0F)
+                    .instrument(Instrument.BASEDRUM)
+                    .requiresTool()));
+    public static final Block ALTAIR_STAIRS = registerBlock("altair_stairs",
+            new StairsBlock(OverwhelmedBlocks.ALTAIR.getDefaultState(), AbstractBlock.Settings.copy(ALTAIR)));
+    public static final Block ALTAIR_SLAB = registerBlock("altair_slab",
+            new SlabBlock(AbstractBlock.Settings.copy(ALTAIR)));
+    public static final Block ALTAIR_WALL = registerBlock("altair_wall",
+            new WallBlock(AbstractBlock.Settings.copy(ALTAIR)));
+    public static final Block POLISHED_ALTAIR = registerBlock("polished_altair",
+            new Block(AbstractBlock.Settings.copy(ALTAIR)));
+    public static final Block POLISHED_ALTAIR_STAIRS = registerBlock("polished_altair_stairs",
+            new StairsBlock(OverwhelmedBlocks.POLISHED_ALTAIR.getDefaultState(), AbstractBlock.Settings.copy(ALTAIR)));
+    public static final Block POLISHED_ALTAIR_SLAB = registerBlock("polished_altair_slab",
+            new SlabBlock(AbstractBlock.Settings.copy(ALTAIR)));
+
+    public static final Block FIZZYROCK = registerBlock("fizzyrock",
+            new Block(AbstractBlock.Settings.create()
+                    .mapColor(MapColor.LIGHT_GRAY)
+                    .strength(1.5F, 6.0F)
+                    .instrument(Instrument.BASEDRUM)
+                    .requiresTool()
+                    .sounds(BlockSoundGroup.DEEPSLATE)));
+    public static final Block FIZZYROCK_STAIRS = registerBlock("fizzyrock_stairs",
+            new StairsBlock(OverwhelmedBlocks.FIZZYROCK.getDefaultState(), AbstractBlock.Settings.copy(FIZZYROCK)));
+    public static final Block FIZZYROCK_SLAB = registerBlock("fizzyrock_slab",
+            new SlabBlock(AbstractBlock.Settings.copy(FIZZYROCK)));
+    public static final Block FIZZYROCK_WALL = registerBlock("fizzyrock_wall",
+            new WallBlock(AbstractBlock.Settings.copy(FIZZYROCK)));
+    public static final Block CHISELED_FIZZYROCK = registerBlock("chiseled_fizzyrock",
+            new Block(AbstractBlock.Settings.copy(FIZZYROCK)));
+    public static final Block POLISHED_FIZZYROCK = registerBlock("polished_fizzyrock",
+            new Block(AbstractBlock.Settings.create()
+                    .mapColor(MapColor.LIGHT_GRAY)
+                    .strength(1.5F, 6.0F)
+                    .instrument(Instrument.BASEDRUM)
+                    .requiresTool()
+                    .sounds(BlockSoundGroup.POLISHED_DEEPSLATE)));
+    public static final Block POLISHED_FIZZYROCK_STAIRS = registerBlock("polished_fizzyrock_stairs",
+            new StairsBlock(OverwhelmedBlocks.POLISHED_FIZZYROCK.getDefaultState(),
+                    AbstractBlock.Settings.copy(POLISHED_FIZZYROCK)));
+    public static final Block POLISHED_FIZZYROCK_SLAB = registerBlock("polished_fizzyrock_slab",
+            new SlabBlock(AbstractBlock.Settings.copy(POLISHED_FIZZYROCK)));
+    public static final Block FIZZYROCK_BRICKS = registerBlock("fizzyrock_bricks",
+            new Block(AbstractBlock.Settings.create()
+                    .mapColor(MapColor.LIGHT_GRAY)
+                    .strength(1.5F, 6.0F)
+                    .instrument(Instrument.BASEDRUM)
+                    .requiresTool()
+                    .sounds(BlockSoundGroup.DEEPSLATE_BRICKS)));
+    public static final Block FIZZYROCK_BRICK_STAIRS = registerBlock("fizzyrock_brick_stairs",
+            new StairsBlock(OverwhelmedBlocks.FIZZYROCK_BRICKS.getDefaultState(),
+                    AbstractBlock.Settings.copy(FIZZYROCK_BRICKS)));
+    public static final Block FIZZYROCK_BRICK_SLAB = registerBlock("fizzyrock_brick_slab",
+            new SlabBlock(AbstractBlock.Settings.copy(FIZZYROCK_BRICKS)));
+    public static final Block FIZZYROCK_BRICK_WALL = registerBlock("fizzyrock_brick_wall",
+            new WallBlock(AbstractBlock.Settings.copy(FIZZYROCK_BRICKS)));
+    public static final Block CHISELED_FIZZYROCK_BRICKS = registerBlock("chiseled_fizzyrock_bricks",
+            new Block(AbstractBlock.Settings.copy(FIZZYROCK_BRICKS)));
+    public static final Block FIZZYROCK_GEYSER = registerBlock("fizzyrock_geyser",
+            new Block(AbstractBlock.Settings.copy(FIZZYROCK)));
+
+    public static final Block SOIL = registerBlock("soil",
+            new Block(AbstractBlock.Settings.create()
+            .mapColor(MapColor.DIRT_BROWN)
+            .strength(0.5F)
+            .sounds(BlockSoundGroup.ROOTED_DIRT)));
+    public static final Block CHARCOAL_ORE = registerBlock("charcoal_ore",
+            new Block(AbstractBlock.Settings.create()
+            .mapColor(MapColor.DIRT_BROWN)
+            .strength(0.7F)
+            .sounds(BlockSoundGroup.ROOTED_DIRT)));
+
+    public static final Block FLOFF = registerBlock("floff",
+            new FlowerBlock(StatusEffects.REGENERATION, 4, AbstractBlock.Settings.create()
+                    .mapColor(MapColor.DARK_GREEN)
+                    .sounds(BlockSoundGroup.GRASS)
+                    .noCollision()
+                    .breakInstantly()
+                    .offset(AbstractBlock.OffsetType.XZ)
+                    .pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block PAINE = registerBlock("paine", new FlowerBlock(StatusEffects.POISON, 8,
+            AbstractBlock.Settings.copy(FLOFF)));
+    public static final Block PINK_LAVATERA = registerBlock("pink_lavatera",
+            new FlowerBlock(StatusEffects.POISON, 6, AbstractBlock.Settings.copy(FLOFF)));
+    public static final Block WHITE_LAVATERA = registerBlock("white_lavatera",
+            new FlowerBlock(StatusEffects.WEAKNESS, 5, AbstractBlock.Settings.copy(FLOFF)));
+    public static final Block SQUIRL = registerBlock("squirl",
+            new FlowerBlock(StatusEffects.JUMP_BOOST, 10, AbstractBlock.Settings.copy(FLOFF)));
+    public static final Block RINGOT = registerBlock("ringot",
+            new FlowerBlock(StatusEffects.BLINDNESS, 5, AbstractBlock.Settings.copy(FLOFF)));
+    public static final Block SNOWDROP = registerBlock("snowdrop",
+            new FlowerBlock(StatusEffects.WEAKNESS, 7, AbstractBlock.Settings.copy(FLOFF)));
+    public static final Block BELL_SUNFLOWER = registerBlock("bell_sunflower",
+            new FlowerBlock(StatusEffects.FIRE_RESISTANCE, 10, AbstractBlock.Settings.copy(FLOFF)));
+
+    public static final Block POTTED_FLOFF = registerBlock("potted_floff",
+            new FlowerPotBlock(FLOFF, AbstractBlock.Settings.create()
+                    .breakInstantly()
+                    .nonOpaque()
+                    .pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block POTTED_PAINE = registerBlock("potted_paine",
+            new FlowerPotBlock(PAINE, AbstractBlock.Settings.copy(POTTED_FLOFF)));
+    public static final Block POTTED_PINK_LAVATERA = registerBlock("potted_lavatera",
+            new FlowerPotBlock(PINK_LAVATERA, AbstractBlock.Settings.copy(POTTED_FLOFF)));
+    public static final Block POTTED_WHITE_LAVATERA = registerBlock("potted_white_lavatera",
+            new FlowerPotBlock(WHITE_LAVATERA, AbstractBlock.Settings.copy(POTTED_FLOFF)));
+    public static final Block POTTED_SQUIRL = registerBlock("potted_squirl",
+            new FlowerPotBlock(SQUIRL, AbstractBlock.Settings.copy(POTTED_FLOFF)));
+    public static final Block POTTED_RINGOT = registerBlock("potted_ringot",
+            new FlowerPotBlock(RINGOT, AbstractBlock.Settings.copy(POTTED_FLOFF)));
+    public static final Block POTTED_SNOWDROP = registerBlock("potted_snowdrop",
+            new FlowerPotBlock(SNOWDROP, AbstractBlock.Settings.copy(POTTED_FLOFF)));
+    public static final Block POTTED_BELL_SUNFLOWER = registerBlock("potted_bell_sunflower",
+            new FlowerPotBlock(BELL_SUNFLOWER, AbstractBlock.Settings.copy(POTTED_FLOFF)));
+
+    public static final Block WIDOW = registerBlock("widow",
+            new TallFlowerBlock(AbstractBlock.Settings.create()
+                    .mapColor(MapColor.DARK_GREEN)
+                    .noCollision()
+                    .breakInstantly()
+                    .sounds(BlockSoundGroup.GRASS)
+                    .offset(AbstractBlock.OffsetType.XZ)
+                    .burnable()
+                    .pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block WHITE_ALLIUM = registerBlock("white_allium",
+            new TallFlowerBlock(AbstractBlock.Settings.copy(WIDOW)));
+
+    public static final Block VANILLA = Registry.register(Registries.BLOCK, new Identifier(Overwhelmed.MOD_ID, "vanilla"),
+            new VanillaBlock(AbstractBlock.Settings.create()
+                    .mapColor(MapColor.DARK_GREEN)
+                    .noCollision()
+                    .ticksRandomly()
+                    .breakInstantly()
+                    .sounds(BlockSoundGroup.CROP)
+                    .pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block MINT = Registry.register(Registries.BLOCK, new Identifier(Overwhelmed.MOD_ID, "mint"),
+            new MintBlock(AbstractBlock.Settings.copy(VANILLA)));
+
+    public static final Block GOLD_BEAD = registerClotBlock("gold_bead",
+            new ClotBlock(AbstractBlock.Settings.create()
+                    .noCollision()
+                    .breakInstantly()
+                    .offset(AbstractBlock.OffsetType.XZ)
+                    .pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block ICE_CUBE = registerClotBlock("ice_cube",
+            new ClotBlock(AbstractBlock.Settings.copy(GOLD_BEAD)));
+    public static final Block PEBBLE = registerPebbleBlock("pebble",
+            new ClotBlock(AbstractBlock.Settings.copy(GOLD_BEAD)));
+
+    public static final Block PAPER_NEST = registerBlock("paper_nest",
+            new Block(AbstractBlock.Settings.create()
+                    .mapColor(MapColor.YELLOW)
+                    .instrument(Instrument.BASS)
+                    .strength(0.3F)
+                    .sounds(BlockSoundGroup.WOOD)
+                    .burnable()));
+
+    public static final Block GOO_BLOCK = registerBlock("goo_block",
+            new GooBlock(AbstractBlock.Settings.create()
+                    .mapColor(MapColor.PALE_YELLOW)
+                    .velocityMultiplier(0.4F)
+                    .jumpVelocityMultiplier(0.5F)
+                    .nonOpaque()
+                    .sounds(OverwhelmedSounds.GOO_BLOCK)));
+
+
     public static final Block VANILLA_CAKE = registerBlock("vanilla_cake",
-            new VanillaCakeBlock(FabricBlockSettings.create()
+            new VanillaCakeBlock(AbstractBlock.Settings.create()
                     .solid()
                     .strength(0.5F)
                     .sounds(BlockSoundGroup.WOOL)
                     .pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block MINT_CAKE = registerBlock("mint_cake",
-            new MintCakeBlock(FabricBlockSettings.create()
+            new MintCakeBlock(AbstractBlock.Settings.create()
                     .solid()
                     .strength(0.5f)
                     .sounds(BlockSoundGroup.WOOL)
