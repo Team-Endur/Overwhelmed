@@ -1,6 +1,8 @@
 package endurteam.overwhelmed;
 
+import com.terraformersmc.terraform.boat.api.client.TerraformBoatClientHelper;
 import endurteam.overwhelmed.block.OverwhelmedBlocks;
+import endurteam.overwhelmed.entity.OverwhelmedBoats;
 import endurteam.overwhelmed.util.OverwhelmedWoodType;
 import endurteam.overwhelmed.block.entity.OverwhelmedBlockEntities;
 import endurteam.overwhelmed.entity.OverwhelmedEntities;
@@ -64,5 +66,7 @@ public class OverwhelmedClient implements ClientModInitializer {
         EntityRendererRegistry.register(OverwhelmedEntities.PEBBLE_PROJECTILE, FlyingItemEntityRenderer::new);
         EntityRendererRegistry.register(OverwhelmedEntities.HORNET, HornetRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(OverwhelmedModelLayers.HORNET, HornetModel::getTexturedModelData);
+
+        TerraformBoatClientHelper.registerModelLayers(OverwhelmedBoats.WILLOW_BOAT_ID, false);
     }
 }

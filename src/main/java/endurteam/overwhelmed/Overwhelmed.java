@@ -3,11 +3,11 @@ package endurteam.overwhelmed;
 import endurteam.overwhelmed.block.OverwhelmedBlocks;
 import endurteam.overwhelmed.block.entity.OverwhelmedBlockEntities;
 import endurteam.overwhelmed.entity.HornetEntity;
+import endurteam.overwhelmed.entity.OverwhelmedBoats;
 import endurteam.overwhelmed.entity.OverwhelmedEntities;
 import endurteam.overwhelmed.item.OverwhelmedCreativeTabs;
 import endurteam.overwhelmed.item.OverwhelmedItems;
 import endurteam.overwhelmed.sound.OverwhelmedSounds;
-import endurteam.overwhelmed.worldgen.OverwhelmedBiomeTags;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
@@ -19,7 +19,6 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.BiomeTags;
 import net.minecraft.util.Identifier;
-import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.feature.PlacedFeature;
 
@@ -36,6 +35,7 @@ public class Overwhelmed implements ModInitializer {
 		OverwhelmedBlocks.registerBlocks();
 		OverwhelmedBlockEntities.registerBlockEntities();
 		OverwhelmedSounds.registerSounds();
+		OverwhelmedBoats.registerBoats();
 
 		StrippableBlockRegistry.register(OverwhelmedBlocks.WILLOW_LOG, OverwhelmedBlocks.STRIPPED_WILLOW_LOG);
 		StrippableBlockRegistry.register(OverwhelmedBlocks.WILLOW_WOOD, OverwhelmedBlocks.STRIPPED_WILLOW_WOOD);

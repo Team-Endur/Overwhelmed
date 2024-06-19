@@ -1,7 +1,9 @@
 package endurteam.overwhelmed.item;
 
+import com.terraformersmc.terraform.boat.api.item.TerraformBoatItemHelper;
 import endurteam.overwhelmed.Overwhelmed;
 import endurteam.overwhelmed.block.OverwhelmedBlocks;
+import endurteam.overwhelmed.entity.OverwhelmedBoats;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.*;
@@ -23,6 +25,9 @@ public class OverwhelmedItems {
             new HangingSignItem(OverwhelmedBlocks.WILLOW_HANGING_SIGN, OverwhelmedBlocks.WILLOW_HANGING_WALL_SIGN,
                     new Item.Settings()
                             .maxCount(16)));
+
+    public static final Item WILLOW_BOAT = TerraformBoatItemHelper.registerBoatItem(OverwhelmedBoats.WILLOW_BOAT_ID, OverwhelmedBoats.WILLOW_BOAT_KEY, false);
+    public static final Item WILLOW_CHEST_BOAT = TerraformBoatItemHelper.registerBoatItem(OverwhelmedBoats.WILLOW_CHEST_BOAT_ID, OverwhelmedBoats.WILLOW_BOAT_KEY, true);
 
     public static Item BLOWGUN = registerItem("blowgun", new Item(new Item.Settings()));
     public static Item PAPER_BULLET = registerItem("paper_bullet", new Item(new Item.Settings()));

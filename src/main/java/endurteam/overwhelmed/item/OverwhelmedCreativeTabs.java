@@ -77,6 +77,8 @@ public class OverwhelmedCreativeTabs {
                         entries.add(OverwhelmedBlocks.GOO_BLOCK);
                         entries.add(OverwhelmedItems.WILLOW_SIGN);
                         entries.add(OverwhelmedItems.WILLOW_HANGING_SIGN);
+                        entries.add(OverwhelmedItems.WILLOW_BOAT);
+                        entries.add(OverwhelmedItems.WILLOW_CHEST_BOAT);
 //                        entries.add(OverwhelmedItems.BLOWGUN);
                         entries.add(OverwhelmedItems.PAPER_BULLET);
                         entries.add(OverwhelmedItems.SNAIL);

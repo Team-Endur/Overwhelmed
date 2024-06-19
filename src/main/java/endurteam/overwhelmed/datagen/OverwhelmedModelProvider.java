@@ -125,6 +125,9 @@ public class OverwhelmedModelProvider extends FabricModelProvider {
         itemModelGenerator.register(OverwhelmedItems.MINT_ICE_CREAM, Models.GENERATED);
         itemModelGenerator.register(OverwhelmedItems.SNAIL_STEW, Models.GENERATED);
 
+        itemModelGenerator.register(OverwhelmedItems.WILLOW_BOAT, Models.GENERATED);
+        itemModelGenerator.register(OverwhelmedItems.WILLOW_CHEST_BOAT, Models.GENERATED);
+
 
 //        itemModelGenerator.register(OverwhelmedItems.HORNET_SPAWN_EGG,
 //                new SpawnEggItem(Overwhel));
