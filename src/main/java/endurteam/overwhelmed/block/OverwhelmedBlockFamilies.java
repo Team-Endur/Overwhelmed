@@ -21,6 +21,7 @@ public class OverwhelmedBlockFamilies {
             .slab(OverwhelmedBlocks.SNAIL_SHELL_BRICK_SLAB)
             .wall(OverwhelmedBlocks.SNAIL_SHELL_BRICK_WALL)
             .chiseled(OverwhelmedBlocks.CHISELED_SNAIL_SHELL_BRICKS)
+            .group("building")
             .build();
 
     public static final BlockFamily ALTAIR_FAMILY = BlockFamilies.register(OverwhelmedBlocks.ALTAIR)
@@ -28,11 +29,13 @@ public class OverwhelmedBlockFamilies {
             .slab(OverwhelmedBlocks.ALTAIR_SLAB)
             .wall(OverwhelmedBlocks.ALTAIR_WALL)
             .polished(OverwhelmedBlocks.POLISHED_ALTAIR)
+            .group("building")
             .build();
 
     public static final BlockFamily POLISHED_ALTAIR_FAMILY = BlockFamilies.register(OverwhelmedBlocks.POLISHED_ALTAIR)
             .stairs(OverwhelmedBlocks.POLISHED_ALTAIR_STAIRS)
             .slab(OverwhelmedBlocks.POLISHED_ALTAIR_SLAB)
+            .group("building")
             .build();
 
     public static final BlockFamily FIZZYROCK_FAMILY = BlockFamilies.register(OverwhelmedBlocks.FIZZYROCK)

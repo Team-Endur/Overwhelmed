@@ -1,6 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "building",
+  "group": "building_stairs",
   "key": {
     "#": {
       "item": "overwhelmed:snail_shell_bricks"

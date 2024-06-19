@@ -1,6 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "building",
+  "category": "misc",
+  "group": "building_wall",
   "key": {
     "#": {
       "item": "overwhelmed:altair"

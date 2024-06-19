@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "overwhelmed:willow_button"
+        "recipe": "overwhelmed:willow_sign"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "overwhelmed:willow_button"
+      "overwhelmed:willow_sign"
     ]
   }
 }

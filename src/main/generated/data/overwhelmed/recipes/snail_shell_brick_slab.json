@@ -1,6 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "building",
+  "group": "building_slab",
   "key": {
     "#": {
       "item": "overwhelmed:snail_shell_bricks"
