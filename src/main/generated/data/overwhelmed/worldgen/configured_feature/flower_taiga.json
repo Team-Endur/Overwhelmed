@@ -17,22 +17,13 @@
             "seed": 2345,
             "states": [
               {
-                "Name": "overwhelmed:white_allium",
-                "Properties": {
-                  "half": "lower"
-                }
-              },
-              {
-                "Name": "overwhelmed:bell_sunflower"
-              },
-              {
                 "Name": "overwhelmed:floff"
               },
               {
-                "Name": "overwhelmed:pink_lavatera"
+                "Name": "overwhelmed:squirl"
               },
               {
-                "Name": "overwhelmed:white_lavatera"
+                "Name": "overwhelmed:ringot"
               }
             ]
           }
