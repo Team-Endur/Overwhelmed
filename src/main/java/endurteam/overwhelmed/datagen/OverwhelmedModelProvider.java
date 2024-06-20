@@ -7,9 +7,11 @@ import endurteam.overwhelmed.block.VanillaBlock;
 import endurteam.overwhelmed.item.OverwhelmedItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
-import net.minecraft.data.client.BlockStateModelGenerator;
-import net.minecraft.data.client.ItemModelGenerator;
-import net.minecraft.data.client.Models;
+import net.minecraft.data.client.*;
+import net.minecraft.item.SpawnEggItem;
+import net.minecraft.util.Identifier;
+
+import java.util.Optional;
 
 
 public class OverwhelmedModelProvider extends FabricModelProvider {
@@ -108,13 +110,5 @@ public class OverwhelmedModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(OverwhelmedItems.WILLOW_BOAT, Models.GENERATED);
         itemModelGenerator.register(OverwhelmedItems.WILLOW_CHEST_BOAT, Models.GENERATED);
-
-
-//        itemModelGenerator.register(OverwhelmedItems.HORNET_SPAWN_EGG,
-//                new SpawnEggItem(Overwhel));
-//        itemModelGenerator.register(OverwhelmedItems.HORNET_LARVA_SPAWN_EGG,
-//                new Model(Optional.of(new Identifier("item/hornet_larva_spawn_egg")), Optional.empty()));
-//        itemModelGenerator.register(OverwhelmedItems.MOTH_SPAWN_EGG,
-//                new Model(Optional.of(new Identifier("item/moth_spawn_egg")), Optional.empty()));
     }
 }
