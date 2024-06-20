@@ -3,20 +3,15 @@ package endurteam.overwhelmed;
 import com.terraformersmc.terraform.boat.api.client.TerraformBoatClientHelper;
 import endurteam.overwhelmed.block.OverwhelmedBlocks;
 import endurteam.overwhelmed.entity.OverwhelmedBoats;
+import endurteam.overwhelmed.entity.client.*;
 import endurteam.overwhelmed.util.OverwhelmedWoodType;
 import endurteam.overwhelmed.entity.OverwhelmedEntities;
-import endurteam.overwhelmed.entity.client.HornetModel;
-import endurteam.overwhelmed.entity.client.HornetRenderer;
-import endurteam.overwhelmed.entity.client.OverwhelmedModelLayers;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.TexturedRenderLayers;
-import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
-import net.minecraft.client.render.block.entity.HangingSignBlockEntityRenderer;
-import net.minecraft.client.render.block.entity.SignBlockEntityRenderer;
 import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 
 public class OverwhelmedClient implements ClientModInitializer {
@@ -60,6 +55,8 @@ public class OverwhelmedClient implements ClientModInitializer {
                 TexturedRenderLayers.getSignTextureId(OverwhelmedWoodType.WILLOW));
 
         EntityRendererRegistry.register(OverwhelmedEntities.PEBBLE_PROJECTILE, FlyingItemEntityRenderer::new);
+        EntityRendererRegistry.register(OverwhelmedEntities.SNAIL, SnailRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(OverwhelmedModelLayers.SNAIL, SnailModel::getTexturedModelData);
         EntityRendererRegistry.register(OverwhelmedEntities.HORNET, HornetRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(OverwhelmedModelLayers.HORNET, HornetModel::getTexturedModelData);
 

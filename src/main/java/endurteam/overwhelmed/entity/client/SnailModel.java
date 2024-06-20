@@ -1,18 +1,21 @@
 package endurteam.overwhelmed.entity.client;
 
 import endurteam.overwhelmed.entity.SnailEntity;
+import endurteam.overwhelmed.entity.animation.SnailAnimations;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
-import net.minecraft.client.render.entity.model.EntityModel;
+import net.minecraft.client.render.entity.animation.CamelAnimations;
+import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.Entity;
 
-public class SnailModel<T extends SnailEntity> extends EntityModel<T> {
+public class SnailModel<T extends SnailEntity> extends SinglePartEntityModel<T> {
+	private final ModelPart root;
 	private final ModelPart shell;
 	private final ModelPart left_antenna;
 	private final ModelPart right_antenna;
 	private final ModelPart body;
-	public snail(ModelPart root) {
+	public SnailModel(ModelPart root) {
+		this.root = root;
 		this.shell = root.getChild("shell");
 		this.left_antenna = root.getChild("left_antenna");
 		this.right_antenna = root.getChild("right_antenna");
@@ -32,7 +35,12 @@ public class SnailModel<T extends SnailEntity> extends EntityModel<T> {
 	}
 	@Override
 	public void setAngles(SnailEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		this.getPart().traverse().forEach(ModelPart::resetTransform);
+
+		this.animateMovement(SnailAnimations.WALKING, limbSwing, limbSwingAmount, 2.0F, 2.5F);
+		this.updateAnimation(entity.idleAnimationState, SnailAnimations.IDLING, ageInTicks, 1f);
 	}
+
 	@Override
 	public void render(MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, float red, float green, float blue, float alpha) {
 		shell.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
@@ -40,4 +48,9 @@ public class SnailModel<T extends SnailEntity> extends EntityModel<T> {
 		right_antenna.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
 		body.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
 	}
+
+	public ModelPart getPart() {
+		return this.root;
+	}
+
 }
