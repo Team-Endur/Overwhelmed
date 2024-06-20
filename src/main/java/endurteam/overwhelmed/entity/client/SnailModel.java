@@ -38,7 +38,7 @@ public class SnailModel<T extends SnailEntity> extends SinglePartEntityModel<T> 
 		this.getPart().traverse().forEach(ModelPart::resetTransform);
 
 		this.animateMovement(SnailAnimations.WALKING, limbSwing, limbSwingAmount, 2.0F, 2.5F);
-		this.updateAnimation(entity.idleAnimationState, SnailAnimations.IDLING, ageInTicks, 1f);
+		this.updateAnimation(entity.idleAnimationState, CamelAnimations.IDLING, ageInTicks, 1.0F);
 	}
 
 	@Override
