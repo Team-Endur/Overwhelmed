@@ -28,7 +28,7 @@ public class SnailEntity extends AnimalEntity {
         super(entityType, world);
     }
 
-    private void setupAnimationStates() {
+    private void updateAnimations() {
         if (this.idleAnimationTimeout <= 0) {
             this.idleAnimationTimeout = this.random.nextInt(40) + 80;
             this.idleAnimationState.start(this.age);
@@ -47,7 +47,7 @@ public class SnailEntity extends AnimalEntity {
     public void tick() {
         super.tick();
         if(this.getWorld().isClient()) {
-            setupAnimationStates();
+            updateAnimations();
         }
     }
 

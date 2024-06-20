@@ -4,7 +4,6 @@ import endurteam.overwhelmed.entity.SnailEntity;
 import endurteam.overwhelmed.entity.animation.SnailAnimations;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
-import net.minecraft.client.render.entity.animation.CamelAnimations;
 import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 
@@ -38,7 +37,7 @@ public class SnailModel<T extends SnailEntity> extends SinglePartEntityModel<T> 
 		this.getPart().traverse().forEach(ModelPart::resetTransform);
 
 		this.animateMovement(SnailAnimations.WALKING, limbSwing, limbSwingAmount, 2.0F, 2.5F);
-		this.updateAnimation(entity.idleAnimationState, CamelAnimations.IDLING, ageInTicks, 1.0F);
+		this.updateAnimation(entity.idleAnimationState, SnailAnimations.IDLING, ageInTicks, 1.0F);
 	}
 
 	@Override
