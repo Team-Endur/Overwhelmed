@@ -66,7 +66,8 @@ public class OverwhelmedBlocks {
     public static final Block WILLOW_WALL_SIGN = Registry.register(Registries.BLOCK,
             new Identifier(Overwhelmed.MOD_ID, "willow_wall_sign"),
             new TerraformWallSignBlock(WILLOW_SIGN_TEXT_ID, AbstractBlock.Settings.copy(Blocks.OAK_WALL_SIGN)
-                    .mapColor(WILLOW_LOG.getDefaultMapColor())));
+                    .mapColor(WILLOW_LOG.getDefaultMapColor())
+                    .dropsLike(WILLOW_SIGN)));
     public static final Block WILLOW_HANGING_SIGN = Registry.register(Registries.BLOCK,
             new Identifier(Overwhelmed.MOD_ID, "willow_hanging_sign"),
             new TerraformHangingSignBlock(WILLOW_HANGING_SIGN_TEXT_ID, WILLOW_HANGING_GUI_TEXT_ID, AbstractBlock.Settings.copy(Blocks.OAK_HANGING_SIGN)
@@ -74,7 +75,8 @@ public class OverwhelmedBlocks {
     public static final Block WILLOW_HANGING_WALL_SIGN = Registry.register(Registries.BLOCK,
             new Identifier(Overwhelmed.MOD_ID, "willow_hanging_wall_sign"),
             new TerraformWallHangingSignBlock(WILLOW_HANGING_SIGN_TEXT_ID, WILLOW_HANGING_GUI_TEXT_ID, AbstractBlock.Settings.copy(Blocks.OAK_WALL_HANGING_SIGN)
-                    .mapColor(WILLOW_LOG.getDefaultMapColor())));
+                    .mapColor(WILLOW_LOG.getDefaultMapColor())
+                    .dropsLike(WILLOW_HANGING_SIGN)));
 
     public static final Block WILLOW_LEAVES = registerBlock("willow_leaves",
             new Block(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES)));
