@@ -1,6 +1,6 @@
 package endurteam.overwhelmed.entity.client;
 
-import endurteam.overwhelmed.entity.SnailEnity;
+import endurteam.overwhelmed.entity.SnailEntity;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;
