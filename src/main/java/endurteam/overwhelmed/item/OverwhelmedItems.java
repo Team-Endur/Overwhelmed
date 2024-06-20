@@ -4,6 +4,7 @@ import com.terraformersmc.terraform.boat.api.item.TerraformBoatItemHelper;
 import endurteam.overwhelmed.Overwhelmed;
 import endurteam.overwhelmed.block.OverwhelmedBlocks;
 import endurteam.overwhelmed.entity.OverwhelmedBoats;
+import endurteam.overwhelmed.entity.OverwhelmedEntities;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.*;
@@ -60,7 +61,7 @@ public class OverwhelmedItems {
     public static Item MINT_LEAF= registerItem("mint_leaf", new Item(new Item.Settings()));
 
     public static SpawnEggItem BUTTERFLY_SPAWN_EGG;
-    public static SpawnEggItem HORNET_SPAWN_EGG;
+    public static SpawnEggItem HORNET_SPAWN_EGG = (SpawnEggItem) registerItem("hornet_spawn_egg", new SpawnEggItem(OverwhelmedEntities.HORNET, 0xD06E49, 0x3D221B, new Item.Settings()));
     public static SpawnEggItem HORNET_LARVA_SPAWN_EGG;
     public static SpawnEggItem MOTH_SPAWN_EGG;
     public static SpawnEggItem SNAIL_SPAWN_EGG;
