@@ -1,13 +1,13 @@
 package endurteam.overwhelmed;
 
 import endurteam.overwhelmed.block.OverwhelmedBlocks;
-import endurteam.overwhelmed.block.entity.OverwhelmedBlockEntities;
 import endurteam.overwhelmed.entity.HornetEntity;
 import endurteam.overwhelmed.entity.OverwhelmedBoats;
 import endurteam.overwhelmed.entity.OverwhelmedEntities;
 import endurteam.overwhelmed.item.OverwhelmedCreativeTabs;
 import endurteam.overwhelmed.item.OverwhelmedItems;
 import endurteam.overwhelmed.sound.OverwhelmedSounds;
+import endurteam.overwhelmed.worldgen.OverwhelmedBiomeModifications;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
@@ -33,7 +33,6 @@ public class Overwhelmed implements ModInitializer {
 		OverwhelmedCreativeTabs.registerItemTabs();
 		OverwhelmedItems.registerItems();
 		OverwhelmedBlocks.registerBlocks();
-		OverwhelmedBlockEntities.registerBlockEntities();
 		OverwhelmedSounds.registerSounds();
 		OverwhelmedBoats.registerBoats();
 
@@ -50,6 +49,7 @@ public class Overwhelmed implements ModInitializer {
 
 		BiomeModifications.addFeature(BiomeSelectors.tag(BiomeTags.IS_MOUNTAIN),
 				GenerationStep.Feature.UNDERGROUND_ORES, ALTAIR_ORE_PLACED_KEY);
+		OverwhelmedBiomeModifications.addFeatures();
 
 	}
 }

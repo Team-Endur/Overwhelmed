@@ -24,34 +24,13 @@
             "slow_scale": 1.0,
             "states": [
               {
-                "Name": "minecraft:tall_grass",
+                "Name": "overwhelmed:white_allium",
                 "Properties": {
                   "half": "lower"
                 }
               },
               {
-                "Name": "minecraft:allium"
-              },
-	      {
-		"Name": "overwhelmed:white_allium"
-	      },
-              {
-                "Name": "minecraft:poppy"
-              },
-              {
-                "Name": "minecraft:azure_bluet"
-              },
-              {
-                "Name": "minecraft:dandelion"
-              },
-              {
-                "Name": "minecraft:cornflower"
-              },
-              {
-                "Name": "minecraft:oxeye_daisy"
-              },
-              {
-                "Name": "minecraft:short_grass"
+                "Name": "overwhelmed:floff"
               }
             ],
             "variety": [
@@ -71,7 +50,7 @@
         }
       ]
     },
-    "tries": 96,
+    "tries": 48,
     "xz_spread": 6,
     "y_spread": 2
   }

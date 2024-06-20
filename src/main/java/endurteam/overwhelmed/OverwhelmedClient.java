@@ -4,7 +4,6 @@ import com.terraformersmc.terraform.boat.api.client.TerraformBoatClientHelper;
 import endurteam.overwhelmed.block.OverwhelmedBlocks;
 import endurteam.overwhelmed.entity.OverwhelmedBoats;
 import endurteam.overwhelmed.util.OverwhelmedWoodType;
-import endurteam.overwhelmed.block.entity.OverwhelmedBlockEntities;
 import endurteam.overwhelmed.entity.OverwhelmedEntities;
 import endurteam.overwhelmed.entity.client.HornetModel;
 import endurteam.overwhelmed.entity.client.HornetRenderer;
@@ -56,9 +55,6 @@ public class OverwhelmedClient implements ClientModInitializer {
 
         BlockRenderLayerMap.INSTANCE.putBlock(OverwhelmedBlocks.GOO_BLOCK, RenderLayer.getTranslucent());
 
-        BlockEntityRendererFactories.register(OverwhelmedBlockEntities.SIGN_BLOCK_ENTITY, SignBlockEntityRenderer::new);
-        BlockEntityRendererFactories.register(OverwhelmedBlockEntities.HANGING_SIGN_BLOCK_ENTITY,
-                HangingSignBlockEntityRenderer::new);
 
         TexturedRenderLayers.SIGN_TYPE_TEXTURES.put(OverwhelmedWoodType.WILLOW,
                 TexturedRenderLayers.getSignTextureId(OverwhelmedWoodType.WILLOW));
