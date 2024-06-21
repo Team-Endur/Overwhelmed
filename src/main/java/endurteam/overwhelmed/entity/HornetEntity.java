@@ -1,5 +1,6 @@
 package endurteam.overwhelmed.entity;
 
+import endurteam.overwhelmed.Overwhelmed;
 import endurteam.overwhelmed.datagen.OverwhelmedItemTagProvider;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
@@ -22,6 +23,8 @@ import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtHelper;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.TimeHelper;
 import net.minecraft.util.math.BlockPos;
@@ -30,13 +33,18 @@ import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Optional;
 import java.util.UUID;
 
 public class HornetEntity extends AnimalEntity implements Angerable, Flutterer {
     public static final TrackedData<Integer> ANGER = DataTracker.registerData(HornetEntity.class, TrackedDataHandlerRegistry.INTEGER);
     private static final UniformIntProvider ANGER_TIME_RANGE = TimeHelper.betweenSeconds(25, 49);
-    @Nullable
-    private UUID angryAt;
+    private static final int MAX_DIST_FROM_HIVE = 50;
+    public static final String HIVE_POS_KEY = "hive_pos";
+    public static final String HAS_HIVE_KEY = "has_hive";
+    @Nullable private UUID angryAt;
+    private BlockPos hivePos = BlockPos.ORIGIN;
+    private boolean hasHive = false;
 
     protected HornetEntity(EntityType<? extends AnimalEntity> entityType, World world) {
         super(entityType, world);
@@ -55,11 +63,28 @@ public class HornetEntity extends AnimalEntity implements Angerable, Flutterer {
         builder.add(ANGER, 0);
     }
 
+    @Override
+    public void writeCustomDataToNbt(NbtCompound nbt) {
+        super.writeCustomDataToNbt(nbt);
+        nbt.put(HIVE_POS_KEY, NbtHelper.fromBlockPos(hivePos));
+        nbt.putBoolean(HAS_HIVE_KEY, hasHive);
+        this.writeAngerToNbt(nbt);
+    }
+
+    @Override
+    public void readCustomDataFromNbt(NbtCompound nbt) {
+        super.readCustomDataFromNbt(nbt);
+        this.hivePos = NbtHelper.toBlockPos(nbt, HIVE_POS_KEY).orElse(BlockPos.ORIGIN);
+        this.hasHive = nbt.getBoolean(HAS_HIVE_KEY);
+        this.readAngerFromNbt(this.getWorld(), nbt);
+    }
+
     protected void initGoals() {
         this.goalSelector.add(0, new TemptGoal(this, 1.2f, stack -> stack.isIn(OverwhelmedItemTagProvider.HORNET_FOOD), false));
-        this.goalSelector.add(1, new HornetWanderAroundGoal(this));
-        this.goalSelector.add(2, new LookAtEntityGoal(this, PlayerEntity.class, 5f));
-        this.goalSelector.add(3, new LookAroundGoal(this));
+        this.goalSelector.add(1, new HornetReturnInHiveRangeGoal(this));
+        this.goalSelector.add(2, new HornetWanderAroundGoal(this));
+        this.goalSelector.add(3, new LookAtEntityGoal(this, PlayerEntity.class, 5f));
+        this.goalSelector.add(4, new LookAroundGoal(this));
     }
 
     @Override
@@ -134,6 +159,32 @@ public class HornetEntity extends AnimalEntity implements Angerable, Flutterer {
         this.setAngerTime(ANGER_TIME_RANGE.get(this.random));
     }
 
+    public Optional<BlockPos> getHivePos() {
+        if(hasHive)
+            return Optional.of(hivePos);
+        else
+            return Optional.empty();
+    }
+
+    public void setHivePos(BlockPos hivePos) {
+        this.hivePos = hivePos;
+        this.hasHive = true;
+    }
+
+    public void removeHive() {
+        this.hasHive = false;
+    }
+
+    public boolean hasHive() {
+        return hasHive;
+    }
+
+    public boolean isOutOfHiveRange() {
+        if(!this.hasHive)
+            return false;
+        return this.getPos().distanceTo(hivePos.toCenterPos()) > MAX_DIST_FROM_HIVE;
+    }
+
     class HornetLookControl extends LookControl {
         public HornetLookControl(MobEntity entity) {
             super(entity);
@@ -148,8 +199,31 @@ public class HornetEntity extends AnimalEntity implements Angerable, Flutterer {
         }
     }
 
+    class HornetReturnInHiveRangeGoal extends Goal {
+        private final HornetEntity hornet;
+
+        public HornetReturnInHiveRangeGoal(HornetEntity hornet) {
+            this.hornet = hornet;
+        }
+
+        @Override
+        public boolean canStart() {
+            return hornet.hasHive() && hornet.isOutOfHiveRange();
+        }
+
+        // Sends the hornet on a path to the center of the hive within the max distance
+        @Override
+        public void start() {
+            this.hornet.getNavigation().startMovingAlong(this.hornet.getNavigation().findPathTo(this.hornet.getHivePos().orElseThrow(), MAX_DIST_FROM_HIVE), 0.8);
+        }
+
+        @Override
+        public boolean shouldContinue() {
+            return hornet.hasHive() && hornet.isOutOfHiveRange();
+        }
+    }
+
     class HornetWanderAroundGoal extends Goal {
-        private static final int MAX_DIST_FROM_HIVE = 50;
         private final HornetEntity hornet;
 
         public HornetWanderAroundGoal(HornetEntity hornet) {

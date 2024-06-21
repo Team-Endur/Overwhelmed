@@ -22,9 +22,12 @@ import net.minecraft.registry.tag.BiomeTags;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.feature.PlacedFeature;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Overwhelmed implements ModInitializer {
 	public static final String MOD_ID = "overwhelmed";
+	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
 	public static final RegistryKey<PlacedFeature> ALTAIR_ORE_PLACED_KEY = RegistryKey.of(RegistryKeys.PLACED_FEATURE,
 			new Identifier("overwhelmed","ore_altair"));
