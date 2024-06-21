@@ -9,7 +9,7 @@ import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.Entity;
+import net.minecraft.util.math.MathHelper;
 
 public class HornetModel<T extends HornetEntity> extends EntityModel<T> {
     private final ModelPart head;
@@ -49,7 +49,12 @@ public class HornetModel<T extends HornetEntity> extends EntityModel<T> {
     }
     @Override
     public void setAngles(HornetEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+        this.left_wing.roll = MathHelper.sin(ageInTicks) * (float)Math.PI * 0.5f;
+        this.right_wing.roll = -this.left_wing.roll;
+        // default pitch is -0.6545
+        this.body.pitch = MathHelper.map(MathHelper.sin(ageInTicks / ((float)Math.PI * 4f)), -1f, 1f, -0.55f, -0.75f);
     }
+
     @Override
     public void render(MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, float red, float green, float blue, float alpha) {
         head.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
