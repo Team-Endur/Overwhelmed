@@ -36,8 +36,8 @@ public class SnailModel<T extends SnailEntity> extends SinglePartEntityModel<T> 
 	public void setAngles(SnailEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		this.getPart().traverse().forEach(ModelPart::resetTransform);
 
-		this.animateMovement(SnailAnimations.WALKING, limbSwing, limbSwingAmount, 2.0F, 2.5F);
-		this.updateAnimation(entity.idleAnimationState, SnailAnimations.IDLING, ageInTicks, 1.0F);
+		this.animateMovement(SnailAnimations.WALKING, limbSwing, limbSwingAmount, 8.0F, 2.5F);
+		this.updateAnimation(entity.idleAnimationState, SnailAnimations.IDLING, ageInTicks, 1f);
 	}
 
 	@Override

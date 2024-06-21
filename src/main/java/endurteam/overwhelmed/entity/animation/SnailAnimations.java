@@ -53,7 +53,7 @@ public class SnailAnimations {
                         new Keyframe(2.0F, AnimationHelper.createScalingVector(1.0F, 1.0F, 1.0F), Transformation.Interpolations.CUBIC)
                 ))
                 .build();
-    public static final Animation IDLING = Animation.Builder.create(2.0F)
+    public static final Animation IDLING = Animation.Builder.create(2.0F).looping()
             .addBoneAnimation("left_antenna", new Transformation(Transformation.Targets.ROTATE,
                     new Keyframe(0.0F, AnimationHelper.createRotationalVector(0.0F, 0.0F, 0.0F), Transformation.Interpolations.CUBIC),
                     new Keyframe(1.0F, AnimationHelper.createRotationalVector(0.0F, -20.0F, 0.0F), Transformation.Interpolations.CUBIC),

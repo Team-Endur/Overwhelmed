@@ -29,6 +29,12 @@ public class SnailEntity extends AnimalEntity {
     }
 
     private void updateAnimations() {
+        // Make idle animation stop while moving
+        if(this.limbAnimator.isLimbMoving()) {
+            this.idleAnimationState.stop();
+            return;
+        }
+
         if (this.idleAnimationTimeout <= 0) {
             this.idleAnimationTimeout = this.random.nextInt(40) + 80;
             this.idleAnimationState.start(this.age);
@@ -45,10 +51,10 @@ public class SnailEntity extends AnimalEntity {
 
     @Override
     public void tick() {
-        super.tick();
         if(this.getWorld().isClient()) {
             updateAnimations();
         }
+        super.tick();
     }
 
     @Override
