@@ -14,19 +14,29 @@ import net.minecraft.entity.ai.pathing.EntityNavigation;
 import net.minecraft.entity.ai.pathing.PathNodeType;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.data.DataTracker;
+import net.minecraft.entity.data.TrackedData;
+import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.*;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.PassiveEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.util.TimeHelper;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.UUID;
 
 public class HornetEntity extends AnimalEntity implements Angerable, Flutterer {
+    public static final TrackedData<Integer> ANGER = DataTracker.registerData(HornetEntity.class, TrackedDataHandlerRegistry.INTEGER);
+    private static final UniformIntProvider ANGER_TIME_RANGE = TimeHelper.betweenSeconds(25, 49);
+    @Nullable
+    private UUID angryAt;
 
     protected HornetEntity(EntityType<? extends AnimalEntity> entityType, World world) {
         super(entityType, world);
@@ -39,9 +49,17 @@ public class HornetEntity extends AnimalEntity implements Angerable, Flutterer {
         this.setPathfindingPenalty(PathNodeType.FENCE, -1.0f);
     }
 
+    @Override
+    protected void initDataTracker(DataTracker.Builder builder) {
+        super.initDataTracker(builder);
+        builder.add(ANGER, 0);
+    }
+
     protected void initGoals() {
         this.goalSelector.add(0, new TemptGoal(this, 1.4f, stack -> stack.isIn(OverwhelmedItemTagProvider.HORNET_FOOD), false));
         this.goalSelector.add(1, new HornetWanderAroundGoal(this));
+        this.goalSelector.add(2, new LookAtEntityGoal(this, PlayerEntity.class, 5f));
+        this.goalSelector.add(3, new LookAroundGoal(this));
     }
 
     @Override
@@ -90,30 +108,30 @@ public class HornetEntity extends AnimalEntity implements Angerable, Flutterer {
         return !this.isOnGround();
     }
 
-    @Override
-    public int getAngerTime() {
-        return 0;
-    }
-
-    @Override
-    public void setAngerTime(int angerTime) {
-
-    }
-
     @Nullable
     @Override
     public UUID getAngryAt() {
-        return null;
+        return this.angryAt;
     }
 
     @Override
     public void setAngryAt(@Nullable UUID angryAt) {
+        this.angryAt = angryAt;
+    }
 
+    @Override
+    public int getAngerTime() {
+        return this.dataTracker.get(ANGER);
+    }
+
+    @Override
+    public void setAngerTime(int angerTime) {
+        this.dataTracker.set(ANGER, angerTime);
     }
 
     @Override
     public void chooseRandomAngerTime() {
-
+        this.setAngerTime(ANGER_TIME_RANGE.get(this.random));
     }
 
     class HornetLookControl extends LookControl {
