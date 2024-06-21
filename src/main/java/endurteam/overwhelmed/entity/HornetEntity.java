@@ -56,7 +56,7 @@ public class HornetEntity extends AnimalEntity implements Angerable, Flutterer {
     }
 
     protected void initGoals() {
-        this.goalSelector.add(0, new TemptGoal(this, 1.4f, stack -> stack.isIn(OverwhelmedItemTagProvider.HORNET_FOOD), false));
+        this.goalSelector.add(0, new TemptGoal(this, 1.2f, stack -> stack.isIn(OverwhelmedItemTagProvider.HORNET_FOOD), false));
         this.goalSelector.add(1, new HornetWanderAroundGoal(this));
         this.goalSelector.add(2, new LookAtEntityGoal(this, PlayerEntity.class, 5f));
         this.goalSelector.add(3, new LookAroundGoal(this));
@@ -79,7 +79,7 @@ public class HornetEntity extends AnimalEntity implements Angerable, Flutterer {
     public static DefaultAttributeContainer.Builder createHornetAttributes() {
         return MobEntity.createMobAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 12)
-                .add(EntityAttributes.GENERIC_FLYING_SPEED, 0.2F)
+                .add(EntityAttributes.GENERIC_FLYING_SPEED, 0.4f)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 3);
     }
 
@@ -165,7 +165,7 @@ public class HornetEntity extends AnimalEntity implements Angerable, Flutterer {
         public void start() {
             Vec3d loc = this.getRandomLocation();
             if(loc != null)
-                this.hornet.getNavigation().startMovingAlong(this.hornet.getNavigation().findPathTo(BlockPos.ofFloored(loc), 1), 1.2);
+                this.hornet.getNavigation().startMovingAlong(this.hornet.getNavigation().findPathTo(BlockPos.ofFloored(loc), 1), 1.0);
         }
 
         @Override

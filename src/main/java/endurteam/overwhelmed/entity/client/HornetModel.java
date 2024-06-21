@@ -49,10 +49,10 @@ public class HornetModel<T extends HornetEntity> extends EntityModel<T> {
     }
     @Override
     public void setAngles(HornetEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-        this.left_wing.roll = MathHelper.sin(ageInTicks) * (float)Math.PI * 0.5f;
+        this.left_wing.roll = MathHelper.sin(ageInTicks * 2) * (float)Math.PI * 0.125f;
         this.right_wing.roll = -this.left_wing.roll;
         // default pitch is -0.6545
-        this.body.pitch = MathHelper.map(MathHelper.sin(ageInTicks / ((float)Math.PI * 4f)), -1f, 1f, -0.55f, -0.75f);
+        this.body.pitch = MathHelper.map(MathHelper.sin(ageInTicks / ((float)Math.PI * 2f)), -1f, 1f, -0.4f, -0.8f);
     }
 
     @Override
