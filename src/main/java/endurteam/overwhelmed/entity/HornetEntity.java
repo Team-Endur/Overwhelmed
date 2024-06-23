@@ -1,10 +1,11 @@
 package endurteam.overwhelmed.entity;
 
-import endurteam.overwhelmed.Overwhelmed;
 import endurteam.overwhelmed.datagen.OverwhelmedItemTagProvider;
 import net.minecraft.block.BlockState;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.Flutterer;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.AboveGroundTargeting;
 import net.minecraft.entity.ai.NoPenaltySolidTargeting;
 import net.minecraft.entity.ai.control.FlightMoveControl;
@@ -18,6 +19,8 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.*;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.PassiveEntity;
@@ -26,10 +29,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtHelper;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.TimeHelper;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
+import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
@@ -39,9 +44,11 @@ import java.util.UUID;
 public class HornetEntity extends AnimalEntity implements Angerable, Flutterer {
     public static final TrackedData<Integer> ANGER = DataTracker.registerData(HornetEntity.class, TrackedDataHandlerRegistry.INTEGER);
     private static final UniformIntProvider ANGER_TIME_RANGE = TimeHelper.betweenSeconds(25, 49);
-    private static final int MAX_DIST_FROM_HIVE = 50;
     public static final String HIVE_POS_KEY = "hive_pos";
     public static final String HAS_HIVE_KEY = "has_hive";
+    private static final int MAX_DIST_FROM_HIVE = 50;
+    private static final int MAX_TICKS_IN_WATER = 100; // 5 seconds
+    private int ticksInsideWater = 0;
     @Nullable private UUID angryAt;
     private BlockPos hivePos = BlockPos.ORIGIN;
     private boolean hasHive = false;
@@ -55,6 +62,13 @@ public class HornetEntity extends AnimalEntity implements Angerable, Flutterer {
         this.setPathfindingPenalty(PathNodeType.WATER_BORDER, 16.0f);
         this.setPathfindingPenalty(PathNodeType.COCOA, -1.0f);
         this.setPathfindingPenalty(PathNodeType.FENCE, -1.0f);
+    }
+
+    @Override
+    public float getPathfindingFavor(BlockPos pos) {
+        if(getWorld().getBlockState(pos).isAir())
+            return 10.0f;
+        return 1.0f;
     }
 
     @Override
@@ -80,11 +94,12 @@ public class HornetEntity extends AnimalEntity implements Angerable, Flutterer {
     }
 
     protected void initGoals() {
-        this.goalSelector.add(0, new TemptGoal(this, 1.2f, stack -> stack.isIn(OverwhelmedItemTagProvider.HORNET_FOOD), false));
-        this.goalSelector.add(1, new HornetReturnInHiveRangeGoal(this));
-        this.goalSelector.add(2, new HornetWanderAroundGoal(this));
-        this.goalSelector.add(3, new LookAtEntityGoal(this, PlayerEntity.class, 5f));
-        this.goalSelector.add(4, new LookAroundGoal(this));
+        this.goalSelector.add(0, new HornetStingGoal(this, 1.6f, true));
+        this.goalSelector.add(2, new TemptGoal(this, 1.2f, stack -> stack.isIn(OverwhelmedItemTagProvider.HORNET_FOOD), false));
+        this.goalSelector.add(3, new HornetReturnInHiveRangeGoal(this));
+        this.goalSelector.add(4, new HornetWanderAroundGoal(this));
+        this.goalSelector.add(5, new LookAtEntityGoal(this, PlayerEntity.class, 5f));
+        this.goalSelector.add(6, new LookAroundGoal(this));
     }
 
     @Override
@@ -124,6 +139,10 @@ public class HornetEntity extends AnimalEntity implements Angerable, Flutterer {
     }
 
     @Override
+    protected void playStepSound(BlockPos pos, BlockState state) {
+    }
+
+    @Override
     public boolean isFlappingWings() {
         return this.isInAir();
     }
@@ -157,6 +176,37 @@ public class HornetEntity extends AnimalEntity implements Angerable, Flutterer {
     @Override
     public void chooseRandomAngerTime() {
         this.setAngerTime(ANGER_TIME_RANGE.get(this.random));
+    }
+
+    @Override
+    public boolean tryAttack(Entity target) {
+        boolean canAttack = target.damage(this.getDamageSources().sting(this), (int)this.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE));
+        if(canAttack) {
+            this.applyDamageEffects(this, target);
+            if(target instanceof LivingEntity) {
+                int poisonTime = 0;
+                if(this.getWorld().getDifficulty() == Difficulty.EASY) poisonTime = 10;
+                else if(this.getWorld().getDifficulty() == Difficulty.NORMAL) poisonTime = 15;
+                else if(this.getWorld().getDifficulty() == Difficulty.HARD) poisonTime = 25;
+
+                if(poisonTime > 0) ((LivingEntity)target).addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, poisonTime * 20, 0), this);
+            }
+            this.stopAnger();
+            this.playSound(SoundEvents.ENTITY_BEE_STING, 1.0f, 1.0f);
+        }
+        return canAttack;
+    }
+
+    @Override
+    protected void mobTick() {
+        this.ticksInsideWater = this.isInsideWaterOrBubbleColumn() ? ++this.ticksInsideWater : 0;
+        if (this.ticksInsideWater > MAX_TICKS_IN_WATER) {
+            this.damage(this.getDamageSources().drown(), 1.0f);
+        }
+
+        if(!this.getWorld().isClient()) {
+            this.tickAngerLogic((ServerWorld)this.getWorld(), true);
+        }
     }
 
     public Optional<BlockPos> getHivePos() {
@@ -196,6 +246,22 @@ public class HornetEntity extends AnimalEntity implements Angerable, Flutterer {
                 return;
 
             super.tick();
+        }
+    }
+
+    class HornetStingGoal extends MeleeAttackGoal {
+        public HornetStingGoal(HornetEntity mob, double speed, boolean pauseWhenMobIdle) {
+            super(mob, speed, pauseWhenMobIdle);
+        }
+
+        @Override
+        public boolean canStart() {
+            return super.canStart() && ((HornetEntity)this.mob).hasAngerTime();
+        }
+
+        @Override
+        public boolean shouldContinue() {
+            return super.canStart() && ((HornetEntity)this.mob).hasAngerTime();
         }
     }
 

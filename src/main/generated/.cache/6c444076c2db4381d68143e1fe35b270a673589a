@@ -1,4 +1,4 @@
-// 1.20.6	2024-06-19T21:22:32.504416064	Overwhelmed/Block Loot Tables
+// 1.20.6	2024-06-23T15:20:17.021412319	Overwhelmed/Block Loot Tables
 76224db6b073363ff665144a5d64b3832a9a6b19 data/overwhelmed/loot_tables/blocks/polished_altair_slab.json
 8b7bfc78904010303fdae6222eb78dd49a92f879 data/overwhelmed/loot_tables/blocks/willow_wood.json
 b0eae20227697dd90905213af78b6f63d3cfc64f data/overwhelmed/loot_tables/blocks/willow_log.json
@@ -32,9 +32,9 @@ abbdddaa08fd1f98ee16fb6cfd26ee51506c623b data/overwhelmed/loot_tables/blocks/wil
 6f10832effb86381cc677290067fd914f4e8b1e9 data/overwhelmed/loot_tables/blocks/fizzyrock_slab.json
 0f417ebc5e67af9d7dbe6d6ef29cd65a86e0231c data/overwhelmed/loot_tables/blocks/fizzyrock_brick_wall.json
 0fb0b37cf87dd8906bdc11f4294785e9d9afd644 data/overwhelmed/loot_tables/blocks/chiseled_fizzyrock_bricks.json
-2d33e83d8f450051d4b8214fa835d772fffa4fb7 data/overwhelmed/loot_tables/blocks/potted_squirl.json
 f73e5ad9abcba437dde1806705d7dde935ece3aa data/overwhelmed/loot_tables/blocks/polished_fizzyrock_slab.json
 183088551af752a7398d19e6eda40556d8a2d6a1 data/overwhelmed/loot_tables/blocks/snail_shell_brick_stair.json
+2d33e83d8f450051d4b8214fa835d772fffa4fb7 data/overwhelmed/loot_tables/blocks/potted_squirl.json
 ad60fb2444d6e1a0f12fa1905d23213ae2920235 data/overwhelmed/loot_tables/blocks/polished_fizzyrock.json
 f742acabf1a7c189c1ad16964b3e4d5710ef9858 data/overwhelmed/loot_tables/blocks/goo_block.json
 32931a1243e34881bb3a306bc88c38a160941116 data/overwhelmed/loot_tables/blocks/fizzyrock.json
@@ -54,8 +54,8 @@ cdc2e68ca0ff7db4ea2bc30038e6c9f491d16e4f data/overwhelmed/loot_tables/blocks/pot
 6548c7939c9e28df92085ef45076e99bc238a2b8 data/overwhelmed/loot_tables/blocks/ice_cube.json
 9499886156eee2c4725d5e04826984f5c5dc889d data/overwhelmed/loot_tables/blocks/potted_paine.json
 4a0e94c3a4de148d2f16b42d6405fae824894bee data/overwhelmed/loot_tables/blocks/fizzyrock_wall.json
-214c6fd2bc325e40c9ff64d49ee239f4447bb91f data/overwhelmed/loot_tables/blocks/pebble.json
 770567f9aa6aaf7c69473f7c6785b3cf3367f775 data/overwhelmed/loot_tables/blocks/potted_floff.json
+214c6fd2bc325e40c9ff64d49ee239f4447bb91f data/overwhelmed/loot_tables/blocks/pebble.json
 d4999bc3ba6bd3356dfbd0d6ad2a643cb0b216e5 data/overwhelmed/loot_tables/blocks/paine.json
 19b0720bac6bedbfbe273f16a4a276aa238adc14 data/overwhelmed/loot_tables/blocks/altair_slab.json
 4a75585cb159918f129175219f412f1681a28089 data/overwhelmed/loot_tables/blocks/paper_nest.json

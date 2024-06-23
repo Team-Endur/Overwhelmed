@@ -1,4 +1,4 @@
-// 1.20.6	2024-06-19T21:22:32.506275295	Overwhelmed/Tags for minecraft:block
+// 1.20.6	2024-06-23T15:20:17.025338017	Overwhelmed/Tags for minecraft:block
 cb8edbd4aa2207b7fc7be566377560c393e0b722 data/minecraft/tags/blocks/fence_gates.json
 774a36b30d4e1b34fa1b4eaa2f1d3ddc1a7d2e25 data/minecraft/tags/blocks/mineable/shovel.json
 13df691824256e275ebd220133a5db78a77aa2cb data/minecraft/tags/blocks/fences.json
@@ -6,8 +6,8 @@ cb8edbd4aa2207b7fc7be566377560c393e0b722 data/minecraft/tags/blocks/fence_gates.
 9f91e8f3d47e684cb7be70f8e4e7dbd787d3e290 data/minecraft/tags/blocks/ceiling_hanging_signs.json
 926b00b797221450904c41d6407d430939f8989b data/minecraft/tags/blocks/small_flowers.json
 26051bffdf1281412b6567712633701e0fc1a7d0 data/minecraft/tags/blocks/mineable/axe.json
-13df691824256e275ebd220133a5db78a77aa2cb data/minecraft/tags/blocks/wooden_fences.json
 c09c6d9661b5e5a7a561650b4b2839037cf8b2a0 data/minecraft/tags/blocks/wall_signs.json
+13df691824256e275ebd220133a5db78a77aa2cb data/minecraft/tags/blocks/wooden_fences.json
 057e697c632d9220ead75e49ed1b2cf38fc81546 data/minecraft/tags/blocks/logs_that_burn.json
 f6ef0031d3215a494663ca9be191cdfe42312e6e data/minecraft/tags/blocks/convertable_to_mud.json
 fa0bc8135019490c99fe748a6bc9bf07d6e2f42d data/minecraft/tags/blocks/mineable/pickaxe.json

@@ -93,8 +93,9 @@ public class OverwhelmedCreativeTabs {
                         entries.add(OverwhelmedItems.GOO_BALL);
                         entries.add(OverwhelmedItems.SNAIL_SHELL);
                         entries.add(OverwhelmedItems.MINT_LEAF);
+                        entries.add(OverwhelmedItems.STINGER);
+                        entries.add(OverwhelmedItems.HORNET_SPAWN_EGG);
 //                        entries.add(OverwhelmedItems.BUTTERFLY_SPAWN_EGG);
-//                        entries.add(OverwhelmedItems.HORNET_SPAWN_EGG);
 //                        entries.add(OverwhelmedItems.MOTH_SPAWN_EGG);
 //                        entries.add(OverwhelmedItems.SNAIL_SPAWN_EGG);
 
