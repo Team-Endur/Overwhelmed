@@ -1,10 +1,8 @@
 package endurteam.overwhelmed;
 
 import endurteam.overwhelmed.block.OverwhelmedBlocks;
-import endurteam.overwhelmed.entity.HornetEntity;
-import endurteam.overwhelmed.entity.OverwhelmedBoats;
-import endurteam.overwhelmed.entity.OverwhelmedEntities;
-import endurteam.overwhelmed.entity.SnailEntity;
+import endurteam.overwhelmed.entity.*;
+import endurteam.overwhelmed.entity.animation.MothAnimations;
 import endurteam.overwhelmed.item.OverwhelmedCreativeTabs;
 import endurteam.overwhelmed.item.OverwhelmedItems;
 import endurteam.overwhelmed.sound.OverwhelmedSounds;
@@ -50,6 +48,7 @@ public class Overwhelmed implements ModInitializer {
 		FlammableBlockRegistry.getDefaultInstance().add(OverwhelmedBlocks.WILLOW_LEAVES, 30, 60);
 
 		FabricDefaultAttributeRegistry.register(OverwhelmedEntities.SNAIL, SnailEntity.createSnailAttributes());
+		FabricDefaultAttributeRegistry.register(OverwhelmedEntities.MOTH, MothEntity.createMothAttributes());
 		FabricDefaultAttributeRegistry.register(OverwhelmedEntities.HORNET, HornetEntity.createHornetAttributes());
 
 		BiomeModifications.addFeature(BiomeSelectors.tag(BiomeTags.IS_MOUNTAIN),

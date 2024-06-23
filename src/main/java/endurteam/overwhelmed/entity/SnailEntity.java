@@ -29,12 +29,6 @@ public class SnailEntity extends AnimalEntity {
     }
 
     private void updateAnimations() {
-        // Make idle animation stop while moving
-        if(this.limbAnimator.isLimbMoving()) {
-            this.idleAnimationState.stop();
-            return;
-        }
-
         if (this.idleAnimationTimeout <= 0) {
             this.idleAnimationTimeout = this.random.nextInt(40) + 80;
             this.idleAnimationState.start(this.age);
@@ -45,16 +39,16 @@ public class SnailEntity extends AnimalEntity {
 
     @Override
     protected void updateLimbs(float posDelta) {
-        float f = this.getPose() == EntityPose.STANDING ? Math.min(posDelta * 6.0f, 1.0f) : 0.0f;
-        this.limbAnimator.updateLimbs(f, 0.2f);
+        float f = this.getPose() == EntityPose.STANDING ? Math.min(posDelta * 6.0F, 1.0F) : 0.0F;
+        this.limbAnimator.updateLimbs(f, 0.2F);
     }
 
     @Override
     public void tick() {
+        super.tick();
         if(this.getWorld().isClient()) {
             updateAnimations();
         }
-        super.tick();
     }
 
     @Override
@@ -62,7 +56,8 @@ public class SnailEntity extends AnimalEntity {
         this.goalSelector.add(0, new SwimGoal(this));
 
         this.goalSelector.add(1, new AnimalMateGoal(this, 1.15D));
-        this.goalSelector.add(2, new TemptGoal(this, 1.25D, Ingredient.ofItems(Items.BEETROOT), false));
+        this.goalSelector.add(2, new TemptGoal(this, 1.25D,
+                Ingredient.ofItems(Items.SLIME_BALL), false));
 
         this.goalSelector.add(3, new FollowParentGoal(this, 1.15D));
 
@@ -74,7 +69,7 @@ public class SnailEntity extends AnimalEntity {
     public static DefaultAttributeContainer.Builder createSnailAttributes() {
         return MobEntity.createMobAttributes()
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.1F)
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 4.0F)
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, 10.0F)
                 .add(EntityAttributes.GENERIC_ARMOR, 0.2F)
                 .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, 0.4F)
                 .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 16.0D);

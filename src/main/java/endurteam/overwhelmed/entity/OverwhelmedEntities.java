@@ -21,6 +21,10 @@ public class OverwhelmedEntities {
             new Identifier(Overwhelmed.MOD_ID, "snail"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, SnailEntity::new)
                     .dimensions(EntityDimensions.fixed(1.0F, 1.0F)).build());
+    public static final EntityType<MothEntity> MOTH = Registry.register(Registries.ENTITY_TYPE,
+            new Identifier(Overwhelmed.MOD_ID, "moth"),
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, MothEntity::new)
+                    .dimensions(EntityDimensions.fixed(1.0F, 1.0F)).build());
     public static final EntityType<HornetEntity> HORNET = Registry.register(Registries.ENTITY_TYPE,
             new Identifier(Overwhelmed.MOD_ID, "hornet"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, HornetEntity::new)

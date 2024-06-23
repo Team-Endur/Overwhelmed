@@ -57,6 +57,8 @@ public class OverwhelmedClient implements ClientModInitializer {
         EntityRendererRegistry.register(OverwhelmedEntities.PEBBLE_PROJECTILE, FlyingItemEntityRenderer::new);
         EntityRendererRegistry.register(OverwhelmedEntities.SNAIL, SnailRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(OverwhelmedModelLayers.SNAIL, SnailModel::getTexturedModelData);
+        EntityRendererRegistry.register(OverwhelmedEntities.MOTH, MothRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(OverwhelmedModelLayers.MOTH, MothModel::getTexturedModelData);
         EntityRendererRegistry.register(OverwhelmedEntities.HORNET, HornetRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(OverwhelmedModelLayers.HORNET, HornetModel::getTexturedModelData);
 
