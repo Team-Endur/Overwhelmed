@@ -16,11 +16,25 @@ public class OverwhelmedBlockFamilies {
             .sign(OverwhelmedBlocks.WILLOW_SIGN, OverwhelmedBlocks.WILLOW_WALL_SIGN)
             .build();
 
-    public static final BlockFamily SNAIL_SHELL_FAMILY = BlockFamilies.register(OverwhelmedBlocks.GARDEN_SNAIL_SHELL_BRICKS)
+    public static final BlockFamily DESERT_SNAIL_SHELL_FAMILY = BlockFamilies.register(OverwhelmedBlocks.DESERT_SNAIL_SHELL_BRICKS)
+            .stairs(OverwhelmedBlocks.DESERT_SNAIL_SHELL_BRICK_STAIRS)
+            .slab(OverwhelmedBlocks.DESERT_SNAIL_SHELL_BRICK_SLAB)
+            .wall(OverwhelmedBlocks.DESERT_SNAIL_SHELL_BRICK_WALL)
+            .chiseled(OverwhelmedBlocks.CHISELED_DESERT_SNAIL_SHELL_BRICKS)
+            .group("building")
+            .build();
+    public static final BlockFamily GARDEN_SNAIL_SHELL_FAMILY = BlockFamilies.register(OverwhelmedBlocks.GARDEN_SNAIL_SHELL_BRICKS)
             .stairs(OverwhelmedBlocks.GARDEN_SNAIL_SHELL_BRICK_STAIRS)
             .slab(OverwhelmedBlocks.GARDEN_SNAIL_SHELL_BRICK_SLAB)
             .wall(OverwhelmedBlocks.GARDEN_SNAIL_SHELL_BRICK_WALL)
             .chiseled(OverwhelmedBlocks.CHISELED_GARDEN_SNAIL_SHELL_BRICKS)
+            .group("building")
+            .build();
+    public static final BlockFamily SNOW_SNAIL_SHELL_FAMILY = BlockFamilies.register(OverwhelmedBlocks.SNOW_SNAIL_SHELL_BRICKS)
+            .stairs(OverwhelmedBlocks.SNOW_SNAIL_SHELL_BRICK_STAIRS)
+            .slab(OverwhelmedBlocks.SNOW_SNAIL_SHELL_BRICK_SLAB)
+            .wall(OverwhelmedBlocks.SNOW_SNAIL_SHELL_BRICK_WALL)
+            .chiseled(OverwhelmedBlocks.CHISELED_SNOW_SNAIL_SHELL_BRICKS)
             .group("building")
             .build();
 

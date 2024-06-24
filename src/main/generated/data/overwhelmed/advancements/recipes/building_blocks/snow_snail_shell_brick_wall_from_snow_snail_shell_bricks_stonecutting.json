@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_garden_snail_shell_bricks": {
+    "has_snow_snail_shell_bricks": {
       "conditions": {
         "items": [
           {
-            "items": "overwhelmed:garden_snail_shell_bricks"
+            "items": "overwhelmed:snow_snail_shell_bricks"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "overwhelmed:garden_snail_shell_brick_stair"
+        "recipe": "minecraft:snow_snail_shell_brick_wall_from_snow_snail_shell_bricks_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_garden_snail_shell_bricks"
+      "has_snow_snail_shell_bricks"
     ]
   ],
   "rewards": {
     "recipes": [
-      "overwhelmed:garden_snail_shell_brick_stair"
+      "minecraft:snow_snail_shell_brick_wall_from_snow_snail_shell_bricks_stonecutting"
     ]
   }
 }

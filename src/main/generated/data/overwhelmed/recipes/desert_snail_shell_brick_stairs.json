@@ -4,7 +4,7 @@
   "group": "building_stairs",
   "key": {
     "#": {
-      "item": "overwhelmed:garden_snail_shell_bricks"
+      "item": "overwhelmed:desert_snail_shell_bricks"
     }
   },
   "pattern": [
@@ -14,6 +14,6 @@
   ],
   "result": {
     "count": 4,
-    "id": "overwhelmed:garden_snail_shell_brick_stair"
+    "id": "overwhelmed:desert_snail_shell_brick_stairs"
   }
 }

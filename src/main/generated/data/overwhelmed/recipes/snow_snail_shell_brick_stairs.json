@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "building_stairs",
+  "key": {
+    "#": {
+      "item": "overwhelmed:snow_snail_shell_bricks"
+    }
+  },
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "result": {
+    "count": 4,
+    "id": "overwhelmed:snow_snail_shell_brick_stairs"
+  }
+}

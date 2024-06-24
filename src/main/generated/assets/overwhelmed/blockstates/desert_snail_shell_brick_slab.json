@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "overwhelmed:block/desert_snail_shell_brick_slab"
+    },
+    "type=double": {
+      "model": "overwhelmed:block/desert_snail_shell_bricks"
+    },
+    "type=top": {
+      "model": "overwhelmed:block/desert_snail_shell_brick_slab_top"
+    }
+  }
+}

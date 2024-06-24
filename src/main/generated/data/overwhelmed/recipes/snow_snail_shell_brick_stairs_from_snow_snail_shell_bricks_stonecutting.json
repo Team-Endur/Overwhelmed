@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "overwhelmed:snow_snail_shell_bricks"
+  },
+  "result": {
+    "count": 1,
+    "id": "overwhelmed:snow_snail_shell_brick_stairs"
+  }
+}

@@ -1,6 +1,8 @@
 {
   "values": [
+    "overwhelmed:desert_snail_shell_brick_wall",
     "overwhelmed:garden_snail_shell_brick_wall",
+    "overwhelmed:snow_snail_shell_brick_wall",
     "overwhelmed:altair_wall",
     "overwhelmed:fizzyrock_wall",
     "overwhelmed:fizzyrock_brick_wall"

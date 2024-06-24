@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_garden_snail_shell_bricks": {
+    "has_desert_snail_shell_bricks": {
       "conditions": {
         "items": [
           {
-            "items": "overwhelmed:garden_snail_shell_bricks"
+            "items": "overwhelmed:desert_snail_shell_bricks"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:garden_snail_shell_brick_stair_from_garden_snail_shell_bricks_stonecutting"
+        "recipe": "minecraft:desert_snail_shell_brick_slab_from_desert_snail_shell_bricks_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_garden_snail_shell_bricks"
+      "has_desert_snail_shell_bricks"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:garden_snail_shell_brick_stair_from_garden_snail_shell_bricks_stonecutting"
+      "minecraft:desert_snail_shell_brick_slab_from_desert_snail_shell_bricks_stonecutting"
     ]
   }
 }

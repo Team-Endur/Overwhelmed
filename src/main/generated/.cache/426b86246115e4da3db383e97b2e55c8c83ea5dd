@@ -1,7 +1,7 @@
-// 1.20.6	2024-06-24T14:24:12.8681307	Overwhelmed/Tags for minecraft:block
-c19eea41f1b153ff76f81a8bd422aecf69de32a3 data\minecraft\tags\blocks\walls.json
+// 1.20.6	2024-06-24T21:20:10.4148875	Overwhelmed/Tags for minecraft:block
+77f964c522aa5e36312aab2b3aa6204d7dd665b6 data\minecraft\tags\blocks\walls.json
 411fd004ad6422508eaf133fdde67bf31279a1f3 data\minecraft\tags\blocks\standing_signs.json
-d0b90eb83d6ce6c49ae5e0ce952a4132d0ad3d5c data\minecraft\tags\blocks\mineable\pickaxe.json
+885b2c2b4853d2c6cf8a1d7a4cf1c393caa3af94 data\minecraft\tags\blocks\mineable\pickaxe.json
 13df691824256e275ebd220133a5db78a77aa2cb data\minecraft\tags\blocks\fences.json
 aa0416cfbab5d4063b3ba2f13b747b3e303a3284 data\minecraft\tags\blocks\overworld_natural_logs.json
 9f91e8f3d47e684cb7be70f8e4e7dbd787d3e290 data\minecraft\tags\blocks\ceiling_hanging_signs.json

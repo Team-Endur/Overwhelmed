@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "overwhelmed:desert_snail_shell"
+    },
+    "S": {
+      "item": "overwhelmed:verdigrain"
+    }
+  },
+  "pattern": [
+    "#S",
+    "S#"
+  ],
+  "result": {
+    "count": 4,
+    "id": "overwhelmed:desert_snail_shell_bricks"
+  }
+}

@@ -84,13 +84,29 @@ public class OverwhelmedBlocks {
             new WeepingVinesBlock(AbstractBlock.Settings.copy(Blocks.VINE)
                     .mapColor(MapColor.LICHEN_GREEN)));
 
+    public static final Block DESERT_SNAIL_SHELL_BRICKS = registerBlock("desert_snail_shell_bricks",
+            new Block(AbstractBlock.Settings.create()
+                    .mapColor(MapColor.PALE_YELLOW)
+                    .strength(3.0F, 12.0F)
+                    .instrument(Instrument.BASEDRUM)
+                    .requiresTool()));
+    public static final Block DESERT_SNAIL_SHELL_BRICK_STAIRS = registerBlock("desert_snail_shell_brick_stairs",
+            new StairsBlock(OverwhelmedBlocks.DESERT_SNAIL_SHELL_BRICKS.getDefaultState(),
+                    AbstractBlock.Settings.copy(DESERT_SNAIL_SHELL_BRICKS)));
+    public static final Block DESERT_SNAIL_SHELL_BRICK_SLAB = registerBlock("desert_snail_shell_brick_slab",
+            new SlabBlock(AbstractBlock.Settings.copy(DESERT_SNAIL_SHELL_BRICKS)));
+    public static final Block DESERT_SNAIL_SHELL_BRICK_WALL = registerBlock("desert_snail_shell_brick_wall",
+            new WallBlock(AbstractBlock.Settings.copy(DESERT_SNAIL_SHELL_BRICKS)));
+    public static final Block CHISELED_DESERT_SNAIL_SHELL_BRICKS = registerBlock("chiseled_desert_snail_shell_bricks",
+            new Block(AbstractBlock.Settings.copy(DESERT_SNAIL_SHELL_BRICKS)));
+
     public static final Block GARDEN_SNAIL_SHELL_BRICKS = registerBlock("garden_snail_shell_bricks",
             new Block(AbstractBlock.Settings.create()
                     .mapColor(MapColor.DIRT_BROWN)
                     .strength(3.0F, 12.0F)
                     .instrument(Instrument.BASEDRUM)
                     .requiresTool()));
-    public static final Block GARDEN_SNAIL_SHELL_BRICK_STAIRS = registerBlock("garden_snail_shell_brick_stair",
+    public static final Block GARDEN_SNAIL_SHELL_BRICK_STAIRS = registerBlock("garden_snail_shell_brick_stairs",
             new StairsBlock(OverwhelmedBlocks.GARDEN_SNAIL_SHELL_BRICKS.getDefaultState(),
                     AbstractBlock.Settings.copy(GARDEN_SNAIL_SHELL_BRICKS)));
     public static final Block GARDEN_SNAIL_SHELL_BRICK_SLAB = registerBlock("garden_snail_shell_brick_slab",
@@ -99,6 +115,22 @@ public class OverwhelmedBlocks {
             new WallBlock(AbstractBlock.Settings.copy(GARDEN_SNAIL_SHELL_BRICKS)));
     public static final Block CHISELED_GARDEN_SNAIL_SHELL_BRICKS = registerBlock("chiseled_garden_snail_shell_bricks",
             new Block(AbstractBlock.Settings.copy(GARDEN_SNAIL_SHELL_BRICKS)));
+    public static final Block SNOW_SNAIL_SHELL_BRICKS = registerBlock("snow_snail_shell_bricks",
+            new Block(AbstractBlock.Settings.create()
+                    .mapColor(MapColor.WHITE)
+                    .strength(3.0F, 12.0F)
+                    .instrument(Instrument.BASEDRUM)
+                    .requiresTool()));
+    public static final Block SNOW_SNAIL_SHELL_BRICK_STAIRS = registerBlock("snow_snail_shell_brick_stairs",
+            new StairsBlock(OverwhelmedBlocks.SNOW_SNAIL_SHELL_BRICKS.getDefaultState(),
+                    AbstractBlock.Settings.copy(SNOW_SNAIL_SHELL_BRICKS)));
+    public static final Block SNOW_SNAIL_SHELL_BRICK_SLAB = registerBlock("snow_snail_shell_brick_slab",
+            new SlabBlock(AbstractBlock.Settings.copy(SNOW_SNAIL_SHELL_BRICKS)));
+    public static final Block SNOW_SNAIL_SHELL_BRICK_WALL = registerBlock("snow_snail_shell_brick_wall",
+            new WallBlock(AbstractBlock.Settings.copy(SNOW_SNAIL_SHELL_BRICKS)));
+    public static final Block CHISELED_SNOW_SNAIL_SHELL_BRICKS = registerBlock("chiseled_snow_snail_shell_bricks",
+            new Block(AbstractBlock.Settings.copy(SNOW_SNAIL_SHELL_BRICKS)));
+
 
     public static final Block ALTAIR = registerBlock("altair",
             new Block(AbstractBlock.Settings.create()
@@ -165,6 +197,11 @@ public class OverwhelmedBlocks {
     public static final Block FIZZYROCK_GEYSER = registerBlock("fizzyrock_geyser",
             new Block(AbstractBlock.Settings.copy(FIZZYROCK)));
 
+    public static final Block FIRN = registerBlock("firn",
+            new Block(AbstractBlock.Settings.create()
+                    .mapColor(MapColor.WHITE)
+                    .strength(0.5F)
+                    .sounds(BlockSoundGroup.SNOW)));
     public static final Block SOIL = registerBlock("soil",
             new Block(AbstractBlock.Settings.create()
             .mapColor(MapColor.DIRT_BROWN)
@@ -175,6 +212,11 @@ public class OverwhelmedBlocks {
             .mapColor(MapColor.DIRT_BROWN)
             .strength(0.7F)
             .sounds(BlockSoundGroup.ROOTED_DIRT)));
+    public static final Block VERDIGRAIN = registerBlock("verdigrain",
+            new Block(AbstractBlock.Settings.create()
+                    .mapColor(MapColor.PALE_YELLOW)
+                    .strength(0.5F)
+                    .sounds(BlockSoundGroup.SAND)));
 
     public static final Block FLOFF = registerBlock("floff",
             new FlowerBlock(StatusEffects.REGENERATION, 4, AbstractBlock.Settings.create()

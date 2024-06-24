@@ -34,9 +34,15 @@ public class OverwhelmedModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerTintableCross(OverwhelmedBlocks.WILLOW_VINES,
                 BlockStateModelGenerator.TintType.NOT_TINTED);
 
-        BlockStateModelGenerator.BlockTexturePool snailShellBricksPool = blockStateModelGenerator
+        BlockStateModelGenerator.BlockTexturePool desertSnailShellBricksPool = blockStateModelGenerator
+                .registerCubeAllModelTexturePool(OverwhelmedBlocks.DESERT_SNAIL_SHELL_BRICKS);
+        desertSnailShellBricksPool.family(OverwhelmedBlockFamilies.DESERT_SNAIL_SHELL_FAMILY);
+        BlockStateModelGenerator.BlockTexturePool gardenSnailShellBricksPool = blockStateModelGenerator
                 .registerCubeAllModelTexturePool(OverwhelmedBlocks.GARDEN_SNAIL_SHELL_BRICKS);
-        snailShellBricksPool.family(OverwhelmedBlockFamilies.SNAIL_SHELL_FAMILY);
+        gardenSnailShellBricksPool.family(OverwhelmedBlockFamilies.GARDEN_SNAIL_SHELL_FAMILY);
+        BlockStateModelGenerator.BlockTexturePool snowSnailShellBricksPool = blockStateModelGenerator
+                .registerCubeAllModelTexturePool(OverwhelmedBlocks.SNOW_SNAIL_SHELL_BRICKS);
+        snowSnailShellBricksPool.family(OverwhelmedBlockFamilies.SNOW_SNAIL_SHELL_FAMILY);
 
         BlockStateModelGenerator.BlockTexturePool altairPool = blockStateModelGenerator
                 .registerCubeAllModelTexturePool(OverwhelmedBlocks.ALTAIR);
@@ -93,7 +99,9 @@ public class OverwhelmedModelProvider extends FabricModelProvider {
         itemModelGenerator.register(OverwhelmedItems.PEBBLE, Models.GENERATED);
         itemModelGenerator.register(OverwhelmedItems.PAPER_BULLET, Models.GENERATED);
         itemModelGenerator.register(OverwhelmedItems.GOO_BALL, Models.GENERATED);
+        itemModelGenerator.register(OverwhelmedItems.DESERT_SNAIL_SHELL, Models.GENERATED);
         itemModelGenerator.register(OverwhelmedItems.GARDEN_SNAIL_SHELL, Models.GENERATED);
+        itemModelGenerator.register(OverwhelmedItems.SNOW_SNAIL_SHELL, Models.GENERATED);
         itemModelGenerator.register(OverwhelmedItems.MINT_LEAF, Models.GENERATED);
 
         itemModelGenerator.register(OverwhelmedItems.SNAIL, Models.GENERATED);

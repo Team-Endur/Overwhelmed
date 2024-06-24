@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "building_chiseled",
+  "key": {
+    "#": {
+      "item": "overwhelmed:snow_snail_shell_brick_slab"
+    }
+  },
+  "pattern": [
+    "#",
+    "#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "overwhelmed:chiseled_snow_snail_shell_bricks"
+  }
+}

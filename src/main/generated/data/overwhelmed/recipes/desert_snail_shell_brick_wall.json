@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "building_wall",
+  "key": {
+    "#": {
+      "item": "overwhelmed:desert_snail_shell_bricks"
+    }
+  },
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "result": {
+    "count": 6,
+    "id": "overwhelmed:desert_snail_shell_brick_wall"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_firn": {
+      "conditions": {
+        "items": [
+          {
+            "items": "overwhelmed:firn"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_snow_snail_shell": {
+      "conditions": {
+        "items": [
+          {
+            "items": "overwhelmed:snow_snail_shell"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:snow_snail_shell_bricks"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_snow_snail_shell",
+      "has_firn"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:snow_snail_shell_bricks"
+    ]
+  }
+}

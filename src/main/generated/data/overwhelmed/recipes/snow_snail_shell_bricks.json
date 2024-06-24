@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "overwhelmed:snow_snail_shell"
+    },
+    "S": {
+      "item": "overwhelmed:firn"
+    }
+  },
+  "pattern": [
+    "#S",
+    "S#"
+  ],
+  "result": {
+    "count": 4,
+    "id": "overwhelmed:snow_snail_shell_bricks"
+  }
+}
