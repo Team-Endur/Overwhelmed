@@ -84,21 +84,21 @@ public class OverwhelmedBlocks {
             new WeepingVinesBlock(AbstractBlock.Settings.copy(Blocks.VINE)
                     .mapColor(MapColor.LICHEN_GREEN)));
 
-    public static final Block SNAIL_SHELL_BRICKS = registerBlock("snail_shell_bricks",
+    public static final Block GARDEN_SNAIL_SHELL_BRICKS = registerBlock("garden_snail_shell_bricks",
             new Block(AbstractBlock.Settings.create()
                     .mapColor(MapColor.DIRT_BROWN)
                     .strength(3.0F, 12.0F)
                     .instrument(Instrument.BASEDRUM)
                     .requiresTool()));
-    public static final Block SNAIL_SHELL_BRICK_STAIRS = registerBlock("snail_shell_brick_stair",
-            new StairsBlock(OverwhelmedBlocks.SNAIL_SHELL_BRICKS.getDefaultState(),
-                    AbstractBlock.Settings.copy(SNAIL_SHELL_BRICKS)));
-    public static final Block SNAIL_SHELL_BRICK_SLAB = registerBlock("snail_shell_brick_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(SNAIL_SHELL_BRICKS)));
-    public static final Block SNAIL_SHELL_BRICK_WALL = registerBlock("snail_shell_brick_wall",
-            new WallBlock(AbstractBlock.Settings.copy(SNAIL_SHELL_BRICKS)));
-    public static final Block CHISELED_SNAIL_SHELL_BRICKS = registerBlock("chiseled_snail_shell_bricks",
-            new Block(AbstractBlock.Settings.copy(SNAIL_SHELL_BRICKS)));
+    public static final Block GARDEN_SNAIL_SHELL_BRICK_STAIRS = registerBlock("garden_snail_shell_brick_stair",
+            new StairsBlock(OverwhelmedBlocks.GARDEN_SNAIL_SHELL_BRICKS.getDefaultState(),
+                    AbstractBlock.Settings.copy(GARDEN_SNAIL_SHELL_BRICKS)));
+    public static final Block GARDEN_SNAIL_SHELL_BRICK_SLAB = registerBlock("garden_snail_shell_brick_slab",
+            new SlabBlock(AbstractBlock.Settings.copy(GARDEN_SNAIL_SHELL_BRICKS)));
+    public static final Block GARDEN_SNAIL_SHELL_BRICK_WALL = registerBlock("garden_snail_shell_brick_wall",
+            new WallBlock(AbstractBlock.Settings.copy(GARDEN_SNAIL_SHELL_BRICKS)));
+    public static final Block CHISELED_GARDEN_SNAIL_SHELL_BRICKS = registerBlock("chiseled_garden_snail_shell_bricks",
+            new Block(AbstractBlock.Settings.copy(GARDEN_SNAIL_SHELL_BRICKS)));
 
     public static final Block ALTAIR = registerBlock("altair",
             new Block(AbstractBlock.Settings.create()

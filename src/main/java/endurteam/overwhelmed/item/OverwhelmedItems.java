@@ -56,7 +56,7 @@ public class OverwhelmedItems {
                     .maxCount(1)));
 
     public static Item GOO_BALL = registerItem("goo_ball", new Item(new Item.Settings()));
-    public static Item SNAIL_SHELL= registerItem("snail_shell", new Item(new Item.Settings()));
+    public static Item GARDEN_SNAIL_SHELL = registerItem("garden_snail_shell", new Item(new Item.Settings()));
     public static Item MINT_LEAF= registerItem("mint_leaf", new Item(new Item.Settings()));
 
     public static SpawnEggItem BUTTERFLY_SPAWN_EGG;

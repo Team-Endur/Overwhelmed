@@ -8,10 +8,6 @@ import endurteam.overwhelmed.item.OverwhelmedItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.*;
-import net.minecraft.item.SpawnEggItem;
-import net.minecraft.util.Identifier;
-
-import java.util.Optional;
 
 
 public class OverwhelmedModelProvider extends FabricModelProvider {
@@ -39,7 +35,7 @@ public class OverwhelmedModelProvider extends FabricModelProvider {
                 BlockStateModelGenerator.TintType.NOT_TINTED);
 
         BlockStateModelGenerator.BlockTexturePool snailShellBricksPool = blockStateModelGenerator
-                .registerCubeAllModelTexturePool(OverwhelmedBlocks.SNAIL_SHELL_BRICKS);
+                .registerCubeAllModelTexturePool(OverwhelmedBlocks.GARDEN_SNAIL_SHELL_BRICKS);
         snailShellBricksPool.family(OverwhelmedBlockFamilies.SNAIL_SHELL_FAMILY);
 
         BlockStateModelGenerator.BlockTexturePool altairPool = blockStateModelGenerator
@@ -97,7 +93,7 @@ public class OverwhelmedModelProvider extends FabricModelProvider {
         itemModelGenerator.register(OverwhelmedItems.PEBBLE, Models.GENERATED);
         itemModelGenerator.register(OverwhelmedItems.PAPER_BULLET, Models.GENERATED);
         itemModelGenerator.register(OverwhelmedItems.GOO_BALL, Models.GENERATED);
-        itemModelGenerator.register(OverwhelmedItems.SNAIL_SHELL, Models.GENERATED);
+        itemModelGenerator.register(OverwhelmedItems.GARDEN_SNAIL_SHELL, Models.GENERATED);
         itemModelGenerator.register(OverwhelmedItems.MINT_LEAF, Models.GENERATED);
 
         itemModelGenerator.register(OverwhelmedItems.SNAIL, Models.GENERATED);

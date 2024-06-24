@@ -49,23 +49,23 @@ public class OverwhelmedRecipeProvider extends FabricRecipeProvider {
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, OverwhelmedBlocks.WILLOW_SLAB,
                 OverwhelmedBlocks.WILLOW_PLANKS, 2);
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, OverwhelmedBlocks.SNAIL_SHELL_BRICKS, 4)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, OverwhelmedBlocks.GARDEN_SNAIL_SHELL_BRICKS, 4)
                 .pattern("#S")
                 .pattern("S#")
-                .input('#', OverwhelmedItems.SNAIL_SHELL)
+                .input('#', OverwhelmedItems.GARDEN_SNAIL_SHELL)
                 .input('S', OverwhelmedBlocks.SOIL)
-                .criterion(hasItem(OverwhelmedItems.SNAIL_SHELL), conditionsFromItem(OverwhelmedItems.SNAIL_SHELL))
+                .criterion(hasItem(OverwhelmedItems.GARDEN_SNAIL_SHELL), conditionsFromItem(OverwhelmedItems.GARDEN_SNAIL_SHELL))
                 .criterion(hasItem(OverwhelmedBlocks.SOIL), conditionsFromItem(OverwhelmedBlocks.SOIL))
-                .offerTo(exporter, new Identifier(getRecipeName(OverwhelmedBlocks.SNAIL_SHELL_BRICKS)));
+                .offerTo(exporter, new Identifier(getRecipeName(OverwhelmedBlocks.GARDEN_SNAIL_SHELL_BRICKS)));
         generateFamily(exporter, OverwhelmedBlockFamilies.SNAIL_SHELL_FAMILY);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS,
-                OverwhelmedBlocks.SNAIL_SHELL_BRICK_STAIRS, OverwhelmedBlocks.SNAIL_SHELL_BRICKS);
+                OverwhelmedBlocks.GARDEN_SNAIL_SHELL_BRICK_STAIRS, OverwhelmedBlocks.GARDEN_SNAIL_SHELL_BRICKS);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS,
-                OverwhelmedBlocks.SNAIL_SHELL_BRICK_SLAB, OverwhelmedBlocks.SNAIL_SHELL_BRICKS, 2);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, OverwhelmedBlocks.SNAIL_SHELL_BRICK_WALL,
-                OverwhelmedBlocks.SNAIL_SHELL_BRICKS);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, OverwhelmedBlocks.CHISELED_SNAIL_SHELL_BRICKS,
-                OverwhelmedBlocks.SNAIL_SHELL_BRICKS);
+                OverwhelmedBlocks.GARDEN_SNAIL_SHELL_BRICK_SLAB, OverwhelmedBlocks.GARDEN_SNAIL_SHELL_BRICKS, 2);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, OverwhelmedBlocks.GARDEN_SNAIL_SHELL_BRICK_WALL,
+                OverwhelmedBlocks.GARDEN_SNAIL_SHELL_BRICKS);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, OverwhelmedBlocks.CHISELED_GARDEN_SNAIL_SHELL_BRICKS,
+                OverwhelmedBlocks.GARDEN_SNAIL_SHELL_BRICKS);
 
         generateFamily(exporter, OverwhelmedBlockFamilies.ALTAIR_FAMILY);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS,

@@ -16,11 +16,11 @@ public class OverwhelmedBlockFamilies {
             .sign(OverwhelmedBlocks.WILLOW_SIGN, OverwhelmedBlocks.WILLOW_WALL_SIGN)
             .build();
 
-    public static final BlockFamily SNAIL_SHELL_FAMILY = BlockFamilies.register(OverwhelmedBlocks.SNAIL_SHELL_BRICKS)
-            .stairs(OverwhelmedBlocks.SNAIL_SHELL_BRICK_STAIRS)
-            .slab(OverwhelmedBlocks.SNAIL_SHELL_BRICK_SLAB)
-            .wall(OverwhelmedBlocks.SNAIL_SHELL_BRICK_WALL)
-            .chiseled(OverwhelmedBlocks.CHISELED_SNAIL_SHELL_BRICKS)
+    public static final BlockFamily SNAIL_SHELL_FAMILY = BlockFamilies.register(OverwhelmedBlocks.GARDEN_SNAIL_SHELL_BRICKS)
+            .stairs(OverwhelmedBlocks.GARDEN_SNAIL_SHELL_BRICK_STAIRS)
+            .slab(OverwhelmedBlocks.GARDEN_SNAIL_SHELL_BRICK_SLAB)
+            .wall(OverwhelmedBlocks.GARDEN_SNAIL_SHELL_BRICK_WALL)
+            .chiseled(OverwhelmedBlocks.CHISELED_GARDEN_SNAIL_SHELL_BRICKS)
             .group("building")
             .build();
 

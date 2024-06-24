@@ -14,7 +14,7 @@ public class OverwhelmedCreativeTabs {
     public static final ItemGroup OVERWHELMED = Registry.register(Registries.ITEM_GROUP,
             new Identifier(Overwhelmed.MOD_ID, "snail_shell"),
             FabricItemGroup.builder().displayName(Text.translatable("category.overwhelmed"))
-                    .icon(() -> new ItemStack(OverwhelmedItems.SNAIL_SHELL)).entries((displayContext, entries) -> {
+                    .icon(() -> new ItemStack(OverwhelmedItems.GARDEN_SNAIL_SHELL)).entries((displayContext, entries) -> {
                         entries.add(OverwhelmedBlocks.WILLOW_LOG);
                         entries.add(OverwhelmedBlocks.WILLOW_WOOD);
                         entries.add(OverwhelmedBlocks.STRIPPED_WILLOW_LOG);
@@ -30,11 +30,11 @@ public class OverwhelmedCreativeTabs {
                         entries.add(OverwhelmedBlocks.WILLOW_BUTTON);
                         entries.add(OverwhelmedBlocks.WILLOW_LEAVES);
                         entries.add(OverwhelmedBlocks.WILLOW_VINES);
-                        entries.add(OverwhelmedBlocks.SNAIL_SHELL_BRICKS);
-                        entries.add(OverwhelmedBlocks.SNAIL_SHELL_BRICK_STAIRS);
-                        entries.add(OverwhelmedBlocks.SNAIL_SHELL_BRICK_SLAB);
-                        entries.add(OverwhelmedBlocks.SNAIL_SHELL_BRICK_WALL);
-                        entries.add(OverwhelmedBlocks.CHISELED_SNAIL_SHELL_BRICKS);
+                        entries.add(OverwhelmedBlocks.GARDEN_SNAIL_SHELL_BRICKS);
+                        entries.add(OverwhelmedBlocks.GARDEN_SNAIL_SHELL_BRICK_STAIRS);
+                        entries.add(OverwhelmedBlocks.GARDEN_SNAIL_SHELL_BRICK_SLAB);
+                        entries.add(OverwhelmedBlocks.GARDEN_SNAIL_SHELL_BRICK_WALL);
+                        entries.add(OverwhelmedBlocks.CHISELED_GARDEN_SNAIL_SHELL_BRICKS);
                         entries.add(OverwhelmedBlocks.ALTAIR);
                         entries.add(OverwhelmedBlocks.ALTAIR_STAIRS);
                         entries.add(OverwhelmedBlocks.ALTAIR_SLAB);
@@ -91,7 +91,7 @@ public class OverwhelmedCreativeTabs {
                         entries.add(OverwhelmedItems.MINT_ICE_CREAM);
                         entries.add(OverwhelmedItems.SNAIL_STEW);
                         entries.add(OverwhelmedItems.GOO_BALL);
-                        entries.add(OverwhelmedItems.SNAIL_SHELL);
+                        entries.add(OverwhelmedItems.GARDEN_SNAIL_SHELL);
                         entries.add(OverwhelmedItems.MINT_LEAF);
 //                        entries.add(OverwhelmedItems.BUTTERFLY_SPAWN_EGG);
 //                        entries.add(OverwhelmedItems.HORNET_SPAWN_EGG);

@@ -43,11 +43,11 @@ public class OverwhelmedLootTableProvider extends FabricBlockLootTableProvider {
                 0.05f));
         addVinePlantDrop(OverwhelmedBlocks.WILLOW_VINES, OverwhelmedBlocks.WILLOW_VINES);
 
-        addDrop(OverwhelmedBlocks.SNAIL_SHELL_BRICKS);
-        addDrop(OverwhelmedBlocks.SNAIL_SHELL_BRICK_STAIRS);
-        addDrop(OverwhelmedBlocks.SNAIL_SHELL_BRICK_SLAB);
-        addDrop(OverwhelmedBlocks.SNAIL_SHELL_BRICK_WALL);
-        addDrop(OverwhelmedBlocks.CHISELED_SNAIL_SHELL_BRICKS);
+        addDrop(OverwhelmedBlocks.GARDEN_SNAIL_SHELL_BRICKS);
+        addDrop(OverwhelmedBlocks.GARDEN_SNAIL_SHELL_BRICK_STAIRS);
+        addDrop(OverwhelmedBlocks.GARDEN_SNAIL_SHELL_BRICK_SLAB);
+        addDrop(OverwhelmedBlocks.GARDEN_SNAIL_SHELL_BRICK_WALL);
+        addDrop(OverwhelmedBlocks.CHISELED_GARDEN_SNAIL_SHELL_BRICKS);
 
         addDrop(OverwhelmedBlocks.ALTAIR);
         addDrop(OverwhelmedBlocks.ALTAIR_STAIRS);

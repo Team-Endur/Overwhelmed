@@ -35,11 +35,11 @@ public class OverwhelmedBlockTagProvider extends FabricTagProvider.BlockTagProvi
 
         addToTags(OverwhelmedBlocks.PAPER_NEST, BlockTags.AXE_MINEABLE);
 
-        addToTags(OverwhelmedBlocks.SNAIL_SHELL_BRICKS, BlockTags.PICKAXE_MINEABLE);
-        addToTags(OverwhelmedBlocks.SNAIL_SHELL_BRICK_STAIRS, BlockTags.PICKAXE_MINEABLE);
-        addToTags(OverwhelmedBlocks.SNAIL_SHELL_BRICK_SLAB, BlockTags.PICKAXE_MINEABLE);
-        addToTags(OverwhelmedBlocks.SNAIL_SHELL_BRICK_WALL, BlockTags.PICKAXE_MINEABLE, BlockTags.WALLS);
-        addToTags(OverwhelmedBlocks.CHISELED_SNAIL_SHELL_BRICKS, BlockTags.PICKAXE_MINEABLE);
+        addToTags(OverwhelmedBlocks.GARDEN_SNAIL_SHELL_BRICKS, BlockTags.PICKAXE_MINEABLE);
+        addToTags(OverwhelmedBlocks.GARDEN_SNAIL_SHELL_BRICK_STAIRS, BlockTags.PICKAXE_MINEABLE);
+        addToTags(OverwhelmedBlocks.GARDEN_SNAIL_SHELL_BRICK_SLAB, BlockTags.PICKAXE_MINEABLE);
+        addToTags(OverwhelmedBlocks.GARDEN_SNAIL_SHELL_BRICK_WALL, BlockTags.PICKAXE_MINEABLE, BlockTags.WALLS);
+        addToTags(OverwhelmedBlocks.CHISELED_GARDEN_SNAIL_SHELL_BRICKS, BlockTags.PICKAXE_MINEABLE);
 
         addToTags(OverwhelmedBlocks.ALTAIR, BlockTags.PICKAXE_MINEABLE);
         addToTags(OverwhelmedBlocks.ALTAIR_STAIRS, BlockTags.PICKAXE_MINEABLE);
