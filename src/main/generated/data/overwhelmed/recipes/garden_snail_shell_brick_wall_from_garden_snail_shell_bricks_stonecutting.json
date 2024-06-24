@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "overwhelmed:garden_snail_shell_bricks"
+  },
+  "result": {
+    "count": 1,
+    "id": "overwhelmed:garden_snail_shell_brick_wall"
+  }
+}

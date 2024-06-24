@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "overwhelmed:garden_snail_shell"
+    },
+    "S": {
+      "item": "overwhelmed:soil"
+    }
+  },
+  "pattern": [
+    "#S",
+    "S#"
+  ],
+  "result": {
+    "count": 4,
+    "id": "overwhelmed:garden_snail_shell_bricks"
+  }
+}
