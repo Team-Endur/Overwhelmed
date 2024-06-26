@@ -2,7 +2,6 @@ package endurteam.overwhelmed;
 
 import endurteam.overwhelmed.block.OverwhelmedBlocks;
 import endurteam.overwhelmed.entity.*;
-import endurteam.overwhelmed.entity.animation.MothAnimations;
 import endurteam.overwhelmed.item.OverwhelmedCreativeTabs;
 import endurteam.overwhelmed.item.OverwhelmedItems;
 import endurteam.overwhelmed.sound.OverwhelmedSounds;

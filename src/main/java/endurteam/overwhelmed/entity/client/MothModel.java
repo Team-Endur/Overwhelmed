@@ -5,13 +5,11 @@
 package endurteam.overwhelmed.entity.client;
 
 import endurteam.overwhelmed.entity.MothEntity;
-import endurteam.overwhelmed.entity.animation.MothAnimations;
-import endurteam.overwhelmed.entity.animation.SnailAnimations;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
-import net.minecraft.client.render.entity.animation.BatAnimations;
 import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.util.math.MathHelper;
 
 public class MothModel<T extends MothEntity> extends SinglePartEntityModel<T> {
     private final ModelPart root;
@@ -52,7 +50,9 @@ public class MothModel<T extends MothEntity> extends SinglePartEntityModel<T> {
     public void setAngles(MothEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
         this.getPart().traverse().forEach(ModelPart::resetTransform);
 
-        this.updateAnimation(entity.flyingAnimationState, MothAnimations.FLYING, ageInTicks, 1.0F);
+        float sinAge = MathHelper.sin(ageInTicks);
+        this.left_wing.roll = sinAge * (float)Math.PI * 0.14f - 0.75f;
+        this.right_wing.roll = -this.left_wing.roll;
     }
 
     @Override
