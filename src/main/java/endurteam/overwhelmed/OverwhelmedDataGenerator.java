@@ -1,8 +1,8 @@
 package endurteam.overwhelmed;
 
 import endurteam.overwhelmed.datagen.*;
-import endurteam.overwhelmed.worldgen.OverwhelmedFlowerConfiguredFeatures;
-import endurteam.overwhelmed.worldgen.OverwhelmedFlowerPlacedFeatures;
+import endurteam.overwhelmed.worldgen.OverwhelmedConfiguredFeatures;
+import endurteam.overwhelmed.worldgen.OverwhelmedPlacedFeatures;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.registry.RegistryBuilder;
@@ -23,7 +23,7 @@ public class OverwhelmedDataGenerator implements DataGeneratorEntrypoint {
 
 	@Override
 	public void buildRegistry(RegistryBuilder registryBuilder) {
-		registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, OverwhelmedFlowerConfiguredFeatures::bootstrap);
-		registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, OverwhelmedFlowerPlacedFeatures::bootstrap);
+		registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, OverwhelmedConfiguredFeatures::bootstrap);
+		registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, OverwhelmedPlacedFeatures::bootstrap);
 	}
 }

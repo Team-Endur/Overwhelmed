@@ -14,7 +14,7 @@ import net.minecraft.world.gen.stateprovider.*;
 
 import java.util.List;
 
-public class OverwhelmedFlowerConfiguredFeatures {
+public class OverwhelmedConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> FLOWER_FLOWER_FOREST = key("flower_flower_forest");
     public static final RegistryKey<ConfiguredFeature<?, ?>> FLOWER_MEADOW = key("flower_meadow");
     public static final RegistryKey<ConfiguredFeature<?, ?>> FLOWER_TAIGA = key("flower_taiga");
@@ -28,6 +28,10 @@ public class OverwhelmedFlowerConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> FLOWER_DARK_FOREST = key("flower_dark_forest");
     public static final RegistryKey<ConfiguredFeature<?, ?>> FLOWER_BEACH = key("flower_beach");
     public static final RegistryKey<ConfiguredFeature<?, ?>> FLOWER_SNOWY_BEACH = key("flower_snowy_beach");
+
+    public static final RegistryKey<ConfiguredFeature<?, ?>> CLOT_PEBBLE = key("clot_pebble");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> CLOT_ICE_CUBE = key("clot_ice_cube");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> CLOT_GOLD_BEAD = key("clot_gold_bead");
 
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> registerable) {
         registerSimpleFlowerFeature(registerable,
@@ -120,6 +124,18 @@ public class OverwhelmedFlowerConfiguredFeatures {
                 FLOWER_SNOWY_BEACH,
                 OverwhelmedBlocks.WHITE_LAVATERA.getDefaultState(),
                 OverwhelmedBlocks.PINK_LAVATERA.getDefaultState());
+
+        registerClotFeature(registerable,
+                CLOT_PEBBLE,
+                OverwhelmedBlocks.PEBBLE.getDefaultState());
+
+        registerClotFeature(registerable,
+                CLOT_ICE_CUBE,
+                OverwhelmedBlocks.ICE_CUBE.getDefaultState());
+
+        registerClotFeature(registerable,
+                CLOT_GOLD_BEAD,
+                OverwhelmedBlocks.GOLD_BEAD.getDefaultState());
     }
 
     // Registers a simple flower feature
@@ -141,6 +157,13 @@ public class OverwhelmedFlowerConfiguredFeatures {
                                                         1.0),
                                                 0.020833334f,
                                                 List.of(states))))));
+    }
+
+    private static void registerClotFeature(Registerable<ConfiguredFeature<?, ?>> registerable, RegistryKey<ConfiguredFeature<?, ?>> key, BlockState state) {
+        register(registerable,
+                key,
+                Feature.SIMPLE_BLOCK,
+                new SimpleBlockFeatureConfig(BlockStateProvider.of(state)));
     }
 
     private static RegistryKey<ConfiguredFeature<?, ?>> key(String id) {

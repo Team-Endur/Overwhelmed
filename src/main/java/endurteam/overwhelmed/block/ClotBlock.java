@@ -5,11 +5,12 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.FallingBlock;
 import net.minecraft.block.ShapeContext;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
+import net.minecraft.world.WorldView;
 
 public class ClotBlock extends FallingBlock {
 
@@ -28,6 +29,13 @@ public class ClotBlock extends FallingBlock {
         BlockPos belowPos = pos.down();
         BlockState blockBelow = world.getBlockState(belowPos);
         return blockBelow.isSolid();
+    }
+
+    @Override
+    protected boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
+        BlockState blockBelow = world.getBlockState(pos.down());
+        // if fluids state of below block is empty, meaning its not a fluid, then can place, else cannot
+        return blockBelow.getFluidState() == Fluids.EMPTY.getDefaultState();
     }
 
     @Override
