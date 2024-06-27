@@ -55,6 +55,8 @@ public class OverwhelmedClient implements ClientModInitializer {
                 TexturedRenderLayers.getSignTextureId(OverwhelmedWoodType.WILLOW));
 
         EntityRendererRegistry.register(OverwhelmedEntities.PEBBLE_PROJECTILE, FlyingItemEntityRenderer::new);
+        EntityRendererRegistry.register(OverwhelmedEntities.BUTTERFLY, ButterflyRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(OverwhelmedModelLayers.BUTTERFLY, ButterflyModel::getTexturedModelData);
         EntityRendererRegistry.register(OverwhelmedEntities.SNAIL, SnailRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(OverwhelmedModelLayers.SNAIL, SnailModel::getTexturedModelData);
         EntityRendererRegistry.register(OverwhelmedEntities.MOTH, MothRenderer::new);

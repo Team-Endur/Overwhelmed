@@ -46,6 +46,7 @@ public class Overwhelmed implements ModInitializer {
 		FlammableBlockRegistry.getDefaultInstance().add(OverwhelmedBlocks.WILLOW_PLANKS, 5, 20);
 		FlammableBlockRegistry.getDefaultInstance().add(OverwhelmedBlocks.WILLOW_LEAVES, 30, 60);
 
+		FabricDefaultAttributeRegistry.register(OverwhelmedEntities.BUTTERFLY, ButterflyEntity.createButterflyAttributes());
 		FabricDefaultAttributeRegistry.register(OverwhelmedEntities.SNAIL, SnailEntity.createSnailAttributes());
 		FabricDefaultAttributeRegistry.register(OverwhelmedEntities.MOTH, MothEntity.createMothAttributes());
 		FabricDefaultAttributeRegistry.register(OverwhelmedEntities.HORNET, HornetEntity.createHornetAttributes());
