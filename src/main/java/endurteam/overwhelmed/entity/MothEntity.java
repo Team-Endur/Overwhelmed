@@ -1,6 +1,5 @@
 package endurteam.overwhelmed.entity;
 
-import com.mojang.serialization.Codec;
 import endurteam.overwhelmed.sound.OverwhelmedSounds;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.*;
@@ -15,27 +14,20 @@ import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.data.DataTracker;
-import net.minecraft.entity.data.TrackedData;
-import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
-import net.minecraft.util.StringIdentifiable;
-import net.minecraft.util.function.ValueLists;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.function.IntFunction;
-
 public class MothEntity
         extends AnimalEntity
-        implements Flutterer, VariantHolder<MothEntity.MothType> {
-    private static final TrackedData<Integer> VARIANT = DataTracker.registerData(MothEntity.class, TrackedDataHandlerRegistry.INTEGER);
+        implements Flutterer {
 
     protected MothEntity(EntityType<? extends AnimalEntity> entityType, World world) {
         super(entityType, world);
@@ -50,7 +42,6 @@ public class MothEntity
     @Override
     protected void initDataTracker(DataTracker.Builder builder) {
         super.initDataTracker(builder);
-        builder.add(VARIANT, MothType.GRAND.id);
     }
 
     @Override
@@ -134,55 +125,6 @@ public class MothEntity
 
     @Override
     protected void playStepSound(BlockPos pos, BlockState state) {
-    }
-
-    @Override
-    public void setVariant(MothType variant) {
-        this.dataTracker.set(VARIANT, variant.id);
-    }
-
-    @Override
-    public MothType getVariant() {
-        return MothType.byId(this.dataTracker.get(VARIANT));
-    }
-
-    public enum MothType implements StringIdentifiable {
-        CABBAGE(0, "cabbage"),
-        CHERRY(1, "cherry"),
-        FUR(2, "fur"),
-        GRAND(3, "grand"),
-        LIVERWORT(4, "liverwort"),
-        MONARCH(5, "monarch"),
-        MORPHO(6, "morpho"),
-        SLEEPY(7, "sleepy");
-
-        private static final IntFunction<MothType> BY_ID;
-        public static final Codec<MothType> CODEC;
-        final int id;
-        private final String name;
-
-        MothType(int id, String name) {
-            this.id = id;
-            this.name = name;
-        }
-
-        @Override
-        public String asString() {
-            return this.name;
-        }
-
-        public int getId() {
-            return this.id;
-        }
-
-        public static MothType byId(int id) {
-            return BY_ID.apply(id);
-        }
-
-        static {
-            BY_ID = ValueLists.createIdToValueFunction(MothType::getId, MothType.values(), CABBAGE);
-            CODEC = StringIdentifiable.createCodec(MothType::values);
-        }
     }
 
     class MothWanderAroundGoal extends Goal {
