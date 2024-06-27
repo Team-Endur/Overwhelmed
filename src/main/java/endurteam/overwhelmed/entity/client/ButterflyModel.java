@@ -5,16 +5,19 @@ package endurteam.overwhelmed.entity.client;
 
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
-import net.minecraft.client.render.entity.model.EntityModel;
+import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.Entity;
+import net.minecraft.util.math.MathHelper;
 
-public class ButterflyModel<T extends Entity> extends EntityModel<T> {
+public class ButterflyModel<T extends Entity> extends SinglePartEntityModel<T> {
+    private final ModelPart root;
     private final ModelPart body;
     private final ModelPart right_wing;
     private final ModelPart left_wing;
 
     public ButterflyModel(ModelPart root) {
+        this.root = root;
         this.body = root.getChild("body");
         this.right_wing = root.getChild("right_wing");
         this.left_wing = root.getChild("left_wing");
@@ -33,11 +36,25 @@ public class ButterflyModel<T extends Entity> extends EntityModel<T> {
     }
     @Override
     public void setAngles(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+        this.getPart().traverse().forEach(ModelPart::resetTransform);
+
+        float sinAge = MathHelper.sin(ageInTicks);
+        float rotAmount = sinAge * 0.25f - 0.2f;
+        this.left_wing.roll += rotAmount;
+        this.left_wing.yaw += rotAmount;
+        this.right_wing.roll += -rotAmount;
+        this.right_wing.yaw += -rotAmount;
     }
+
     @Override
     public void render(MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, float red, float green, float blue, float alpha) {
         body.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
         right_wing.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
         left_wing.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
+    }
+
+    @Override
+    public ModelPart getPart() {
+        return this.root;
     }
 }
