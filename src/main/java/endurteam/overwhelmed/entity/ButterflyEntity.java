@@ -3,11 +3,9 @@ package endurteam.overwhelmed.entity;
 import com.mojang.serialization.Codec;
 import endurteam.overwhelmed.Overwhelmed;
 import endurteam.overwhelmed.sound.OverwhelmedSounds;
+import endurteam.overwhelmed.worldgen.OverwhelmedBiomeTags;
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.Flutterer;
-import net.minecraft.entity.VariantHolder;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.AboveGroundTargeting;
 import net.minecraft.entity.ai.NoPenaltySolidTargeting;
 import net.minecraft.entity.ai.control.FlightMoveControl;
@@ -28,6 +26,9 @@ import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
@@ -35,7 +36,12 @@ import net.minecraft.util.StringIdentifiable;
 import net.minecraft.util.function.ValueLists;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.random.Random;
+import net.minecraft.world.LocalDifficulty;
+import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldAccess;
+import net.minecraft.world.biome.Biome;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.function.IntFunction;
@@ -53,6 +59,19 @@ public class ButterflyEntity
         this.setPathfindingPenalty(PathNodeType.WATER_BORDER, 16.0f);
         this.setPathfindingPenalty(PathNodeType.COCOA, -1.0f);
         this.setPathfindingPenalty(PathNodeType.FENCE, -1.0f);
+    }
+
+    public static boolean isValidNaturalSpawn(EntityType<? extends AnimalEntity> type, WorldAccess world, SpawnReason spawnReason, BlockPos pos, Random random) {
+        boolean bl = SpawnReason.isTrialSpawner(spawnReason) || AnimalEntity.isLightLevelValidForNaturalSpawn(world, pos);
+        RegistryEntry<Biome> spawnBiome = world.getBiome(pos);
+        boolean validBiome = spawnBiome.isIn(OverwhelmedBiomeTags.SPAWNS_BUTTERFLY_CABBAGE) ||
+                spawnBiome.isIn(OverwhelmedBiomeTags.SPAWNS_BUTTERFLY_CHERRY) ||
+                spawnBiome.isIn(OverwhelmedBiomeTags.SPAWNS_BUTTERFLY_FUR) ||
+                spawnBiome.isIn(OverwhelmedBiomeTags.SPAWNS_BUTTERFLY_LIVERWORT) ||
+                spawnBiome.isIn(OverwhelmedBiomeTags.SPAWNS_BUTTERFLY_MONARCH) ||
+                spawnBiome.isIn(OverwhelmedBiomeTags.SPAWNS_BUTTERFLY_MORPHO) ||
+                spawnBiome.isIn(OverwhelmedBiomeTags.SPAWNS_BUTTERFLY_SLEEPY);
+        return world.getBlockState(pos.down()).isIn(BlockTags.ANIMALS_SPAWNABLE_ON) && bl && validBiome;
     }
 
     @Override
@@ -158,23 +177,39 @@ public class ButterflyEntity
         return ButterflyEntity.ButterflyType.byId(this.dataTracker.get(VARIANT));
     }
 
+
+
+    @Override
+    public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData) {
+        ButterflyType type = ButterflyType.fromBiome(world.getBiome(this.getBlockPos()));
+        if(entityData instanceof ButterflyData)
+            type = ((ButterflyData) entityData).type;
+        else
+            entityData = new ButterflyData(type);
+
+        this.setVariant(type);
+        return entityData;
+    }
+
     public enum ButterflyType implements StringIdentifiable {
-        CABBAGE(0, "cabbage"),
-        CHERRY(1, "cherry"),
-        FUR(2, "fur"),
-        LIVERWORT(3, "liverwort"),
-        MONARCH(4, "monarch"),
-        MORPHO(5, "morpho"),
-        SLEEPY(6, "sleepy");
+        CABBAGE(0, "cabbage", OverwhelmedBiomeTags.SPAWNS_BUTTERFLY_CABBAGE),
+        CHERRY(1, "cherry", OverwhelmedBiomeTags.SPAWNS_BUTTERFLY_CHERRY),
+        FUR(2, "fur", OverwhelmedBiomeTags.SPAWNS_BUTTERFLY_FUR),
+        LIVERWORT(3, "liverwort", OverwhelmedBiomeTags.SPAWNS_BUTTERFLY_LIVERWORT),
+        MONARCH(4, "monarch", OverwhelmedBiomeTags.SPAWNS_BUTTERFLY_MONARCH),
+        MORPHO(5, "morpho", OverwhelmedBiomeTags.SPAWNS_BUTTERFLY_MORPHO),
+        SLEEPY(6, "sleepy", OverwhelmedBiomeTags.SPAWNS_BUTTERFLY_SLEEPY);
 
         private static final IntFunction<ButterflyEntity.ButterflyType> BY_ID;
         public static final Codec<ButterflyEntity.ButterflyType> CODEC;
         final int id;
         private final String name;
+        private final TagKey<Biome> spawnBiomes;
 
-        ButterflyType(int id, String name) {
+        ButterflyType(int id, String name, TagKey<Biome> spawnBiomes) {
             this.id = id;
             this.name = name;
+            this.spawnBiomes = spawnBiomes;
         }
 
         @Override
@@ -190,9 +225,30 @@ public class ButterflyEntity
             return BY_ID.apply(id);
         }
 
+        public static ButterflyType fromBiome(RegistryEntry<Biome> biome) {
+            ButterflyType retType = CABBAGE;
+            for(ButterflyType type : ButterflyType.values()) {
+                if(biome.isIn(type.spawnBiomes)) {
+                    retType = type;
+                    break;
+                }
+            }
+
+            return retType;
+        }
+
         static {
             BY_ID = ValueLists.createIdToValueFunction(ButterflyEntity.ButterflyType::getId, ButterflyEntity.ButterflyType.values(), CABBAGE);
             CODEC = StringIdentifiable.createCodec(ButterflyEntity.ButterflyType::values);
+        }
+    }
+
+    public static class ButterflyData
+    extends PassiveEntity.PassiveData{
+        public final ButterflyType type;
+        public ButterflyData(ButterflyType type) {
+            super(0);
+            this.type = type;
         }
     }
 

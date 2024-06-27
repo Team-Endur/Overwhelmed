@@ -1,10 +1,14 @@
 package endurteam.overwhelmed.worldgen;
 
+import endurteam.overwhelmed.entity.OverwhelmedEntities;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.SpawnGroup;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.tag.BiomeTags;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeKeys;
 import net.minecraft.world.gen.GenerationStep;
@@ -44,6 +48,17 @@ public class OverwhelmedBiomeModifications {
 
         addClotFeature(OverwhelmedPlacedFeatures.CLOT_ICE_CUBE, BiomeSelectors.tag(BiomeTags.SPAWNS_SNOW_FOXES));
         addClotFeature(OverwhelmedPlacedFeatures.CLOT_GOLD_BEAD, BiomeSelectors.tag(BiomeTags.IS_BADLANDS));
+
+        addCreatureSpawn(OverwhelmedBiomeTags.SPAWNS_BUTTERFLY_CABBAGE, OverwhelmedEntities.BUTTERFLY, 4, 2, 4);
+        addCreatureSpawn(OverwhelmedBiomeTags.SPAWNS_BUTTERFLY_CHERRY, OverwhelmedEntities.BUTTERFLY, 4, 2, 4);
+        addCreatureSpawn(OverwhelmedBiomeTags.SPAWNS_BUTTERFLY_LIVERWORT, OverwhelmedEntities.BUTTERFLY, 4, 3, 6);
+        addCreatureSpawn(OverwhelmedBiomeTags.SPAWNS_BUTTERFLY_MONARCH, OverwhelmedEntities.BUTTERFLY, 4, 2, 4);
+        addCreatureSpawn(OverwhelmedBiomeTags.SPAWNS_BUTTERFLY_MORPHO, OverwhelmedEntities.BUTTERFLY, 4, 2, 4);
+        addCreatureSpawn(OverwhelmedBiomeTags.SPAWNS_BUTTERFLY_SLEEPY, OverwhelmedEntities.BUTTERFLY, 4, 2, 4);
+    }
+
+    private static void addCreatureSpawn(TagKey<Biome> biomes, EntityType<?> type, int weight, int minGroupSize, int maxGroupSize) {
+        BiomeModifications.addSpawn(BiomeSelectors.tag(biomes), SpawnGroup.CREATURE, type, weight, minGroupSize, maxGroupSize);
     }
 
     private static void addVegetalFeature(RegistryKey<PlacedFeature> feature, RegistryKey<Biome>... tags) {
