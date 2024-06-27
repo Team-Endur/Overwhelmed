@@ -161,7 +161,7 @@ public class MothEntity
         final int id;
         private final String name;
 
-        private MothType(int id, String name) {
+        MothType(int id, String name) {
             this.id = id;
             this.name = name;
         }
