@@ -101,12 +101,12 @@ public class ButterflyEntity
 
     @Override
     public SoundEvent getHurtSound(DamageSource damageSource) {
-        return OverwhelmedSounds.ENTITY_SNAIL_HURT;
+        return OverwhelmedSounds.ENTITY_BUTTERFLY_HURT;
     }
 
     @Override
     public SoundEvent getDeathSound() {
-        return OverwhelmedSounds.ENTITY_SNAIL_DEATH;
+        return OverwhelmedSounds.ENTITY_BUTTERFLY_DEATH;
     }
 
     protected void pushAway(Entity entity) {

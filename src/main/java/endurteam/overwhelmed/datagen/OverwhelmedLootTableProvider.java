@@ -6,7 +6,6 @@ import endurteam.overwhelmed.block.VanillaBlock;
 import endurteam.overwhelmed.item.OverwhelmedItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
-import net.minecraft.block.Blocks;
 import net.minecraft.item.Items;
 import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
 import net.minecraft.predicate.StatePredicate;
@@ -39,9 +38,10 @@ public class OverwhelmedLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(OverwhelmedBlocks.WILLOW_WALL_SIGN);
         addDrop(OverwhelmedBlocks.WILLOW_HANGING_SIGN);
         addDrop(OverwhelmedBlocks.WILLOW_HANGING_WALL_SIGN);
-        addDrop(OverwhelmedBlocks.WILLOW_LEAVES, leavesDrops(OverwhelmedBlocks.WILLOW_LEAVES, Blocks.ACACIA_SAPLING,
+        addDrop(OverwhelmedBlocks.WILLOW_LEAVES, leavesDrops(OverwhelmedBlocks.WILLOW_LEAVES, OverwhelmedBlocks.WILLOW_SAPLING,
                 0.05f));
         addVinePlantDrop(OverwhelmedBlocks.WILLOW_VINES, OverwhelmedBlocks.WILLOW_VINES);
+        addDrop(OverwhelmedBlocks.WILLOW_SAPLING);
 
         addDrop(OverwhelmedBlocks.DESERT_SNAIL_SHELL_BRICKS);
         addDrop(OverwhelmedBlocks.DESERT_SNAIL_SHELL_BRICK_STAIRS);

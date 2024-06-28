@@ -8,9 +8,13 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.dynamic.Range;
+import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.math.noise.DoublePerlinNoiseSampler;
 import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
+import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
 import net.minecraft.world.gen.stateprovider.*;
+import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 
 import java.util.List;
 
@@ -32,6 +36,8 @@ public class OverwhelmedConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> CLOT_PEBBLE = key("clot_pebble");
     public static final RegistryKey<ConfiguredFeature<?, ?>> CLOT_ICE_CUBE = key("clot_ice_cube");
     public static final RegistryKey<ConfiguredFeature<?, ?>> CLOT_GOLD_BEAD = key("clot_gold_bead");
+
+    public static final RegistryKey<ConfiguredFeature<?, ?>> WILLOW_KEY = key("willow");
 
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> registerable) {
         registerSimpleFlowerFeature(registerable,
@@ -136,6 +142,15 @@ public class OverwhelmedConfiguredFeatures {
         registerClotFeature(registerable,
                 CLOT_GOLD_BEAD,
                 OverwhelmedBlocks.GOLD_BEAD.getDefaultState());
+
+        register(registerable, WILLOW_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(OverwhelmedBlocks.WILLOW_LOG),
+                new StraightTrunkPlacer(5, 4, 3),
+
+                BlockStateProvider.of(OverwhelmedBlocks.WILLOW_LEAVES),
+                new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(1), 2),
+
+                new TwoLayersFeatureSize(1, 0, 2)).build());
     }
 
     // Registers a simple flower feature

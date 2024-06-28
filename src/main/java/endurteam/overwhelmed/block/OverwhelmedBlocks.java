@@ -8,6 +8,7 @@ import endurteam.overwhelmed.Overwhelmed;
 import endurteam.overwhelmed.sound.OverwhelmedSounds;
 import endurteam.overwhelmed.util.OverwhelmedBlockSetType;
 import endurteam.overwhelmed.util.OverwhelmedWoodType;
+import endurteam.overwhelmed.worldgen.tree.OverwhelmedSaplingGenerator;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.Instrument;
 import net.minecraft.block.piston.PistonBehavior;
@@ -83,6 +84,9 @@ public class OverwhelmedBlocks {
     public static final Block WILLOW_VINES = registerBlock("willow_vines",
             new WeepingVinesBlock(AbstractBlock.Settings.copy(Blocks.VINE)
                     .mapColor(MapColor.LICHEN_GREEN)));
+
+    public static final Block WILLOW_SAPLING = registerBlock("willow_sapling",
+            new SaplingBlock(OverwhelmedSaplingGenerator.WILLOW, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
 
     public static final Block DESERT_SNAIL_SHELL_BRICKS = registerBlock("desert_snail_shell_bricks",
             new Block(AbstractBlock.Settings.create()

@@ -28,8 +28,6 @@ public class OverwhelmedCreativeTabs {
                         entries.add(OverwhelmedBlocks.WILLOW_TRAPDOOR);
                         entries.add(OverwhelmedBlocks.WILLOW_PRESSURE_PLATE);
                         entries.add(OverwhelmedBlocks.WILLOW_BUTTON);
-                        entries.add(OverwhelmedBlocks.WILLOW_LEAVES);
-                        entries.add(OverwhelmedBlocks.WILLOW_VINES);
                         entries.add(OverwhelmedBlocks.DESERT_SNAIL_SHELL_BRICKS);
                         entries.add(OverwhelmedBlocks.DESERT_SNAIL_SHELL_BRICK_STAIRS);
                         entries.add(OverwhelmedBlocks.DESERT_SNAIL_SHELL_BRICK_SLAB);
@@ -68,6 +66,8 @@ public class OverwhelmedCreativeTabs {
                         entries.add(OverwhelmedBlocks.FIZZYROCK_GEYSER);
                         entries.add(OverwhelmedBlocks.SOIL);
                         entries.add(OverwhelmedBlocks.CHARCOAL_ORE);
+                        entries.add(OverwhelmedBlocks.WILLOW_LEAVES);
+                        entries.add(OverwhelmedBlocks.WILLOW_SAPLING);
                         entries.add(OverwhelmedBlocks.FLOFF);
                         entries.add(OverwhelmedBlocks.PAINE);
                         entries.add(OverwhelmedBlocks.PINK_LAVATERA);
@@ -78,6 +78,7 @@ public class OverwhelmedCreativeTabs {
                         entries.add(OverwhelmedBlocks.BELL_SUNFLOWER);
                         entries.add(OverwhelmedBlocks.WIDOW);
                         entries.add(OverwhelmedBlocks.WHITE_ALLIUM);
+                        entries.add(OverwhelmedBlocks.WILLOW_VINES);
                         entries.add(OverwhelmedBlocks.GOLD_BEAD);
                         entries.add(OverwhelmedBlocks.ICE_CUBE);
                         entries.add(OverwhelmedItems.PEBBLE);

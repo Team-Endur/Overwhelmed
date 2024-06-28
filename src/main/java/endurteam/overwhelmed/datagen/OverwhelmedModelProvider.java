@@ -34,6 +34,9 @@ public class OverwhelmedModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerTintableCross(OverwhelmedBlocks.WILLOW_VINES,
                 BlockStateModelGenerator.TintType.NOT_TINTED);
 
+        blockStateModelGenerator.registerTintableCross(OverwhelmedBlocks.WILLOW_SAPLING,
+                BlockStateModelGenerator.TintType.NOT_TINTED);
+
         BlockStateModelGenerator.BlockTexturePool desertSnailShellBricksPool = blockStateModelGenerator
                 .registerCubeAllModelTexturePool(OverwhelmedBlocks.DESERT_SNAIL_SHELL_BRICKS);
         desertSnailShellBricksPool.family(OverwhelmedBlockFamilies.DESERT_SNAIL_SHELL_FAMILY);
