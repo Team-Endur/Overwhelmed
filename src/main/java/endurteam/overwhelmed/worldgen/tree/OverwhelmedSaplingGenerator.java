@@ -1,11 +1,9 @@
 package endurteam.overwhelmed.worldgen.tree;
 
-import endurteam.overwhelmed.Overwhelmed;
 import endurteam.overwhelmed.worldgen.OverwhelmedConfiguredFeatures;
 import net.minecraft.block.SaplingGenerator;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.TreeConfiguredFeatures;
 
 import java.util.Optional;
 

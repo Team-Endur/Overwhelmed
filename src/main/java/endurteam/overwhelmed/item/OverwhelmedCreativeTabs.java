@@ -64,8 +64,10 @@ public class OverwhelmedCreativeTabs {
                         entries.add(OverwhelmedBlocks.FIZZYROCK_BRICK_WALL);
                         entries.add(OverwhelmedBlocks.CHISELED_FIZZYROCK_BRICKS);
                         entries.add(OverwhelmedBlocks.FIZZYROCK_GEYSER);
+                        entries.add(OverwhelmedBlocks.FIRN);
                         entries.add(OverwhelmedBlocks.SOIL);
                         entries.add(OverwhelmedBlocks.CHARCOAL_ORE);
+                        entries.add(OverwhelmedBlocks.VERDIGRAIN);
                         entries.add(OverwhelmedBlocks.WILLOW_LEAVES);
                         entries.add(OverwhelmedBlocks.WILLOW_SAPLING);
                         entries.add(OverwhelmedBlocks.FLOFF);
