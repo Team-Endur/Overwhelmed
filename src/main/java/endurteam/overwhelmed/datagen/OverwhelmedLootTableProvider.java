@@ -82,8 +82,10 @@ public class OverwhelmedLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(OverwhelmedBlocks.CHISELED_FIZZYROCK_BRICKS);
         addDrop(OverwhelmedBlocks.FIZZYROCK_GEYSER);
 
+        addDrop(OverwhelmedBlocks.FIRN);
         addDrop(OverwhelmedBlocks.SOIL);
         addDrop(OverwhelmedBlocks.CHARCOAL_ORE, oreDrops(OverwhelmedBlocks.CHARCOAL_ORE, Items.CHARCOAL));
+        addDrop(OverwhelmedBlocks.VERDIGRAIN);
 
         addDrop(OverwhelmedBlocks.FLOFF);
         addDrop(OverwhelmedBlocks.PAINE);

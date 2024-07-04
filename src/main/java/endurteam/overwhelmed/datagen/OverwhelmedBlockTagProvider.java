@@ -81,7 +81,9 @@ public class OverwhelmedBlockTagProvider extends FabricTagProvider.BlockTagProvi
 
         addToTags(OverwhelmedBlocks.FIZZYROCK_GEYSER);
 
+        addToTags(OverwhelmedBlocks.FIRN, BlockTags.SHOVEL_MINEABLE, BlockTags.SNOW);
         addToTags(OverwhelmedBlocks.SOIL, BlockTags.SHOVEL_MINEABLE, BlockTags.CONVERTABLE_TO_MUD, BlockTags.DIRT);
+        addToTags(OverwhelmedBlocks.VERDIGRAIN, BlockTags.SHOVEL_MINEABLE, BlockTags.SAND);
 
         addToTags(OverwhelmedBlocks.CHARCOAL_ORE, BlockTags.SHOVEL_MINEABLE);
 

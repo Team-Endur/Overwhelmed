@@ -67,8 +67,10 @@ public class OverwhelmedModelProvider extends FabricModelProvider {
                 .registerCubeAllModelTexturePool(OverwhelmedBlocks.FIZZYROCK_BRICKS);
         fizzyrockBricksPool.family(OverwhelmedBlockFamilies.FIZZYROCK_BRICKS_FAMILY);
 
+        blockStateModelGenerator.registerSimpleCubeAll(OverwhelmedBlocks.FIRN);
         blockStateModelGenerator.registerSimpleCubeAll(OverwhelmedBlocks.SOIL);
         blockStateModelGenerator.registerSimpleCubeAll(OverwhelmedBlocks.CHARCOAL_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(OverwhelmedBlocks.VERDIGRAIN);
 
         blockStateModelGenerator.registerFlowerPotPlant(OverwhelmedBlocks.FLOFF, OverwhelmedBlocks.POTTED_FLOFF,
                 BlockStateModelGenerator.TintType.NOT_TINTED);
