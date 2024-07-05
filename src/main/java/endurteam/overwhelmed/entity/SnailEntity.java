@@ -37,6 +37,7 @@ public class SnailEntity extends AnimalEntity {
         }
     }
 
+    @Override
     protected void updateLimbs(float posDelta) {
         float f;
         if (this.getPose() == EntityPose.STANDING) {
