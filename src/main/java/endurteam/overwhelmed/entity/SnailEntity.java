@@ -21,25 +21,30 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 public class SnailEntity extends AnimalEntity {
-    public final AnimationState idleAnimationState = new AnimationState();
-    private int idleAnimationTimeout = 0;
+    public final AnimationState idlingAnimationState = new AnimationState();
+    private int idleAnimationCooldown = 0;
 
     public SnailEntity(EntityType<? extends AnimalEntity> entityType, World world) {
         super(entityType, world);
     }
 
     private void updateAnimations() {
-        if (this.idleAnimationTimeout <= 0) {
-            this.idleAnimationTimeout = this.random.nextInt(40) + 80;
-            this.idleAnimationState.start(this.age);
+        if (this.idleAnimationCooldown <= 0) {
+            this.idleAnimationCooldown = this.random.nextInt(40) + 80;
+            this.idlingAnimationState.start(this.age);
         } else {
-            --this.idleAnimationTimeout;
+            --this.idleAnimationCooldown;
         }
     }
 
-    @Override
     protected void updateLimbs(float posDelta) {
-        float f = this.getPose() == EntityPose.STANDING ? Math.min(posDelta * 6.0F, 1.0F) : 0.0F;
+        float f;
+        if (this.getPose() == EntityPose.STANDING) {
+            f = Math.min(posDelta * 6.0F, 1.0F);
+        } else {
+            f = 0.0F;
+        }
+
         this.limbAnimator.updateLimbs(f, 0.2F);
     }
 
@@ -47,7 +52,7 @@ public class SnailEntity extends AnimalEntity {
     public void tick() {
         super.tick();
         if(this.getWorld().isClient()) {
-            updateAnimations();
+            this.updateAnimations();
         }
     }
 

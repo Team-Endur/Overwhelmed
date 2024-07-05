@@ -37,11 +37,11 @@ public class SnailModel<T extends SnailEntity> extends SinglePartEntityModel<T> 
 		return TexturedModelData.of(modelData, 128, 128);
 	}
 	@Override
-	public void setAngles(SnailEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+	public void setAngles(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		this.getPart().traverse().forEach(ModelPart::resetTransform);
 
-		this.animateMovement(SnailAnimations.WALKING, limbSwing, limbSwingAmount, 2F, 2.5F);
-		this.updateAnimation(entity.idleAnimationState, SnailAnimations.IDLING, ageInTicks, 1F);
+		this.animateMovement(SnailAnimations.WALKING, limbSwing, limbSwingAmount, 2.0F, 2.5F);
+		this.updateAnimation(entity.idlingAnimationState, SnailAnimations.IDLING, ageInTicks, 1.0F);
 	}
 	@Override
 	public void render(MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, float red, float green, float blue, float alpha) {
