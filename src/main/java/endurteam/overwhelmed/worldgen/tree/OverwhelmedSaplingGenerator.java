@@ -16,6 +16,6 @@ public class OverwhelmedSaplingGenerator {
         return new SaplingGenerator(name, megaVariant, regularVariant, beesVariant);
     }
     static {
-        WILLOW = new SaplingGenerator("willow", Optional.empty(), Optional.of(OverwhelmedConfiguredFeatures.WILLOW_KEY), Optional.empty());
+        WILLOW = new SaplingGenerator("willow", Optional.empty(), Optional.of(OverwhelmedConfiguredFeatures.WILLOW_TREE), Optional.empty());
     }
 }

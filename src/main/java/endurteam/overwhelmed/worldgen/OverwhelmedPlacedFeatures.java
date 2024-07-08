@@ -89,13 +89,13 @@ public class OverwhelmedPlacedFeatures {
                 PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
                 BiomePlacementModifier.of());
 //        registerSimpleFlowerFeature(registerable, FLOWER_PLAINS, OverwhelmedConfiguredFeatures.FLOWER_PLAIN);
-        register(registerable,
-                FLOWER_SUNFLOWER_PLAINS,
-                registryEntryLookup.getOrThrow(OverwhelmedConfiguredFeatures.FLOWER_SUNFLOWER_PLAIN),
-                RarityFilterPlacementModifier.of(4),
-                SquarePlacementModifier.of(),
-                PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
-                BiomePlacementModifier.of());
+//        register(registerable,
+//                FLOWER_SUNFLOWER_PLAINS,
+//                registryEntryLookup.getOrThrow(OverwhelmedConfiguredFeatures.FLOWER_SUNFLOWER_PLAIN),
+//                RarityFilterPlacementModifier.of(4),
+//                SquarePlacementModifier.of(),
+//                PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
+//                BiomePlacementModifier.of());
 
         register(registerable,
                 FLOWER_GROVE,

@@ -37,7 +37,7 @@ public class OverwhelmedConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> CLOT_ICE_CUBE = key("clot_ice_cube");
     public static final RegistryKey<ConfiguredFeature<?, ?>> CLOT_GOLD_BEAD = key("clot_gold_bead");
 
-    public static final RegistryKey<ConfiguredFeature<?, ?>> WILLOW_KEY = key("willow");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> WILLOW_TREE = key("willow");
 
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> registerable) {
 //        registerSimpleFlowerFeature(registerable,
@@ -143,7 +143,7 @@ public class OverwhelmedConfiguredFeatures {
                 CLOT_GOLD_BEAD,
                 OverwhelmedBlocks.GOLD_BEAD.getDefaultState());
 
-        register(registerable, WILLOW_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+        register(registerable, WILLOW_TREE, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(OverwhelmedBlocks.WILLOW_LOG),
                 new StraightTrunkPlacer(5, 4, 3),
 
