@@ -42,6 +42,11 @@ public class OverwhelmedItems {
     public static Item PEPPERMINT = registerItem("peppermint",
             new Item(new Item.Settings()
                     .food(OverwhelmedFoodComponents.PEPPERMINT)));
+
+    public static Item BLUE_GUMBALL = registerItem("peppermint",
+            new Item(new Item.Settings()
+                    .food(OverwhelmedFoodComponents.PEPPERMINT)));
+
     public static Item VANILLA_ICE_CREAM = registerItem("vanilla_ice_cream",
             new StewItem(new Item.Settings()
                     .food(OverwhelmedFoodComponents.VANILLA_ICE_CREAM)

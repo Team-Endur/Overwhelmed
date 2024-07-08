@@ -13,7 +13,7 @@ public class OverwhelmedFoodComponents {
                     .statusEffect(new StatusEffectInstance(StatusEffects.POISON, 600, 0), 0.6F)
                     .statusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 600, 0), 0.4F).build();
     public static final FoodComponent SNAIL_STEW =
-            new FoodComponent.Builder().nutrition(6).saturationModifier(15.0F).build();
+            new FoodComponent.Builder().nutrition(6).saturationModifier(0.3F).build();
 
     public static final FoodComponent VANILLA_COOKIE =
             new FoodComponent.Builder().nutrition(4).saturationModifier(0.4F).build();
@@ -24,5 +24,8 @@ public class OverwhelmedFoodComponents {
             new FoodComponent.Builder().nutrition(2).saturationModifier(0.6F).build();
     public static final FoodComponent MINT_ICE_CREAM =
             new FoodComponent.Builder().nutrition(6).saturationModifier(1.2F).build();
+
+    public static final FoodComponent GUMBALL =
+            new FoodComponent.Builder().nutrition(1).saturationModifier(0.6F).build();
 
 }
