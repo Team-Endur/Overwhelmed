@@ -233,9 +233,9 @@ public class OverwhelmedBlocks {
     public static final Block PAINE = registerBlock("paine", new FlowerBlock(StatusEffects.POISON, 8,
             AbstractBlock.Settings.copy(FLOFF)));
     public static final Block PINK_LAVATERA = registerBlock("pink_lavatera",
-            new FlowerBlock(StatusEffects.POISON, 6, AbstractBlock.Settings.copy(FLOFF)));
+            new LavateraBlock(StatusEffects.POISON, 6, AbstractBlock.Settings.copy(FLOFF)));
     public static final Block WHITE_LAVATERA = registerBlock("white_lavatera",
-            new FlowerBlock(StatusEffects.WEAKNESS, 5, AbstractBlock.Settings.copy(FLOFF)));
+            new LavateraBlock(StatusEffects.WEAKNESS, 5, AbstractBlock.Settings.copy(FLOFF)));
     public static final Block SQUIRL = registerBlock("squirl",
             new FlowerBlock(StatusEffects.JUMP_BOOST, 10, AbstractBlock.Settings.copy(FLOFF)));
     public static final Block RINGOT = registerBlock("ringot",

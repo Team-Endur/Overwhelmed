@@ -18,14 +18,14 @@ import java.util.function.Predicate;
 
 public class OverwhelmedBiomeModifications {
     public static void addFeatures() {
-        addVegetalFeature(OverwhelmedPlacedFeatures.FLOWER_FLOWER_FOREST, BiomeKeys.FLOWER_FOREST);
-        addVegetalFeature(OverwhelmedPlacedFeatures.FLOWER_MEADOW, BiomeKeys.MEADOW);
+//        addVegetalFeature(OverwhelmedPlacedFeatures.FLOWER_FLOWER_FOREST, BiomeKeys.FLOWER_FOREST);
+//        addVegetalFeature(OverwhelmedPlacedFeatures.FLOWER_MEADOW, BiomeKeys.MEADOW);
         addVegetalFeature(OverwhelmedPlacedFeatures.FLOWER_TAIGA, BiomeKeys.TAIGA);
         addVegetalFeature(OverwhelmedPlacedFeatures.FLOWER_SNOWY_TAIGA, BiomeKeys.SNOWY_TAIGA);
         addVegetalFeature(OverwhelmedPlacedFeatures.FLOWER_OLD_GROWTH_PINE_TAIGA, BiomeKeys.OLD_GROWTH_PINE_TAIGA);
         addVegetalFeature(OverwhelmedPlacedFeatures.FLOWER_OLD_GROWTH_SPRUCE_TAIGA, BiomeKeys.OLD_GROWTH_SPRUCE_TAIGA);
         addVegetalFeature(OverwhelmedPlacedFeatures.FLOWER_SUNFLOWER_PLAINS, BiomeKeys.SUNFLOWER_PLAINS);
-        addVegetalFeature(OverwhelmedPlacedFeatures.FLOWER_PLAINS, BiomeKeys.PLAINS);
+//        addVegetalFeature(OverwhelmedPlacedFeatures.FLOWER_PLAINS, BiomeKeys.PLAINS);
         addVegetalFeature(OverwhelmedPlacedFeatures.FLOWER_SNOWY_PLAINS, BiomeKeys.SNOWY_PLAINS);
         addVegetalFeature(OverwhelmedPlacedFeatures.FLOWER_GROVE, BiomeKeys.GROVE);
         addVegetalFeature(OverwhelmedPlacedFeatures.FLOWER_DARK_FOREST, BiomeKeys.DARK_FOREST);

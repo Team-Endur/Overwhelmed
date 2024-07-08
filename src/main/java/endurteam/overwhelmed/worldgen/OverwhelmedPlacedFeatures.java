@@ -7,6 +7,7 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.Identifier;
+import net.minecraft.world.SaveProperties;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.placementmodifier.*;
 
@@ -32,42 +33,108 @@ public class OverwhelmedPlacedFeatures {
     public static final RegistryKey<PlacedFeature> CLOT_GOLD_BEAD = key("clot_gold_bead");
 
     public static void bootstrap(Registerable<PlacedFeature> registerable) {
-        RegistryEntryLookup<ConfiguredFeature<?, ?>> registryEntryLookup = registerable.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
+        RegistryEntryLookup<ConfiguredFeature<?, ?>> registryEntryLookup =
+                registerable.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
+
+//        register(registerable,
+//                FLOWER_FLOWER_FOREST,
+//                registryEntryLookup.getOrThrow(OverwhelmedConfiguredFeatures.FLOWER_FLOWER_FOREST),
+//                CountPlacementModifier.of(3),
+//                RarityFilterPlacementModifier.of(2),
+//                SquarePlacementModifier.of(),
+//                PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
+//                BiomePlacementModifier.of());
+
+//        register(registerable,
+//                FLOWER_MEADOW,
+//                registryEntryLookup.getOrThrow(OverwhelmedConfiguredFeatures.FLOWER_MEADOW),
+//                SquarePlacementModifier.of(),
+//                PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
+//                BiomePlacementModifier.of());
 
         register(registerable,
-                FLOWER_FLOWER_FOREST,
-                registryEntryLookup.getOrThrow(OverwhelmedConfiguredFeatures.FLOWER_FLOWER_FOREST),
-                CountPlacementModifier.of(3),
-                RarityFilterPlacementModifier.of(2),
+                FLOWER_TAIGA,
+                registryEntryLookup.getOrThrow(OverwhelmedConfiguredFeatures.FLOWER_TAIGA),
+                RarityFilterPlacementModifier.of(3),
+                SquarePlacementModifier.of(),
+                PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
+                BiomePlacementModifier.of());
+        register(registerable,
+                FLOWER_SNOWY_TAIGA,
+                registryEntryLookup.getOrThrow(OverwhelmedConfiguredFeatures.FLOWER_SNOWY_TAIGA),
+                RarityFilterPlacementModifier.of(3),
+                SquarePlacementModifier.of(),
+                PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
+                BiomePlacementModifier.of());
+        register(registerable,
+                FLOWER_OLD_GROWTH_PINE_TAIGA,
+                registryEntryLookup.getOrThrow(OverwhelmedConfiguredFeatures.FLOWER_OLD_GROWTH_PINE_TAIGA),
+                RarityFilterPlacementModifier.of(3),
+                SquarePlacementModifier.of(),
+                PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
+                BiomePlacementModifier.of());
+        register(registerable,
+                FLOWER_OLD_GROWTH_SPRUCE_TAIGA,
+                registryEntryLookup.getOrThrow(OverwhelmedConfiguredFeatures.FLOWER_OLD_GROWTH_SPRUCE_TAIGA),
+                RarityFilterPlacementModifier.of(3),
                 SquarePlacementModifier.of(),
                 PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
                 BiomePlacementModifier.of());
 
         register(registerable,
-                FLOWER_MEADOW,
-                registryEntryLookup.getOrThrow(OverwhelmedConfiguredFeatures.FLOWER_MEADOW),
+                FLOWER_SUNFLOWER_PLAINS,
+                registryEntryLookup.getOrThrow(OverwhelmedConfiguredFeatures.FLOWER_SUNFLOWER_PLAIN),
+                RarityFilterPlacementModifier.of(3),
+                SquarePlacementModifier.of(),
+                PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
+                BiomePlacementModifier.of());
+//        registerSimpleFlowerFeature(registerable, FLOWER_PLAINS, OverwhelmedConfiguredFeatures.FLOWER_PLAIN);
+        register(registerable,
+                FLOWER_SUNFLOWER_PLAINS,
+                registryEntryLookup.getOrThrow(OverwhelmedConfiguredFeatures.FLOWER_SUNFLOWER_PLAIN),
+                RarityFilterPlacementModifier.of(4),
                 SquarePlacementModifier.of(),
                 PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
                 BiomePlacementModifier.of());
 
-        registerSimpleFlowerFeature(registerable, FLOWER_TAIGA, OverwhelmedConfiguredFeatures.FLOWER_TAIGA);
-        registerSimpleFlowerFeature(registerable, FLOWER_SNOWY_TAIGA, OverwhelmedConfiguredFeatures.FLOWER_SNOWY_TAIGA);
-        registerSimpleFlowerFeature(registerable, FLOWER_OLD_GROWTH_PINE_TAIGA, OverwhelmedConfiguredFeatures.FLOWER_OLD_GROWTH_PINE_TAIGA);
-        registerSimpleFlowerFeature(registerable, FLOWER_OLD_GROWTH_SPRUCE_TAIGA, OverwhelmedConfiguredFeatures.FLOWER_OLD_GROWTH_SPRUCE_TAIGA);
-        registerSimpleFlowerFeature(registerable, FLOWER_SUNFLOWER_PLAINS, OverwhelmedConfiguredFeatures.FLOWER_SUNFLOWER_PLAINS);
-        registerSimpleFlowerFeature(registerable, FLOWER_PLAINS, OverwhelmedConfiguredFeatures.FLOWER_PLAINS);
-        registerSimpleFlowerFeature(registerable, FLOWER_SNOWY_PLAINS, OverwhelmedConfiguredFeatures.FLOWER_SNOWY_PLAINS);
-        registerSimpleFlowerFeature(registerable, FLOWER_GROVE, OverwhelmedConfiguredFeatures.FLOWER_GROVE);
-        registerSimpleFlowerFeature(registerable, FLOWER_DARK_FOREST, OverwhelmedConfiguredFeatures.FLOWER_DARK_FOREST);
-        registerSimpleFlowerFeature(registerable, FLOWER_BEACH, OverwhelmedConfiguredFeatures.FLOWER_BEACH);
-        registerSimpleFlowerFeature(registerable, FLOWER_SNOWY_BEACH, OverwhelmedConfiguredFeatures.FLOWER_SNOWY_BEACH);
+        register(registerable,
+                FLOWER_GROVE,
+                registryEntryLookup.getOrThrow(OverwhelmedConfiguredFeatures.FLOWER_GROVE),
+                RarityFilterPlacementModifier.of(4),
+                SquarePlacementModifier.of(),
+                PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
+                BiomePlacementModifier.of());
+
+        register(registerable,
+                FLOWER_DARK_FOREST,
+                registryEntryLookup.getOrThrow(OverwhelmedConfiguredFeatures.FLOWER_DARK_FOREST),
+                RarityFilterPlacementModifier.of(5),
+                SquarePlacementModifier.of(),
+                PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
+                BiomePlacementModifier.of());
+
+        register(registerable,
+                FLOWER_BEACH,
+                registryEntryLookup.getOrThrow(OverwhelmedConfiguredFeatures.FLOWER_BEACH),
+                CountPlacementModifier.of(1),
+                SquarePlacementModifier.of(),
+                PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
+                BiomePlacementModifier.of());
+        register(registerable,
+                FLOWER_SNOWY_BEACH,
+                registryEntryLookup.getOrThrow(OverwhelmedConfiguredFeatures.FLOWER_SNOWY_BEACH),
+                CountPlacementModifier.of(1),
+                SquarePlacementModifier.of(),
+                PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
+                BiomePlacementModifier.of());
 
         registerClotFeature(registerable, CLOT_PEBBLE, OverwhelmedConfiguredFeatures.CLOT_PEBBLE);
         registerClotFeature(registerable, CLOT_ICE_CUBE, OverwhelmedConfiguredFeatures.CLOT_ICE_CUBE);
         registerClotFeature(registerable, CLOT_GOLD_BEAD, OverwhelmedConfiguredFeatures.CLOT_GOLD_BEAD);
     }
 
-    private static void registerSimpleFlowerFeature(Registerable<PlacedFeature> registerable, RegistryKey<PlacedFeature> key, RegistryKey<ConfiguredFeature<?, ?>> configuredFeatureKey) {
+    private static void registerSimpleFlowerFeature(Registerable<PlacedFeature> registerable, RegistryKey<PlacedFeature> key,
+                                                    RegistryKey<ConfiguredFeature<?, ?>> configuredFeatureKey) {
         register(registerable,
                 key,
                 registerable.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE).getOrThrow(configuredFeatureKey),
@@ -77,7 +144,8 @@ public class OverwhelmedPlacedFeatures {
                 BiomePlacementModifier.of());
     }
 
-    private static void registerClotFeature(Registerable<PlacedFeature> registerable, RegistryKey<PlacedFeature> key, RegistryKey<ConfiguredFeature<?, ?>> configuredFeatureKey) {
+    private static void registerClotFeature(Registerable<PlacedFeature> registerable, RegistryKey<PlacedFeature> key,
+                                            RegistryKey<ConfiguredFeature<?, ?>> configuredFeatureKey) {
         register(registerable,
                 key,
                 registerable.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE).getOrThrow(configuredFeatureKey),
@@ -91,7 +159,8 @@ public class OverwhelmedPlacedFeatures {
         return RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier(Overwhelmed.MOD_ID, name));
     }
 
-    private static void register(Registerable<PlacedFeature> registerable, RegistryKey<PlacedFeature> key, RegistryEntry<ConfiguredFeature<?, ?>> configuration, PlacementModifier... modifiers) {
+    private static void register(Registerable<PlacedFeature> registerable, RegistryKey<PlacedFeature> key,
+                                 RegistryEntry<ConfiguredFeature<?, ?>> configuration, PlacementModifier... modifiers) {
         registerable.register(key, new PlacedFeature(configuration, List.of(modifiers)));
     }
 }

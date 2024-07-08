@@ -25,9 +25,9 @@ public class OverwhelmedConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> FLOWER_SNOWY_TAIGA = key("flower_snowy_taiga");
     public static final RegistryKey<ConfiguredFeature<?, ?>> FLOWER_OLD_GROWTH_PINE_TAIGA = key("flower_old_growth_pine_taiga");
     public static final RegistryKey<ConfiguredFeature<?, ?>> FLOWER_OLD_GROWTH_SPRUCE_TAIGA = key("flower_old_growth_spruce_taiga");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> FLOWER_SUNFLOWER_PLAINS = key("flower_sunflower_plains");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> FLOWER_PLAINS = key("flower_plains");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> FLOWER_SNOWY_PLAINS = key("flower_snowy_plains");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> FLOWER_SUNFLOWER_PLAIN = key("flower_sunflower_plains");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> FLOWER_PLAIN = key("flower_plains");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> FLOWER_SNOWY_PLAIN = key("flower_snowy_plains");
     public static final RegistryKey<ConfiguredFeature<?, ?>> FLOWER_GROVE = key("flower_grove");
     public static final RegistryKey<ConfiguredFeature<?, ?>> FLOWER_DARK_FOREST = key("flower_dark_forest");
     public static final RegistryKey<ConfiguredFeature<?, ?>> FLOWER_BEACH = key("flower_beach");
@@ -40,38 +40,38 @@ public class OverwhelmedConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> WILLOW_KEY = key("willow");
 
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> registerable) {
-        registerSimpleFlowerFeature(registerable,
-                FLOWER_FLOWER_FOREST,
-                OverwhelmedBlocks.WHITE_ALLIUM.getDefaultState(),
-                OverwhelmedBlocks.BELL_SUNFLOWER.getDefaultState(),
-                OverwhelmedBlocks.FLOFF.getDefaultState(),
-                OverwhelmedBlocks.PINK_LAVATERA.getDefaultState(),
-                OverwhelmedBlocks.WHITE_LAVATERA.getDefaultState());
+//        registerSimpleFlowerFeature(registerable,
+//                FLOWER_FLOWER_FOREST,
+//                OverwhelmedBlocks.WHITE_ALLIUM.getDefaultState(),
+//                OverwhelmedBlocks.BELL_SUNFLOWER.getDefaultState(),
+//                OverwhelmedBlocks.FLOFF.getDefaultState(),
+//                OverwhelmedBlocks.PINK_LAVATERA.getDefaultState(),
+//                OverwhelmedBlocks.WHITE_LAVATERA.getDefaultState());
 
-        register(registerable,
-                FLOWER_MEADOW,
-                Feature.FLOWER,
-                new RandomPatchFeatureConfig(
-                        48,
-                        6,
-                        2,
-                        PlacedFeatures.createEntry(
-                                Feature.SIMPLE_BLOCK,
-                                new SimpleBlockFeatureConfig(
-                                        new DualNoiseBlockStateProvider(
-                                                new Range<>(1, 3),
-                                                new DoublePerlinNoiseSampler.NoiseParameters(
-                                                        -10,
-                                                        1.0),
-                                                1.0f,
-                                                2345L,
-                                                new DoublePerlinNoiseSampler.NoiseParameters(
-                                                        -3,
-                                                        1.0),
-                                                1.0f,
-                                                List.of(
-                                                        OverwhelmedBlocks.WHITE_ALLIUM.getDefaultState(),
-                                                        OverwhelmedBlocks.FLOFF.getDefaultState()))))));
+//        register(registerable,
+//                FLOWER_MEADOW,
+//                Feature.FLOWER,
+//                new RandomPatchFeatureConfig(
+//                        48,
+//                        6,
+//                        2,
+//                        PlacedFeatures.createEntry(
+//                                Feature.SIMPLE_BLOCK,
+//                                new SimpleBlockFeatureConfig(
+//                                        new DualNoiseBlockStateProvider(
+//                                                new Range<>(1, 3),
+//                                                new DoublePerlinNoiseSampler.NoiseParameters(
+//                                                        -10,
+//                                                        1.0),
+//                                                1.0f,
+//                                                2345L,
+//                                                new DoublePerlinNoiseSampler.NoiseParameters(
+//                                                        -3,
+//                                                        1.0),
+//                                                1.0f,
+//                                                List.of(
+//                                                        OverwhelmedBlocks.WHITE_ALLIUM.getDefaultState(),
+//                                                        OverwhelmedBlocks.FLOFF.getDefaultState()))))));
 
         registerSimpleFlowerFeature(registerable,
                 FLOWER_TAIGA,
@@ -99,15 +99,15 @@ public class OverwhelmedConfiguredFeatures {
                 OverwhelmedBlocks.RINGOT.getDefaultState());
 
         registerSimpleFlowerFeature(registerable,
-                FLOWER_SUNFLOWER_PLAINS,
+                FLOWER_SUNFLOWER_PLAIN,
                 OverwhelmedBlocks.BELL_SUNFLOWER.getDefaultState());
 
-        registerSimpleFlowerFeature(registerable,
-                FLOWER_PLAINS,
-                OverwhelmedBlocks.BELL_SUNFLOWER.getDefaultState());
+//        registerSimpleFlowerFeature(registerable,
+//                FLOWER_PLAIN,
+//                OverwhelmedBlocks.BELL_SUNFLOWER.getDefaultState());
 
         registerSimpleFlowerFeature(registerable,
-                FLOWER_SNOWY_PLAINS,
+                FLOWER_SNOWY_PLAIN,
                 OverwhelmedBlocks.PAINE.getDefaultState(),
                 OverwhelmedBlocks.SNOWDROP.getDefaultState());
 
