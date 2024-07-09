@@ -113,6 +113,11 @@ public class OverwhelmedModelProvider extends FabricModelProvider {
         itemModelGenerator.register(OverwhelmedItems.COOKED_SNAIL, Models.GENERATED);
         itemModelGenerator.register(OverwhelmedItems.VANILLA_COOKIE, Models.GENERATED);
         itemModelGenerator.register(OverwhelmedItems.PEPPERMINT, Models.GENERATED);
+        itemModelGenerator.register(OverwhelmedItems.BLUE_GUMBALL, Models.GENERATED);
+        itemModelGenerator.register(OverwhelmedItems.GREEN_GUMBALL, Models.GENERATED);
+        itemModelGenerator.register(OverwhelmedItems.PINK_GUMBALL, Models.GENERATED);
+        itemModelGenerator.register(OverwhelmedItems.RED_GUMBALL, Models.GENERATED);
+        itemModelGenerator.register(OverwhelmedItems.YELLOW_GUMBALL, Models.GENERATED);
         itemModelGenerator.register(OverwhelmedItems.VANILLA_ICE_CREAM, Models.GENERATED);
         itemModelGenerator.register(OverwhelmedItems.MINT_ICE_CREAM, Models.GENERATED);
         itemModelGenerator.register(OverwhelmedItems.SNAIL_STEW, Models.GENERATED);

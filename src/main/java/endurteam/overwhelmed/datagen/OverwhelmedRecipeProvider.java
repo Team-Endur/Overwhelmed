@@ -220,6 +220,27 @@ public class OverwhelmedRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.SUGAR), conditionsFromItem(Items.SUGAR))
                 .offerTo(exporter, new Identifier(getRecipeName(OverwhelmedItems.PEPPERMINT)));
 
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, OverwhelmedItems.BLUE_GUMBALL, 4)
+                .input(OverwhelmedItems.GOO_BALL)
+                .input(Items.SUGAR, 4)
+                .input(Items.BLUE_DYE);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, OverwhelmedItems.GREEN_GUMBALL, 4)
+                .input(OverwhelmedItems.GOO_BALL)
+                .input(Items.SUGAR, 4)
+                .input(Items.GREEN_DYE);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, OverwhelmedItems.PINK_GUMBALL, 4)
+                .input(OverwhelmedItems.GOO_BALL)
+                .input(Items.SUGAR, 4)
+                .input(Items.PINK_DYE);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, OverwhelmedItems.RED_GUMBALL, 4)
+                .input(OverwhelmedItems.GOO_BALL)
+                .input(Items.SUGAR, 4)
+                .input(Items.RED_DYE);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, OverwhelmedItems.YELLOW_GUMBALL, 4)
+                .input(OverwhelmedItems.GOO_BALL)
+                .input(Items.SUGAR, 4)
+                .input(Items.YELLOW_DYE);
+
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, OverwhelmedItems.VANILLA_ICE_CREAM)
                 .input(Items.BOWL)
                 .input(Items.SNOWBALL, 3)

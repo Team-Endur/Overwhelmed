@@ -21,6 +21,8 @@ public class OverwhelmedSounds {
     public static final SoundEvent ENTITY_BUTTERFLY_HURT = registerSoundEvent("entity.butterfly.hurt");
     public static final SoundEvent ENTITY_BUTTERFLY_DEATH = registerSoundEvent("entity.butterfly.death");
 
+    public static final SoundEvent ITEM_CANDY_EAT = registerSoundEvent("item.candy.eat");
+
     public static final BlockSoundGroup GOO_BLOCK =
             new BlockSoundGroup(1.0F, 1.0F,
                     GOO_BLOCK_BREAK, GOO_BLOCK_STEP, GOO_BLOCK_PLACE, GOO_BLOCK_HIT, GOO_BLOCK_FALL);

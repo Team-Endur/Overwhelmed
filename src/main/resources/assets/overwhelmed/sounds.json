@@ -104,5 +104,18 @@
     "sounds": [
       "random/bow"
     ]
+  },
+  "item.candy.eat": {
+    "subtitle": "subtitles.item.candy.eat",
+    "category": "player",
+    "sounds": [
+      "overwhelmed:item/candy/eat_candy1",
+      "overwhelmed:item/candy/eat_candy2",
+      {
+        "name": "item/candy/eat_candy2",
+        "volume": 1.35
+      },
+      "overwhelmed:item/candy/eat_candy3"
+    ]
   }
 }

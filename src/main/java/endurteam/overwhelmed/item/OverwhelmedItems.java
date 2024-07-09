@@ -10,6 +10,8 @@ import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import org.apache.commons.compress.harmony.pack200.CPNameAndType;
+
 public class OverwhelmedItems {
     public static final Item PEBBLE = registerItem("pebble",
             new PebbleBlockItem(OverwhelmedBlocks.PEBBLE, new Item.Settings()
@@ -40,12 +42,24 @@ public class OverwhelmedItems {
             new Item(new Item.Settings()
                     .food(OverwhelmedFoodComponents.VANILLA_COOKIE)));
     public static Item PEPPERMINT = registerItem("peppermint",
-            new Item(new Item.Settings()
+            new CandyItem(new Item.Settings()
                     .food(OverwhelmedFoodComponents.PEPPERMINT)));
 
-    public static Item BLUE_GUMBALL = registerItem("peppermint",
-            new Item(new Item.Settings()
-                    .food(OverwhelmedFoodComponents.PEPPERMINT)));
+    public static Item BLUE_GUMBALL = registerItem("blue_gumball",
+            new CandyItem(new Item.Settings()
+                    .food(OverwhelmedFoodComponents.GUMBALL)));
+    public static Item GREEN_GUMBALL = registerItem("green_gumball",
+            new CandyItem(new Item.Settings()
+                    .food(OverwhelmedFoodComponents.GUMBALL)));
+    public static Item PINK_GUMBALL = registerItem("pink_gumball",
+            new CandyItem(new Item.Settings()
+                    .food(OverwhelmedFoodComponents.GUMBALL)));
+    public static Item RED_GUMBALL = registerItem("red_gumball",
+            new CandyItem(new Item.Settings()
+                    .food(OverwhelmedFoodComponents.GUMBALL)));
+    public static Item YELLOW_GUMBALL = registerItem("yellow_gumball",
+            new CandyItem(new Item.Settings()
+                    .food(OverwhelmedFoodComponents.GUMBALL)));
 
     public static Item VANILLA_ICE_CREAM = registerItem("vanilla_ice_cream",
             new StewItem(new Item.Settings()
