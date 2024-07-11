@@ -7,7 +7,6 @@ import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.dynamic.Range;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.math.noise.DoublePerlinNoiseSampler;
 import net.minecraft.world.gen.feature.*;
@@ -77,7 +76,7 @@ public class OverwhelmedConfiguredFeatures {
                 FLOWER_TAIGA,
                 OverwhelmedBlocks.FLOFF.getDefaultState(),
                 OverwhelmedBlocks.SQUIRL.getDefaultState(),
-                OverwhelmedBlocks.RINGOT.getDefaultState());
+                OverwhelmedBlocks.REDBERED.getDefaultState());
 
         registerSimpleFlowerFeature(registerable,
                 FLOWER_SNOWY_TAIGA,
@@ -89,18 +88,18 @@ public class OverwhelmedConfiguredFeatures {
                 OverwhelmedBlocks.FLOFF.getDefaultState(),
                 OverwhelmedBlocks.PAINE.getDefaultState(),
                 OverwhelmedBlocks.SQUIRL.getDefaultState(),
-                OverwhelmedBlocks.RINGOT.getDefaultState());
+                OverwhelmedBlocks.REDBERED.getDefaultState());
 
         registerSimpleFlowerFeature(registerable,
                 FLOWER_OLD_GROWTH_SPRUCE_TAIGA,
                 OverwhelmedBlocks.FLOFF.getDefaultState(),
                 OverwhelmedBlocks.PAINE.getDefaultState(),
                 OverwhelmedBlocks.SQUIRL.getDefaultState(),
-                OverwhelmedBlocks.RINGOT.getDefaultState());
+                OverwhelmedBlocks.REDBERED.getDefaultState());
 
         registerSimpleFlowerFeature(registerable,
                 FLOWER_SUNFLOWER_PLAIN,
-                OverwhelmedBlocks.BELL_SUNFLOWER.getDefaultState());
+                OverwhelmedBlocks.BELLOWER.getDefaultState());
 
 //        registerSimpleFlowerFeature(registerable,
 //                FLOWER_PLAIN,

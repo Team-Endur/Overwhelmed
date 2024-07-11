@@ -238,11 +238,11 @@ public class OverwhelmedBlocks {
             new LavateraBlock(StatusEffects.WEAKNESS, 5, AbstractBlock.Settings.copy(FLOFF)));
     public static final Block SQUIRL = registerBlock("squirl",
             new FlowerBlock(StatusEffects.JUMP_BOOST, 10, AbstractBlock.Settings.copy(FLOFF)));
-    public static final Block RINGOT = registerBlock("ringot",
+    public static final Block REDBERED = registerBlock("redbered",
             new FlowerBlock(StatusEffects.BLINDNESS, 5, AbstractBlock.Settings.copy(FLOFF)));
     public static final Block SNOWDROP = registerBlock("snowdrop",
             new FlowerBlock(StatusEffects.WEAKNESS, 7, AbstractBlock.Settings.copy(FLOFF)));
-    public static final Block BELL_SUNFLOWER = registerBlock("bell_sunflower",
+    public static final Block BELLOWER = registerBlock("bellower",
             new FlowerBlock(StatusEffects.FIRE_RESISTANCE, 10, AbstractBlock.Settings.copy(FLOFF)));
 
     public static final Block POTTED_FLOFF = registerBlock("potted_floff",
@@ -258,12 +258,12 @@ public class OverwhelmedBlocks {
             new FlowerPotBlock(WHITE_LAVATERA, AbstractBlock.Settings.copy(POTTED_FLOFF)));
     public static final Block POTTED_SQUIRL = registerBlock("potted_squirl",
             new FlowerPotBlock(SQUIRL, AbstractBlock.Settings.copy(POTTED_FLOFF)));
-    public static final Block POTTED_RINGOT = registerBlock("potted_ringot",
-            new FlowerPotBlock(RINGOT, AbstractBlock.Settings.copy(POTTED_FLOFF)));
+    public static final Block POTTED_REDBERED = registerBlock("potted_redbered",
+            new FlowerPotBlock(REDBERED, AbstractBlock.Settings.copy(POTTED_FLOFF)));
     public static final Block POTTED_SNOWDROP = registerBlock("potted_snowdrop",
             new FlowerPotBlock(SNOWDROP, AbstractBlock.Settings.copy(POTTED_FLOFF)));
-    public static final Block POTTED_BELL_SUNFLOWER = registerBlock("potted_bell_sunflower",
-            new FlowerPotBlock(BELL_SUNFLOWER, AbstractBlock.Settings.copy(POTTED_FLOFF)));
+    public static final Block POTTED_BELLOWER = registerBlock("potted_bellower",
+            new FlowerPotBlock(BELLOWER, AbstractBlock.Settings.copy(POTTED_FLOFF)));
 
     public static final Block WIDOW = registerBlock("widow",
             new TallFlowerBlock(AbstractBlock.Settings.create()

@@ -38,9 +38,9 @@ public class OverwhelmedItemTagProvider extends FabricTagProvider.ItemTagProvide
         addToTags(OverwhelmedBlocks.PINK_LAVATERA, ItemTags.SMALL_FLOWERS);
         addToTags(OverwhelmedBlocks.WHITE_LAVATERA, ItemTags.SMALL_FLOWERS);
         addToTags(OverwhelmedBlocks.SQUIRL, ItemTags.SMALL_FLOWERS);
-        addToTags(OverwhelmedBlocks.RINGOT, ItemTags.SMALL_FLOWERS);
+        addToTags(OverwhelmedBlocks.REDBERED, ItemTags.SMALL_FLOWERS);
         addToTags(OverwhelmedBlocks.SNOWDROP, ItemTags.SMALL_FLOWERS);
-        addToTags(OverwhelmedBlocks.BELL_SUNFLOWER, ItemTags.SMALL_FLOWERS);
+        addToTags(OverwhelmedBlocks.BELLOWER, ItemTags.SMALL_FLOWERS);
 
         addToTags(OverwhelmedBlocks.WIDOW, ItemTags.TALL_FLOWERS);
         addToTags(OverwhelmedBlocks.WHITE_ALLIUM, ItemTags.TALL_FLOWERS);

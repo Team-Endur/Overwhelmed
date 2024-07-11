@@ -92,18 +92,18 @@ public class OverwhelmedBlockTagProvider extends FabricTagProvider.BlockTagProvi
         addToTags(OverwhelmedBlocks.PINK_LAVATERA, BlockTags.SMALL_FLOWERS);
         addToTags(OverwhelmedBlocks.WHITE_LAVATERA, BlockTags.SMALL_FLOWERS);
         addToTags(OverwhelmedBlocks.SQUIRL, BlockTags.SMALL_FLOWERS);
-        addToTags(OverwhelmedBlocks.RINGOT, BlockTags.SMALL_FLOWERS);
+        addToTags(OverwhelmedBlocks.REDBERED, BlockTags.SMALL_FLOWERS);
         addToTags(OverwhelmedBlocks.SNOWDROP, BlockTags.SMALL_FLOWERS);
-        addToTags(OverwhelmedBlocks.BELL_SUNFLOWER, BlockTags.SMALL_FLOWERS);
+        addToTags(OverwhelmedBlocks.BELLOWER, BlockTags.SMALL_FLOWERS);
 
         addToTags(OverwhelmedBlocks.POTTED_FLOFF, BlockTags.FLOWER_POTS);
         addToTags(OverwhelmedBlocks.POTTED_PAINE, BlockTags.FLOWER_POTS);
         addToTags(OverwhelmedBlocks.POTTED_PINK_LAVATERA, BlockTags.FLOWER_POTS);
         addToTags(OverwhelmedBlocks.POTTED_WHITE_LAVATERA, BlockTags.FLOWER_POTS);
         addToTags(OverwhelmedBlocks.POTTED_SQUIRL, BlockTags.FLOWER_POTS);
-        addToTags(OverwhelmedBlocks.POTTED_RINGOT, BlockTags.FLOWER_POTS);
+        addToTags(OverwhelmedBlocks.POTTED_REDBERED, BlockTags.FLOWER_POTS);
         addToTags(OverwhelmedBlocks.POTTED_SNOWDROP, BlockTags.FLOWER_POTS);
-        addToTags(OverwhelmedBlocks.POTTED_BELL_SUNFLOWER, BlockTags.FLOWER_POTS);
+        addToTags(OverwhelmedBlocks.POTTED_BELLOWER, BlockTags.FLOWER_POTS);
 
         addToTags(OverwhelmedBlocks.WIDOW, BlockTags.TALL_FLOWERS);
         addToTags(OverwhelmedBlocks.WHITE_ALLIUM, BlockTags.TALL_FLOWERS);

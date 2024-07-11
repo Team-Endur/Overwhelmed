@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cross",
   "textures": {
-    "cross": "overwhelmed:block/bell_sunflower"
+    "cross": "overwhelmed:block/redbered"
   }
 }

@@ -75,9 +75,9 @@ public class OverwhelmedCreativeTabs {
                         entries.add(OverwhelmedBlocks.PINK_LAVATERA);
                         entries.add(OverwhelmedBlocks.WHITE_LAVATERA);
                         entries.add(OverwhelmedBlocks.SQUIRL);
-                        entries.add(OverwhelmedBlocks.RINGOT);
+                        entries.add(OverwhelmedBlocks.REDBERED);
                         entries.add(OverwhelmedBlocks.SNOWDROP);
-                        entries.add(OverwhelmedBlocks.BELL_SUNFLOWER);
+                        entries.add(OverwhelmedBlocks.BELLOWER);
                         entries.add(OverwhelmedBlocks.WIDOW);
                         entries.add(OverwhelmedBlocks.WHITE_ALLIUM);
                         entries.add(OverwhelmedBlocks.WILLOW_VINES);

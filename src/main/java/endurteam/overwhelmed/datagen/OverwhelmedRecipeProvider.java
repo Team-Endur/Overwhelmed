@@ -165,12 +165,12 @@ public class OverwhelmedRecipeProvider extends FabricRecipeProvider {
                 .input(OverwhelmedBlocks.WHITE_LAVATERA);
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.CYAN_DYE)
                 .input(OverwhelmedBlocks.SQUIRL);
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.MAGENTA_DYE)
-                .input(OverwhelmedBlocks.RINGOT);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.RED_DYE)
+                .input(OverwhelmedBlocks.REDBERED);
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.WHITE_DYE)
                 .input(OverwhelmedBlocks.SNOWDROP);
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.YELLOW_DYE)
-                .input(OverwhelmedBlocks.BELL_SUNFLOWER);
+                .input(OverwhelmedBlocks.BELLOWER);
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.BLUE_DYE, 2)
                 .input(OverwhelmedBlocks.WIDOW);

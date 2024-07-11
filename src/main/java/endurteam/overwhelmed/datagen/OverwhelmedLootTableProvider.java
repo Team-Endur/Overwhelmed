@@ -92,18 +92,18 @@ public class OverwhelmedLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(OverwhelmedBlocks.PINK_LAVATERA);
         addDrop(OverwhelmedBlocks.WHITE_LAVATERA);
         addDrop(OverwhelmedBlocks.SQUIRL);
-        addDrop(OverwhelmedBlocks.RINGOT);
+        addDrop(OverwhelmedBlocks.REDBERED);
         addDrop(OverwhelmedBlocks.SNOWDROP);
-        addDrop(OverwhelmedBlocks.BELL_SUNFLOWER);
+        addDrop(OverwhelmedBlocks.BELLOWER);
 
         addPottedPlantDrops(OverwhelmedBlocks.POTTED_FLOFF);
         addPottedPlantDrops(OverwhelmedBlocks.POTTED_PAINE);
         addPottedPlantDrops(OverwhelmedBlocks.POTTED_PINK_LAVATERA);
         addPottedPlantDrops(OverwhelmedBlocks.POTTED_WHITE_LAVATERA);
         addPottedPlantDrops(OverwhelmedBlocks.POTTED_SQUIRL);
-        addPottedPlantDrops(OverwhelmedBlocks.POTTED_RINGOT);
+        addPottedPlantDrops(OverwhelmedBlocks.POTTED_REDBERED);
         addPottedPlantDrops(OverwhelmedBlocks.POTTED_SNOWDROP);
-        addPottedPlantDrops(OverwhelmedBlocks.POTTED_BELL_SUNFLOWER);
+        addPottedPlantDrops(OverwhelmedBlocks.POTTED_BELLOWER);
 
         BlockStatePropertyLootCondition.Builder builder = BlockStatePropertyLootCondition.builder(OverwhelmedBlocks.VANILLA)
                 .properties(StatePredicate.Builder.create()

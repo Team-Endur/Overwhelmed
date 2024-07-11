@@ -31,18 +31,18 @@ public class OverwhelmedClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(OverwhelmedBlocks.PINK_LAVATERA, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(OverwhelmedBlocks.WHITE_LAVATERA, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(OverwhelmedBlocks.SQUIRL, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(OverwhelmedBlocks.RINGOT, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(OverwhelmedBlocks.REDBERED, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(OverwhelmedBlocks.SNOWDROP, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(OverwhelmedBlocks.BELL_SUNFLOWER, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(OverwhelmedBlocks.BELLOWER, RenderLayer.getCutout());
 
         BlockRenderLayerMap.INSTANCE.putBlock(OverwhelmedBlocks.POTTED_FLOFF, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(OverwhelmedBlocks.POTTED_PAINE, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(OverwhelmedBlocks.POTTED_PINK_LAVATERA, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(OverwhelmedBlocks.POTTED_WHITE_LAVATERA, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(OverwhelmedBlocks.POTTED_SQUIRL, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(OverwhelmedBlocks.POTTED_RINGOT, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(OverwhelmedBlocks.REDBERED, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(OverwhelmedBlocks.POTTED_SNOWDROP, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(OverwhelmedBlocks.POTTED_BELL_SUNFLOWER, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(OverwhelmedBlocks.POTTED_BELLOWER, RenderLayer.getCutout());
 
         BlockRenderLayerMap.INSTANCE.putBlock(OverwhelmedBlocks.WIDOW, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(OverwhelmedBlocks.WHITE_ALLIUM, RenderLayer.getCutout());

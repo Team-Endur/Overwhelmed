@@ -82,12 +82,12 @@ public class OverwhelmedModelProvider extends FabricModelProvider {
                 OverwhelmedBlocks.POTTED_WHITE_LAVATERA, BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerFlowerPotPlant(OverwhelmedBlocks.SQUIRL, OverwhelmedBlocks.POTTED_SQUIRL,
                 BlockStateModelGenerator.TintType.NOT_TINTED);
-        blockStateModelGenerator.registerFlowerPotPlant(OverwhelmedBlocks.RINGOT, OverwhelmedBlocks.POTTED_RINGOT,
+        blockStateModelGenerator.registerFlowerPotPlant(OverwhelmedBlocks.REDBERED, OverwhelmedBlocks.POTTED_REDBERED,
                 BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerFlowerPotPlant(OverwhelmedBlocks.SNOWDROP, OverwhelmedBlocks.POTTED_SNOWDROP,
                 BlockStateModelGenerator.TintType.NOT_TINTED);
-        blockStateModelGenerator.registerFlowerPotPlant(OverwhelmedBlocks.BELL_SUNFLOWER,
-                OverwhelmedBlocks.POTTED_BELL_SUNFLOWER, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerFlowerPotPlant(OverwhelmedBlocks.BELLOWER,
+                OverwhelmedBlocks.POTTED_BELLOWER, BlockStateModelGenerator.TintType.NOT_TINTED);
 
         blockStateModelGenerator.registerDoubleBlock(OverwhelmedBlocks.WIDOW, BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerDoubleBlock(OverwhelmedBlocks.WHITE_ALLIUM,
