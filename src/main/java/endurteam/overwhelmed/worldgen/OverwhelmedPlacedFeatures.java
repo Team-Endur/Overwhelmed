@@ -1,6 +1,8 @@
 package endurteam.overwhelmed.worldgen;
 
 import endurteam.overwhelmed.Overwhelmed;
+import endurteam.overwhelmed.block.OverwhelmedBlocks;
+import net.minecraft.block.Blocks;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryEntryLookup;
 import net.minecraft.registry.RegistryKey;
@@ -31,6 +33,8 @@ public class OverwhelmedPlacedFeatures {
     public static final RegistryKey<PlacedFeature> CLOT_PEBBLE = key("clot_pebble");
     public static final RegistryKey<PlacedFeature> CLOT_ICE_CUBE = key("clot_ice_cube");
     public static final RegistryKey<PlacedFeature> CLOT_GOLD_BEAD = key("clot_gold_bead");
+
+    public static final RegistryKey<PlacedFeature> TREE_WILLOW = key("tree_willow");
 
     public static void bootstrap(Registerable<PlacedFeature> registerable) {
         RegistryEntryLookup<ConfiguredFeature<?, ?>> registryEntryLookup =
@@ -131,6 +135,12 @@ public class OverwhelmedPlacedFeatures {
         registerClotFeature(registerable, CLOT_PEBBLE, OverwhelmedConfiguredFeatures.CLOT_PEBBLE);
         registerClotFeature(registerable, CLOT_ICE_CUBE, OverwhelmedConfiguredFeatures.CLOT_ICE_CUBE);
         registerClotFeature(registerable, CLOT_GOLD_BEAD, OverwhelmedConfiguredFeatures.CLOT_GOLD_BEAD);
+
+        registerTree(registerable,
+                TREE_WILLOW,
+                registryEntryLookup.getOrThrow(OverwhelmedConfiguredFeatures.WILLOW_TREE),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier
+                                (2, 0.1F, 2), OverwhelmedBlocks.WILLOW_SAPLING));
     }
 
     private static void registerSimpleFlowerFeature(Registerable<PlacedFeature> registerable, RegistryKey<PlacedFeature> key,
@@ -159,8 +169,17 @@ public class OverwhelmedPlacedFeatures {
         return RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier(Overwhelmed.MOD_ID, name));
     }
 
-    private static void register(Registerable<PlacedFeature> registerable, RegistryKey<PlacedFeature> key,
-                                 RegistryEntry<ConfiguredFeature<?, ?>> configuration, PlacementModifier... modifiers) {
+    private static void register(Registerable<PlacedFeature> registerable,
+                                 RegistryKey<PlacedFeature> key,
+                                 RegistryEntry<ConfiguredFeature<?, ?>> configuration,
+                                 PlacementModifier... modifiers) {
         registerable.register(key, new PlacedFeature(configuration, List.of(modifiers)));
+    }
+
+    private static void registerTree(Registerable<PlacedFeature> registerable,
+                                     RegistryKey<PlacedFeature> key,
+                                    RegistryEntry<ConfiguredFeature<?, ?>> configuration,
+                                    List<PlacementModifier> modifiers) {
+        registerable.register(key, new PlacedFeature(configuration, List.copyOf(modifiers)));
     }
 }

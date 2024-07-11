@@ -1,4 +1,4 @@
-// 1.20.6	2024-07-09T16:02:07.7110128	Overwhelmed/Block Loot Tables
+// 1.20.6	2024-07-11T06:58:41.3020126	Overwhelmed/Block Loot Tables
 7845021ae36730f22cd11e98e7220188b025001f data\overwhelmed\loot_tables\blocks\potted_bell_sunflower.json
 bbc0d2aa49b9b495f0b15e4cc46352268dc748ba data\overwhelmed\loot_tables\blocks\altair.json
 88976fcef497ae53fbd716e2437d7efad19aea1b data\overwhelmed\loot_tables\blocks\snow_snail_shell_brick_slab.json
@@ -50,8 +50,8 @@ ec93168779523d6939eda69b2cf51ff4799760b6 data\overwhelmed\loot_tables\blocks\alt
 4a0e94c3a4de148d2f16b42d6405fae824894bee data\overwhelmed\loot_tables\blocks\fizzyrock_wall.json
 ed6939e091cffd3f904962dbc3c256665112b6dd data\overwhelmed\loot_tables\blocks\chiseled_fizzyrock.json
 ad60fb2444d6e1a0f12fa1905d23213ae2920235 data\overwhelmed\loot_tables\blocks\polished_fizzyrock.json
-919c65ea233dbecd58b5043c5b0041bc9875dc2b data\overwhelmed\loot_tables\blocks\fizzyrock_bricks.json
 f8bc829309845c057fc35df6664bd125b7d83783 data\overwhelmed\loot_tables\blocks\vanilla.json
+919c65ea233dbecd58b5043c5b0041bc9875dc2b data\overwhelmed\loot_tables\blocks\fizzyrock_bricks.json
 264e7467f7400c5416325d51c29a39fc2382a03b data\overwhelmed\loot_tables\blocks\stripped_willow_log.json
 6f10832effb86381cc677290067fd914f4e8b1e9 data\overwhelmed\loot_tables\blocks\fizzyrock_slab.json
 f742acabf1a7c189c1ad16964b3e4d5710ef9858 data\overwhelmed\loot_tables\blocks\goo_block.json

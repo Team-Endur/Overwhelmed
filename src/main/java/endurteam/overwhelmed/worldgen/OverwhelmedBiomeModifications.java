@@ -49,6 +49,8 @@ public class OverwhelmedBiomeModifications {
         addClotFeature(OverwhelmedPlacedFeatures.CLOT_ICE_CUBE, BiomeSelectors.tag(BiomeTags.SPAWNS_SNOW_FOXES));
         addClotFeature(OverwhelmedPlacedFeatures.CLOT_GOLD_BEAD, BiomeSelectors.tag(BiomeTags.IS_BADLANDS));
 
+        addVegetalFeature(OverwhelmedPlacedFeatures.TREE_WILLOW, BiomeKeys.SWAMP);
+
         addCreatureSpawn(OverwhelmedBiomeTags.SPAWNS_BUTTERFLY_CABBAGE, OverwhelmedEntities.BUTTERFLY, 4, 2, 4);
         addCreatureSpawn(OverwhelmedBiomeTags.SPAWNS_BUTTERFLY_CHERRY, OverwhelmedEntities.BUTTERFLY, 4, 2, 4);
         addCreatureSpawn(OverwhelmedBiomeTags.SPAWNS_BUTTERFLY_LIVERWORT, OverwhelmedEntities.BUTTERFLY, 4, 3, 6);
